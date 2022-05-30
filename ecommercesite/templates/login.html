@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container">
+    <form method="POST", action='' novalidate>
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class='text-center'>Login</legend>
+        </fieldset>
+
+        <div class='form-group mb-3'>
+            {{ form.email.label(class='form-label') }}
+            {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+
+        <div class='form-group mb-3'>
+            {{ form.password.label(class='form-label') }}
+            {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+            {% endif %}
+            <small class="text-muted">
+                <a href="{{ url_for('reset_password') }}">Forgot Password?</a>
+            </small>
+        </div>
+
+        <div class="form-group mb-3">
+            {{ form.remember(class='form-check-input') }}
+            {{ form.remember.label(class="form-check-label") }}
+        </div>
+
+        <div class='form-group mb-3'>
+            {{ form.submit(class='btn btn-secondary') }}
+        </div>
+    </form>
+</div>
+
+<div class='container text-center'>
+    <small class="text-muted">
+        New to this site? Register <a class="ml-2" href="{{ url_for('register') }}">here</a>
+    </small>  
+</div>
+{% endblock content %}

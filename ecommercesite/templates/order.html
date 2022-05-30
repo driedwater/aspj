@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            Inoice: {{orders.invoice}}
+            <br>
+            Status: {{orders.status}}
+            <br>
+            Customer name: {{current_user.username}}
+            <br>
+            Customer email: {{current_user.email}}
+            <br>
+            <br>
+        <table class="table table-sm">
+            <thead>
+                <th>No.</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </thead>
+            <tbody>
+                {% for key, product in orders.orders.items() %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{product.name}}</td>
+                    <form action="{{url_for('cart', code=key)}}" method="post">
+                    <td>${{"%.2f"|format(product.price)}}</td>
+                    <td> {{product.quantity}} </td>
+                    {% set subtotal = product.quantity|int * product.price|float  %}
+                    <td>${{"%.2f"|format(subtotal)) }}</td>
+                </form>        
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table class="table table-sm">
+           <tr> 
+
+               <td>   
+                   {% if ordrs.status =='Paid' %}
+                   {% else %}
+                <form action="{{url_for('payment')}}" method="POST">
+                {% set amount =  grandTotal.replace('.','') %}
+                <input type="hidden" name="amount" value="{{amount}}">
+                <input type="hidden" name="invoice" value="{{orders.invoice}}">
+                <form action="/pay" method="POST">
+                    <script
+                      src="https://checkout.stripe.com/checkout.js"
+                      class="stripe-button"
+                      data-key="pk_test_51KL0TaBeHvmSO38RZTBm77ZZOZDow2ltJ0bOAz3AodZt0CkrEtl62LYkJ1jZObUkjDEd0hYPv7RHJkpZKKbOSOVL00wtlmopk1"
+                      data-name="T-shirt"
+                      data-description="Comfortable cotton t-shirt"
+                      data-amount="500"
+                      data-currency="sgd">
+                    </script>
+                  </form>
+              </form> 
+              {% endif %}
+            </td>
+               <td width="35%"></td>
+               <td> <h5>Grand total: ${{grandTotal}}</h3> </td>
+               
+                <td> 
+                    <form action="{{url_for('get_pdf', invoice=orders.invoice)}}" method="post">
+                        <button type="submit" class="btn btn-info"> Get pdf</button>
+                    </form>
+                     </td>
+           </tr>
+        </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

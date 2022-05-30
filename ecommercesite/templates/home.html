@@ -1,0 +1,199 @@
+{% extends 'layout.html' %}
+{% block content %}
+<aside id="fh5co-hero" class="js-fullheight">
+    <div class="flexslider js-fullheight">
+        <ul class="slides">
+            {% for product in products %}
+           <li style="background-image: url({{ url_for('static',filename='product_pics/' + product.image_1) }});">
+               <div class="overlay-gradient"></div>
+               <div class="container">
+                   <div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+                       <div class="slider-text-inner">
+                           <div class="desc">
+                               <span class="price">${{ product.price }}</span>
+                               <h2>{{product.name}}</h2>
+                               <p>{{product.description}}</p>
+                               <p><a href="{{ url_for('product_details', id=product.id) }}" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </li>
+           {% endfor %}
+          </ul>
+      </div>
+</aside>
+
+<div id="fh5co-services" class="fh5co-bg-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-credit-card"></i>
+                    </span>
+                    <h3>Fast Payment with Credit Card</h3>
+                    <p>We allow payments made by many globally and locally accpeted credit cards such as HSBC Visa Platinum, American Express True Cashback, CIMB World Mastercard, CIMB Visa Signature and FRANK Credit.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-wallet"></i>
+                    </span>
+                    <h3>Save Money</h3>
+                    <p>Get 20% discount when you sign up as a Crafty Wood member or pay using Paynow. Additionally, a 5% cashback is available if you spend more than $1,500 in a single purchase. What are you waiting for? Join us today!</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 text-center">
+                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                    <span class="icon">
+                        <i class="icon-paper-plane"></i>
+                    </span>
+                    <h3>Free Delivery</h3>
+                    <p>Enjoy free delivery to your doorstep when you spend more than $300 in a single receipt. Also available at $100 spent per receipt for Crafty Wood's members.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-product">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <span>Crafty Wood's</span>
+                <h2>New Arrival Products</h2>
+                <p>New arrivals as of 2021. Be sure to get them quickly while stock lasts!</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in new_arrival_products %}
+            <div class="col-md-4 text-center animate-box">
+                <div class="product">
+                    <div class="product-grid" style="background-image:url( {{ url_for('static',filename='product_pics/' + product.image_1) }} );">
+                        <div class="inner">
+                            <p>
+                                <a href="{{ url_for('add_to_cart',id=product.id) }}" class="icon"><i class="icon-shopping-cart"></i></a>
+                                <a href="{{ url_for('product_details',id=product.id) }}" class="icon"><i class="icon-eye"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h3><a href="{{ url_for('product_details',id=product.id) }}">{{product.name}}</a></h3>
+                        <span class="price">${{product.price}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+       </div>
+    </div>
+</div>
+
+<div id="fh5co-testimonial" class="fh5co-bg-section">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <span>Testimony</span>
+                <h2>Happy Clients</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row animate-box">
+                    <div class="owl-carousel owl-carousel-fullwidth">
+                        <div class="item">
+                            <div class="testimony-slide active text-center">
+                                <figure>
+                                    <img src="static/images/review1.png" alt="user">
+                                </figure>
+                                <span>Jean Doe, via <a href="#" class="twitter">Twitter</a></span>
+                                <blockquote>
+                                    <p>&ldquo;I am very satisfied with Crafty Wood's products and services! If someone were to ask me what's the best shop to find good and affordable wooden furnitures, I would undoubtly say it's Crafty Wood without hesitating!&rdquo;</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-slide active text-center">
+                                <figure>
+                                    <img src="static/images/review2.png" alt="user">
+                                </figure>
+                                <span>Annisa Indah, via <a href="#" class="twitter">Twitter</a></span>
+                                <blockquote>
+                                    <p>&ldquo;I am so happy with Crafty Wood's customer service! I accidentally chose the wrong colour for one of the items I bought and I only realised it after it was being delivered to me. However, Crafty Wood allowed me to return the product and they even changed it to the correct colour for me!&rdquo;</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-slide active text-center">
+                                <figure>
+                                    <img src="static/images/review3.png" alt="user">
+                                </figure>
+                                <span>Alex Lee, via <a href="#" class="twitter">Twitter</a></span>
+                                <blockquote>
+                                    <p>&ldquo;Bought Crafty Wood's signature Sliding Shelf Unit for my wife and she's so happy with it! The shelf is very useful as it can be slide around her workspace easily and the storage space is huge. Thanks for the good deal!&rdquo;</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(static/images/homebackground.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="display-t">
+                <div class="display-tc">
+                    <div class="col-md-3 col-sm-6 animate-box">
+                        <div class="feature-center">
+                            <span class="icon">
+                                <i class="icon-eye"></i>
+                            </span>
+
+                            <span class="counter js-counter" data-from="0" data-to="22070" data-speed="5000" data-refresh-interval="50">1</span>
+                            <span class="counter-label">Creativity Fuel</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 animate-box">
+                        <div class="feature-center">
+                            <span class="icon">
+                                <i class="icon-shopping-cart"></i>
+                            </span>
+
+                            <span class="counter js-counter" data-from="0" data-to="345" data-speed="5000" data-refresh-interval="50">1</span>
+                            <span class="counter-label">Happy Clients</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 animate-box">
+                        <div class="feature-center">
+                            <span class="icon">
+                                <i class="icon-shop"></i>
+                            </span>
+                            <span class="counter js-counter" data-from="0" data-to="500" data-speed="5000" data-refresh-interval="50">1</span>
+                            <span class="counter-label">All Products</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 animate-box">
+                        <div class="feature-center">
+                            <span class="icon">
+                                <i class="icon-clock"></i>
+                            </span>
+
+                            <span class="counter js-counter" data-from="0" data-to="5605" data-speed="5000" data-refresh-interval="50">1</span>
+                            <span class="counter-label">Hours Spent</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+
+<h2 class='text-center'>Welcome back, {{ current_user.username }}.</h2>
+<u><h2 class='text-center'>Dashboard</h2><u>
+<hr>
+
+<div class="panel-container">
+    <div class="row">
+        <div class="col-md-6" id="panel-spacing">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-6">
+                            <a href="{{url_for('admin_register')}}" class="btn btn-primary btn-lg" role="button"><br/>Admin Register</a>
+                            <a href="{{url_for('account')}}" class="btn btn-primary btn-lg" role="button"><br/>Admin Account</a>
+                            <a href="{{url_for('customer_database')}}" class="btn btn-primary btn-lg" role="button"><br/>Customer Database</a>
+                          </div>
+                        <div class="col-xs-6 col-lg-6">
+                          <a href="{{url_for('add_product')}}" class="btn btn-primary btn-lg" role="button"><br/>Add Product</a>
+                          <a href="{{url_for('display_product')}}" class="btn btn-primary btn-lg" role="button"><br/>Product List</a>
+                          <a href="{{url_for('sales')}}" class="btn btn-primary btn-lg" role="button"><br/>Sales Report</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+{% endblock content %}

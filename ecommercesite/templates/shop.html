@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block content %}
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(static/images/img_bg_1.jpg);">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<div class="display-t">
+					<div class="display-tc animate-box" data-animate-effect="fadeIn">
+						<h1>Shop</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="input-wrapper">
+	<div class= "search_function">
+		<form method="GET" action="/search">
+			<input type="text" name="query" placeholder="Search"/>
+			<button type="submit" class="btn btn-light-primary font-weight-bold"><i class="icon icon-search"></i></button>
+		</form>
+	
+	</div>
+</div><svg class="icon icon-close"><use xlink:href="#icon-close"></use></svg>
+
+<div id="fh5co-product">
+	<div class="container">
+		<div class="row animate-box">
+			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+				<span>Crafty Wood's</span>
+				<h2>Products</h2>
+				<p>Welcome to Crafty Wood. Check out the awesome products we have.</p>
+			</div>
+		</div>
+		<div class="row">
+			{% for product in products %}
+			<div class="col-md-4 text-center animate-box">
+				<div class="product">
+					<div class="product-grid" style="background-image: url({{ url_for('static',filename='product_pics/' + product.image_1) }})">
+						<div class="inner">
+							<p>
+								<a href="{{ url_for('add_to_cart',id=product.id) }}" class="icon"><i class="icon-shopping-cart"></i></a>
+								<a href="{{ url_for('product_details',id=product.id) }}" class="icon"><i class="icon-eye"></i></a>
+							</p>
+						</div>
+					</div>
+					<div class="desc">
+						<h3><a href="{{ url_for('product_details',id=product.id) }}">{{ product.name }}</a></h3>
+						<span class="price">${{ product.price }}</span>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
