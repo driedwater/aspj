@@ -74,7 +74,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.password(class="form-control form-control-lg") }}
+                        {{ form.password(class="form-control form-control-lg", type="password") }}
                     {% endif %}
                 </div>
 
@@ -88,7 +88,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                        {{ form.confirm_password(class="form-control form-control-lg", type="password") }}
                     {% endif %}
                 </div>
             </fieldset>
