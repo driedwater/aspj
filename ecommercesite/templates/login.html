@@ -32,7 +32,7 @@
                         {% endfor %}
                     </div>
             {% else %}
-                {{ form.password(class="form-control form-control-lg") }}
+                {{ form.password(class="form-control form-control-lg", type= "password") }}
             {% endif %}
             <small class="text-muted">
                 <a href="{{ url_for('reset_password') }}">Forgot Password?</a>
