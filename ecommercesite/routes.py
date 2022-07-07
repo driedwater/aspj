@@ -28,6 +28,23 @@ def admin_required(f):
             abort(401)
     return wrap
 
+def pwd_checker(pw):
+    '''
+    length_error = len(pw) < 8
+
+    # searching for digits
+    digit_error = re.search(r"\d", pw) is None
+
+    # searching for uppercase
+    uppercase_error = re.search(r"[A-Z]", pw) is None
+
+    # searching for lowercase
+    lowercase_error = re.search(r"[a-z]", pw) is None
+
+    # searching for symbols
+    symbol_error = re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', pw) is None
+    '''
+
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -65,7 +82,7 @@ def login():
 
 @app.route('/logout')
 def logout():
-    app.logger.info('%s Successfully to log out', current_user.email)
+    app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
     return redirect(url_for('home'))
 
@@ -319,7 +336,7 @@ def checkout_details():
         full_name = form.full_name.data
         address = form.address.data
         postal_code = form.postal_code.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number= card_number, expiry_date = expiry_date)
+        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
