@@ -49,7 +49,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash((user.password+"verysaltysalt"), form.password.data):
+        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
             next = request.args.get('next')
