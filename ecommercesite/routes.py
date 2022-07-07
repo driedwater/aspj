@@ -51,10 +51,12 @@ def login():
 
         if user and bcrypt.check_password_hash((user.password+"verysaltysalt"), form.password.data):
             login_user(user)
+            app.logger.info('%s logged in successfully', form.email.data)
             next = request.args.get('next')
             return redirect(next) if next else redirect(url_for('home'))
 
         else:
+            app.logger.info('%s failed to log in', form.email.data)
             flash(f'Login Unsuccessful. Please check email and password', 'danger')
 
 
@@ -63,6 +65,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    app.logger.info('%s Successfully to log out', current_user.email)
     logout_user()
     return redirect(url_for('home'))
 
@@ -77,6 +80,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash(f'Account has been created, you can now login.', 'success')
+        app.logger.info('%s Successfully registered', form.email.data)
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
