@@ -49,12 +49,14 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
             login_user(user)
+            app.logger.info('%s logged in successfully', form.email.data)
             next = request.args.get('next')
             return redirect(next) if next else redirect(url_for('home'))
 
         else:
+            app.logger.info('%s failed to log in', form.email.data)
             flash(f'Login Unsuccessful. Please check email and password', 'danger')
 
 
@@ -63,6 +65,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    app.logger.info('%s Successfully to log out', current_user.email)
     logout_user()
     return redirect(url_for('home'))
 
@@ -72,11 +75,12 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
         flash(f'Account has been created, you can now login.', 'success')
+        app.logger.info('%s Successfully registered', form.email.data)
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -114,7 +118,7 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
 
         user.password = hash_pw
         db.session.commit()
@@ -484,7 +488,7 @@ def delete_product(id):
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
