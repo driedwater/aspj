@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_msearch import Search
 from flask_mail import Mail
+from flask_authorize import authorized
 import os
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ search = Search()
 search.init_app(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
+authorize=authorized(app)
 app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
