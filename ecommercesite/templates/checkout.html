@@ -54,8 +54,8 @@
                               {{form.expiry(class="form-control")}}
                            </div>
                            <div class="form-group mb-3 col-xs-12 col-sm-6">
-                              <label for="card-cvc">CVV<span class="required">*</span></label>
-                              {{form.cvv(class="form-control", type= "password", validators=[Input Required])}}
+                              <label for="card-cvc">CVV<span class="[validators.Length(min=3, max=3), validators.DataRequired()]">*</span></label>
+                              {{form.cvv(class="form-control", type= "password")}}
                            </div>
                         </div>
                               <div>
