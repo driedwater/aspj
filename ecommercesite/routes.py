@@ -49,12 +49,14 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash((user.password+"verysaltysalt"), form.password.data):
+        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
             login_user(user)
+            app.logger.info('%s logged in successfully', form.email.data)
             next = request.args.get('next')
             return redirect(next) if next else redirect(url_for('home'))
 
         else:
+            app.logger.info('%s failed to log in', form.email.data)
             flash(f'Login Unsuccessful. Please check email and password', 'danger')
 
 
@@ -63,6 +65,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    app.logger.info('%s Successfully to log out', current_user.email)
     logout_user()
     return redirect(url_for('home'))
 
@@ -77,6 +80,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash(f'Account has been created, you can now login.', 'success')
+        app.logger.info('%s Successfully registered', form.email.data)
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -315,7 +319,7 @@ def checkout_details():
         full_name = form.full_name.data
         address = form.address.data
         postal_code = form.postal_code.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number= card_number, expiry_date = expiry_date)
+        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
