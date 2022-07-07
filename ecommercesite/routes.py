@@ -201,7 +201,7 @@ def account():
         form.last_name.data = current_user.last_name
         form.username.data = current_user.username
         form.email.data = current_user.email
-
+        
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
@@ -312,7 +312,7 @@ def checkout_details():
             flash('{{product.name}} only has {{product.stock}} left in stock', 'danger')
             return redirect(url_for('cart'))
         else:
-            subtotal += item.price
+            subtotal += item.price * item.quantity
     
     total = subtotal + 10
     if form.validate_on_submit():
