@@ -315,7 +315,7 @@ def checkout_details():
         full_name = form.full_name.data
         address = form.address.data
         postal_code = form.postal_code.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code)
+        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number= card_number, expiry_date = expiry_date)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
