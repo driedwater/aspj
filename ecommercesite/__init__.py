@@ -21,7 +21,7 @@ search = Search()
 search.init_app(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
-authorize=authorized(app)
+authorize=Authorize(app)
 app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True

@@ -14,6 +14,7 @@ import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
+import re
 from flask_mail import Message
 
 def trunc_datetime(someDate):
@@ -27,24 +28,6 @@ def admin_required(f):
         else:
             abort(401)
     return wrap
-
-def pwd_checker(pw):
-    '''
-    length_error = len(pw) < 8
-
-    # searching for digits
-    digit_error = re.search(r"\d", pw) is None
-
-    # searching for uppercase
-    uppercase_error = re.search(r"[A-Z]", pw) is None
-
-    # searching for lowercase
-    lowercase_error = re.search(r"[a-z]", pw) is None
-
-    # searching for symbols
-    symbol_error = re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', pw) is None
-    '''
-
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
