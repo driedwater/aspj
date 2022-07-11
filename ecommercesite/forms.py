@@ -18,6 +18,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=30), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    honeypot = StringField('Phone', )
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -29,6 +30,10 @@ class RegistrationForm(FlaskForm):
         user = Users.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('email is taken.')
+
+    def validate_honeypot(self, honeypot):
+        if honeypot.data:
+            raise ValidationError('If you see this, leave this form field blank')
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])

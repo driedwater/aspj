@@ -6,7 +6,6 @@ from flask_migrate import Migrate
 from flask_msearch import Search
 from flask_mail import Mail
 from flask_authorize import Authorize
-from skywalking import agent, config
 import os
 
 app = Flask(__name__)
