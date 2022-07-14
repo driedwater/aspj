@@ -104,7 +104,7 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='theBoutique@hotmail.com',
+                    sender='CraftyWoodDev@hotmail.com',
                     recipients=[user.email])
 
     msg.body = f'''To reset your The Boutique account password, visit the following link: 
