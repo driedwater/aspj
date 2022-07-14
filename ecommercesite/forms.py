@@ -135,6 +135,6 @@ class CheckOutForm(FlaskForm):
     address = TextAreaField('Address', validators=[DataRequired()])
     postal_code = StringField('Postal Code', validators=[DataRequired(), validators.Length(min=6, max=6, message='PLease enter a valid input')])
     card_number = StringField('Card Number', validators=[DataRequired(), validators.Length(min=16, max=16,  message='PLease enter a valid input')], render_kw={"PlaceHolder": "•••• •••• •••• ••••"})
-    expiry = StringField('Expiry', validators=[DataRequired(),validators.DataRequired(message='Please enter a valid input')], render_kw={"PlaceHolder": "YYYY"})
+    expiry = StringField('Year of Expiry', validators=[DataRequired(),validators.Length(min=4, max=4, message='Please enter a valid input')], render_kw={"PlaceHolder": "YYYY"})
     cvv = StringField('CVV', validators=[DataRequired(), validators.Length(min=3, max=3, message='PLease enter a valid input')], render_kw={"PlaceHolder": "•••"})
     submit = SubmitField('Checkout')
