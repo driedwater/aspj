@@ -1,5 +1,6 @@
 import secrets, os
 from PIL import Image
+from click import password_option
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
 from ecommercesite import app, bcrypt, db, mail
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
@@ -15,6 +16,9 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 from flask_mail import Message
+from cryptography.fernet import Fernet
+
+
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -338,7 +342,15 @@ def checkout_details():
         postal_code = form.postal_code.data
         card_number = form.card_number.data
         expiry = form.expiry.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number=card_number, expiry=expiry)
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        message = (form.card_number.data).encode('utf-8')
+        token = f.encrypt("CT: ",message)
+        print(token)
+        d= f.decrypt(token)
+        print("PT: ", d.decode())
+
+        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
