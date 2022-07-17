@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 from flask_msearch import Search
 from flask_mail import Mail
 from flask_authorize import Authorize
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import os
 
 app = Flask(__name__)
@@ -16,6 +18,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["200 per day", "50 per hour"])
 search = Search()
 search.init_app(app)
 login_manager.login_view = 'login'
