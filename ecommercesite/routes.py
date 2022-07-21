@@ -61,6 +61,7 @@ def page_not_found(e):
 def unauthorized_access(e):
     return render_template('error/405.html'), 405
 
+
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -227,17 +228,26 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
-@app.route('/account/delete', methods=[ 'POST'])
+@app.route('/account/delete', methods=['POST'])
 @login_required
 def delete_account():
-    response = requests.get("http:127.0.0.1:5000/account/delete")
     user = User.query.filter_by(username=current_user.username).first()
+    response = requests.post("http://127.0.0.1:5000/account/delete")
     if response.status_code == 405:
         abort(405)
-    db.session.delete(user)
-    db.session.commit()
+    else:
+        db.session.delete(user)
+        db.session.commit()
     flash('Your account has been deleted.', 'success')
+    
     return redirect(url_for('home'))
+
+    
+        
+    # else:
+    #     return 405
+ 
+
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
 def product_details(id):
