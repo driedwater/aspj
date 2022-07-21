@@ -343,7 +343,6 @@ def checkout_details():
         card_number = form.card_number.data
         expiry = form.expiry.data
         
-
         #encrypting card_num
         key = Fernet.generate_key()
         f = Fernet(key)
@@ -353,6 +352,7 @@ def checkout_details():
         d= f.decrypt(token)
         print("PT: ", d.decode())
         print('\n')
+
         #encryption postal code
         key = Fernet.generate_key()
         f = Fernet(key)
@@ -362,6 +362,7 @@ def checkout_details():
         d= f.decrypt(token)
         print("PT: ",d.decode())
         print('\n')
+
         #encryption postal code
         key = Fernet.generate_key()
         h = Fernet(key)
