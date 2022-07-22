@@ -1,10 +1,10 @@
 import secrets, os
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
+from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify
 from ecommercesite import app, bcrypt, db, mail
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought
+from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
@@ -14,8 +14,10 @@ import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
-import re
 from flask_mail import Message
+
+
+#---------------WRAPPERS-AND-DATE-TIME-STUFF------------------#
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -28,6 +30,7 @@ def admin_required(f):
         else:
             abort(401)
     return wrap
+
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -38,6 +41,27 @@ def unauthorized(e):
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
+
+
+#---------------------API-ENDPOINTS------------------#
+
+@app.route('/api/all_products', methods=['GET'])
+def all_items():
+    products = Addproducts.query.all()
+    if products:
+        result = addProductsSchema.dump(products)
+        return jsonify(result), 200
+    else:
+        return jsonify(message='there is no products'), 404
+
+@app.route('/api/products/<int:id>', methods=['GET'])
+def items(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        result = addProductSchema.dump(product)
+        return jsonify(result), 200
+    else:
+        return jsonify(message='product does not exist'), 404
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
@@ -214,6 +238,7 @@ def delete_account():
     flash('Your account has been deleted.', 'success')
     return redirect(url_for('home'))
 
+
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
 def product_details(id):
     products = Addproducts.query.get_or_404(id)
@@ -230,6 +255,7 @@ def product_details(id):
         flash('Your review has been added!', 'success')
         return redirect(url_for('shop'))
     return render_template('product_details.html', title="Product Details", products=products, product_reviews=product_reviews ,form=form, product_bought=product_bought)
+
 
 @app.route('/addcart/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -265,6 +291,7 @@ def cart():
     for item in cart_items:
         items += 1
     return render_template('cart.html', title='Shopping Cart', current_user=current_user, cart_items=cart_items, items=items)
+
 
 @app.route('/addquantity/<int:id>', methods=['GET', 'POST'])
 @login_required

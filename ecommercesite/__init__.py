@@ -8,6 +8,7 @@ from flask_mail import Mail
 from flask_authorize import Authorize
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_marshmallow import Marshmallow
 import os
 
 app = Flask(__name__)
@@ -15,6 +16,7 @@ app.config['SECRET_KEY'] = 'this-is-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
