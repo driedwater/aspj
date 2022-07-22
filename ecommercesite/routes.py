@@ -111,7 +111,7 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='CraftyWoodDev@hotmail.com',
+                    sender='5718ebb8bb03c2',
                     recipients=[user.email])
 
     msg.body = f'''To reset your Crafty Wood account password, visit the following link: 
@@ -128,7 +128,7 @@ def reset_password():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        flash('A reset password email has been sent.')
+        flash('A reset password email has been sent.', 'info')
         return redirect(url_for('login'))
     return render_template('reset_request.html', title='Reset Password', form=form)
 

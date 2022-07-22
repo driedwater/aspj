@@ -26,11 +26,11 @@ search.init_app(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 authorize=Authorize(app)
-app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
-app.config['MAIL_PORT'] = 587
+app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'CraftyWoodDev@hotmail.com'
-app.config['MAIL_PASSWORD'] = 'outlook0appdev'
+app.config['MAIL_USERNAME'] = '5718ebb8bb03c2'
+app.config['MAIL_PASSWORD'] = '8991fafdf77d0f'
 mail = Mail(app)
 
 from ecommercesite import routes
