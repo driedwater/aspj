@@ -1,6 +1,9 @@
+from cmath import exp
+from distutils.archive_util import make_archive
+from email import message
 import secrets, os
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify
+from flask import make_response, render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify
 from ecommercesite import app, bcrypt, db, mail
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
@@ -8,13 +11,14 @@ from ecommercesite.database import Staff, Users, User, Addproducts, Category, It
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from dateutil.relativedelta import *
 import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 from flask_mail import Message
+from flask_jwt_extended import create_access_token, get_jwt_identity, verify_jwt_in_request, get_jwt
 
 
 #---------------WRAPPERS-AND-DATE-TIME-STUFF------------------#
@@ -31,6 +35,16 @@ def admin_required(f):
             abort(401)
     return wrap
 
+def jwt_admin_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        verify_jwt_in_request()
+        claims = get_jwt()
+        if claims['role'] == 'admin':
+            return f(*args, **kwargs)
+        else:
+            return jsonify(message='Unauthorized!'), 401
+    return wrap
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -39,7 +53,6 @@ def unauthorized(e):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
 
 
@@ -52,16 +65,28 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
-        return jsonify(message='there is no products'), 404
+        abort(404)
 
 @app.route('/api/products/<int:id>', methods=['GET'])
-def items(id):
+def item(id):
     product = Addproducts.query.filter_by(id=id).first()
     if product:
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
-        return jsonify(message='product does not exist'), 404
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['DELETE'])
+@jwt_admin_required
+def delete_item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+        return jsonify(message='product has been deleted'), 200
+    else:
+        abort(404)
+
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
@@ -74,11 +99,21 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
 
         if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+            session.permanent = True
             login_user(user)
-            app.logger.info('%s logged in successfully', form.email.data)
+            if current_user.role == "admin":
+                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
+            else:
+                access_token = create_access_token(identity=form.email.data)
             next = request.args.get('next')
-            return redirect(next) if next else redirect(url_for('home'))
-
+            if next:
+                nextResp = make_response(redirect(next))
+                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return nextResp
+            else:
+                homeResp = make_response(redirect(url_for('home')))
+                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return homeResp
         else:
             app.logger.info('%s failed to log in', form.email.data)
             flash(f'Login Unsuccessful. Please check email and password', 'danger')

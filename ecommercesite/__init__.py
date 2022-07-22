@@ -9,12 +9,19 @@ from flask_authorize import Authorize
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_marshmallow import Marshmallow
+from flask_jwt_extended import JWTManager
+from datetime import timedelta
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'this-is-secret-key'
+app.config["JWT_SECRET_KEY"] = "a0e9be06ce393344214c51be5c753fa58aef93b7c318e9375a0438a54fa1eab4"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
+app.config["JWT_TOKEN_LOCATION"] = ['cookies']
+app.config['SECRET_KEY'] = '53e4ea4f348001e62295b81953988e9cbd25a49ced46adc6f3742c83284835a1'
+app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+jwt = JWTManager(app)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 migrate = Migrate(app, db)
