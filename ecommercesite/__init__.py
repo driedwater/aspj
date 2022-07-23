@@ -8,7 +8,7 @@ from flask_mail import Mail
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'this-is-secret-key'
+app.config['SECRET_KEY'] = '2fc0484066b6adb57a2a2e018050e96c'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)

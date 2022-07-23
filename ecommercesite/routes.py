@@ -111,7 +111,7 @@ def send_reset_email(user):
                     sender='CraftyWoodDev@hotmail.com',
                     recipients=[user.email])
 
-    msg.body = f'''To reset your Crafty Wood account password, visit the following link: 
+    msg.body = f'''To reset your The Boutique account password, visit the following link: 
                 {url_for('reset_token', token=token, _external=True)}
                 If you did not make this request, please ignore this email'''
     mail.send(msg)
