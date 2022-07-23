@@ -1,3 +1,4 @@
+from email.policy import default
 from logging import PlaceHolder
 from operator import length_hint
 from unittest.util import _MAX_LENGTH
@@ -126,14 +127,14 @@ class AddToCartForm(FlaskForm):
 
 class AddReviewForm(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired(), Length(min=10, max=1000)])
-    rating = SelectField('Product Rating', choices=[(1, '1 Star'), (2, '2 Star'), (3, '3 Star'), (4, '4 Star'), (5, '5 Star')])
+    rating = SelectField('Product Rating', choices=[(1, '1 Star'), (2, '2 Star'), (3, '3 Star'), (4, '4 Star'), (5, '5 Star')], default= 'choose an option' )
     submit = SubmitField('Submit')
 
 class CheckOutForm(FlaskForm):
     full_name =  StringField('Full Name', validators=[DataRequired()])
     address = TextAreaField('Address', validators=[DataRequired()])
-    postal_code = StringField('Postal Code', validators=[DataRequired()])
-    card_number = StringField('Card Number', validators=[DataRequired()], render_kw={"PlaceHolder": "•••• •••• •••• ••••"})
-    expiry = StringField('Expiry', validators=[DataRequired(),validators.DataRequired(message='Please enter a valid email')], render_kw={"PlaceHolder": "MM/YY"})
-    cvv = StringField('CVV', validators=[DataRequired(), validators.Length(min=3, max=3)], render_kw={"PlaceHolder": "•••"})
+    postal_code = StringField('Postal Code', validators=[DataRequired(), validators.Length(min=6, max=6, message='PLease enter a valid input')])
+    card_number = StringField('Card Number', validators=[DataRequired(), validators.Length(min=16, max=16,  message='PLease enter a valid input')], render_kw={"PlaceHolder": "•••• •••• •••• ••••"})
+    expiry = StringField('Year of Expiry', validators=[DataRequired(),validators.Length(min=4, max=4, message='Please enter a valid input')], render_kw={"PlaceHolder": "YYYY"})
+    cvv = StringField('CVV', validators=[DataRequired(), validators.Length(min=3, max=3, message='PLease enter a valid input')], render_kw={"PlaceHolder": "•••"})
     submit = SubmitField('Checkout')

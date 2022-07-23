@@ -138,7 +138,7 @@ class Customer_Payments(db.Model):
     address = db.Column(db.Text, nullable = False)
     postal_code = db.Column(db.Integer, nullable = False)
     card_number = db.Column(db.Integer, nullable = False)
-    expiry= db.Column(db.Date, nullable = False)
+    expiry= db.Column(db.Integer, nullable = False)
 
 db.create_all()
 
