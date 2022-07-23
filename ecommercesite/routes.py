@@ -55,6 +55,9 @@ def unauthorized(e):
 def page_not_found(e):
     return render_template('error/404.html'), 404
 
+@app.errorhandler(405)
+def unauthorized_access(e):
+    return render_template('error/405.html'), 405
 
 #---------------------API-ENDPOINTS------------------#
 
@@ -65,7 +68,7 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
-        return jsonify(message="products does not exist"), 404
+        abort(404)
 
 @app.route('/api/products/<int:id>', methods=['GET'])
 def item(id):
@@ -74,7 +77,7 @@ def item(id):
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
-        return jsonify(message="product does not exist"), 404
+        abort(404)
 
 @app.route('/api/products/<int:id>', methods=['DELETE'])
 @jwt_admin_required
@@ -85,7 +88,7 @@ def delete_item(id):
         db.session.commit()
         return jsonify(message='product has been deleted'), 200
     else:
-        return jsonify(message="product does not exist"), 404
+        abort(404)
 
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
