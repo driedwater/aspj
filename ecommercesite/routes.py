@@ -1,25 +1,27 @@
+from cmath import exp
+from distutils.archive_util import make_archive
+from email import message
 import secrets, os
 from PIL import Image
-from click import password_option
-from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
+from flask import make_response, render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify
 from ecommercesite import app, bcrypt, db, mail
-import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought
+from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from dateutil.relativedelta import *
 import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 from flask_mail import Message
-from cryptography.fernet import Fernet
+from flask_jwt_extended import create_access_token, get_jwt_identity, verify_jwt_in_request, get_jwt
 
 
+#---------------WRAPPERS-AND-DATE-TIME-STUFF------------------#
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -33,23 +35,16 @@ def admin_required(f):
             abort(401)
     return wrap
 
-def pwd_checker(pw):
-    '''
-    length_error = len(pw) < 8
-
-    # searching for digits
-    digit_error = re.search(r"\d", pw) is None
-
-    # searching for uppercase
-    uppercase_error = re.search(r"[A-Z]", pw) is None
-
-    # searching for lowercase
-    lowercase_error = re.search(r"[a-z]", pw) is None
-
-    # searching for symbols
-    symbol_error = re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', pw) is None
-    '''
-
+def jwt_admin_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        verify_jwt_in_request()
+        claims = get_jwt()
+        if claims['role'] == 'admin':
+            return f(*args, **kwargs)
+        else:
+            return jsonify(message='Unauthorized!'), 401
+    return wrap
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -58,12 +53,39 @@ def unauthorized(e):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
 
-@app.errorhandler(405)
-def unauthorized_access(e):
-    return render_template('error/405.html'), 405
+
+#---------------------API-ENDPOINTS------------------#
+
+@app.route('/api/all_products', methods=['GET'])
+def all_items():
+    products = Addproducts.query.all()
+    if products:
+        result = addProductsSchema.dump(products)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['GET'])
+def item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        result = addProductSchema.dump(product)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['DELETE'])
+@jwt_admin_required
+def delete_item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+        return jsonify(message='product has been deleted'), 200
+    else:
+        abort(404)
 
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
@@ -77,11 +99,21 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
 
         if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+            session.permanent = True
             login_user(user)
-            app.logger.info('%s logged in successfully', form.email.data)
+            if current_user.role == "admin":
+                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
+            else:
+                access_token = create_access_token(identity=form.email.data)
             next = request.args.get('next')
-            return redirect(next) if next else redirect(url_for('home'))
-
+            if next:
+                nextResp = make_response(redirect(next))
+                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return nextResp
+            else:
+                homeResp = make_response(redirect(url_for('home')))
+                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return homeResp
         else:
             app.logger.info('%s failed to log in', form.email.data)
             flash(f'Login Unsuccessful. Please check email and password', 'danger')
@@ -94,7 +126,9 @@ def login():
 def logout():
     app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
-    return redirect(url_for('home'))
+    resp = make_response(redirect(url_for('home')))
+    resp.delete_cookie('access_token_cookie')
+    return resp
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -114,10 +148,10 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='CraftyWoodDev@hotmail.com',
+                    sender='5718ebb8bb03c2',
                     recipients=[user.email])
 
-    msg.body = f'''To reset your The Boutique account password, visit the following link: 
+    msg.body = f'''To reset your Crafty Wood account password, visit the following link: 
                 {url_for('reset_token', token=token, _external=True)}
                 If you did not make this request, please ignore this email'''
     mail.send(msg)
@@ -131,7 +165,7 @@ def reset_password():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        flash('A reset password email has been sent.')
+        flash('A reset password email has been sent.', 'info')
         return redirect(url_for('login'))
     return render_template('reset_request.html', title='Reset Password', form=form)
 
@@ -232,25 +266,14 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
-@app.route('/account/delete', methods=['POST'])
+@app.route('/account/delete', methods=['GET','POST'])
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    response = requests.post("http://127.0.0.1:5000/account/delete")
-    if response.status_code == 405:
-        abort(405)
-    else:
-        db.session.delete(user)
-        db.session.commit()
+    db.session.delete(user)
+    db.session.commit()
     flash('Your account has been deleted.', 'success')
-    
     return redirect(url_for('home'))
-
-    
-        
-    # else:
-    #     return 405
- 
 
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
@@ -269,6 +292,7 @@ def product_details(id):
         flash('Your review has been added!', 'success')
         return redirect(url_for('shop'))
     return render_template('product_details.html', title="Product Details", products=products, product_reviews=product_reviews ,form=form, product_bought=product_bought)
+
 
 @app.route('/addcart/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -304,6 +328,7 @@ def cart():
     for item in cart_items:
         items += 1
     return render_template('cart.html', title='Shopping Cart', current_user=current_user, cart_items=cart_items, items=items)
+
 
 @app.route('/addquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -360,37 +385,7 @@ def checkout_details():
         postal_code = form.postal_code.data
         card_number = form.card_number.data
         expiry = form.expiry.data
-        
-        #encrypting card_num
-        key = Fernet.generate_key()
-        f = Fernet(key)
-        enc_card_num = (form.card_number.data).encode('utf-8')
-        token = f.encrypt(enc_card_num)
-        print("CT: ",token)
-        d= f.decrypt(token)
-        print("PT: ", d.decode())
-        print('\n')
-
-        #encryption postal code
-        key = Fernet.generate_key()
-        f = Fernet(key)
-        enc_postal_code  = (form.postal_code.data).encode('utf-8')
-        token = f.encrypt(enc_postal_code)
-        print("CT: ",token)
-        d= f.decrypt(token)
-        print("PT: ",d.decode())
-        print('\n')
-
-        #encryption postal code
-        key = Fernet.generate_key()
-        h = Fernet(key)
-        enc_address= (form.address.data).encode('utf-8')
-        token = h.encrypt(enc_address)
-        print("CT:",token)
-        d= h.decrypt(token)
-        print("PT: ", d.decode())
-
-        checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
+        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number=card_number, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
