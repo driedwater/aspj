@@ -1,10 +1,8 @@
-from dataclasses import field
 from email.policy import default
-from ecommercesite import db, login_manager, app, ma
+from ecommercesite import db, login_manager, app
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
 from datetime import datetime, date
-from flask_marshmallow import Schema
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -102,15 +100,6 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
 
 
-class Category(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), unique=True, nullable=False)
-    
-
-    def __repr__(self):
-        return f"{self.name}"
-
-
 class Addproducts(db.Model):
     __searchable__ = ['name','description']
     id = db.Column(db.Integer, primary_key=True)
@@ -130,8 +119,18 @@ class Addproducts(db.Model):
     image_4 = db.Column(db.String(150), nullable=False, default='product-single-4.jpg')
     image_5 = db.Column(db.String(150), nullable=False, default='product-single-5.jpg')
 
+
     def __repr__(self):
         return '<Post %r>' % self.name
+    
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), unique=True, nullable=False)
+    
+
+    def __repr__(self):
+        return f"{self.name}"
 
 class Customer_Payments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -141,12 +140,5 @@ class Customer_Payments(db.Model):
     card_number = db.Column(db.Integer, nullable = False)
     expiry= db.Column(db.Integer, nullable = False)
 
-class AddProductsSchema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        model = Addproducts
-        include_fk = True
-
 db.create_all()
-addProductSchema = AddProductsSchema()
-addProductsSchema = AddProductsSchema(many=True)
 
