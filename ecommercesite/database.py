@@ -1,5 +1,5 @@
 from email.policy import default
-from ecommercesite import db, login_manager, app
+from ecommercesite import db, login_manager, app, ma
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
 from datetime import datetime, date
@@ -140,5 +140,11 @@ class Customer_Payments(db.Model):
     card_number = db.Column(db.Integer, nullable = False)
     expiry= db.Column(db.Integer, nullable = False)
 
-db.create_all()
+class AddProductsSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Addproducts
+        include_fk = True
 
+db.create_all()
+addProductSchema = AddProductsSchema()
+addProductsSchema = AddProductsSchema(many=True)

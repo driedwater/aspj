@@ -1,16 +1,16 @@
 import secrets, os
 from PIL import Image
 from click import password_option
-from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
+from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
 from ecommercesite import app, bcrypt, db, mail
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought
+from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from dateutil.relativedelta import *
 import plotly, json
 import plotly.graph_objs as go
@@ -18,6 +18,7 @@ import pandas as pd
 import numpy as np
 from flask_mail import Message
 from cryptography.fernet import Fernet
+from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
 
 
 
@@ -33,22 +34,16 @@ def admin_required(f):
             abort(401)
     return wrap
 
-def pwd_checker(pw):
-    '''
-    length_error = len(pw) < 8
-
-    # searching for digits
-    digit_error = re.search(r"\d", pw) is None
-
-    # searching for uppercase
-    uppercase_error = re.search(r"[A-Z]", pw) is None
-
-    # searching for lowercase
-    lowercase_error = re.search(r"[a-z]", pw) is None
-
-    # searching for symbols
-    symbol_error = re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~"+r'"]', pw) is None
-    '''
+def jwt_admin_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        verify_jwt_in_request()
+        claims = get_jwt()
+        if claims['role'] == 'admin':
+            return f(*args, **kwargs)
+        else:
+            return jsonify(message='Unauthorized!'), 401
+    return wrap
 
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
@@ -107,14 +102,22 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
 
         if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+            session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
-            next = request.args.get('next')
-            return redirect(next) if next else redirect(url_for('home'))
+            if current_user.role == "admin":
+                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
+            else:
+                access_token = create_access_token(identity=form.email.data)
 
-        else:
-            app.logger.info('%s failed to log in', form.email.data)
-            flash(f'Login Unsuccessful. Please check email and password', 'danger')
+            if next:
+                nextResp = make_response(redirect(next))
+                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return nextResp
+            else:
+                homeResp = make_response(redirect(url_for('home')))
+                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return homeResp
 
 
     return render_template('login.html', title='Login',form=form)
@@ -124,7 +127,9 @@ def login():
 def logout():
     app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
-    return redirect(url_for('home'))
+    resp = make_response(redirect(url_for('home')))
+    resp.delete_cookie('access_token_cookie')
+    return resp
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
