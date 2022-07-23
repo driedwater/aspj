@@ -65,6 +65,36 @@ def page_not_found(e):
 def unauthorized_access(e):
     return render_template('error/405.html'), 405
 
+#---------------------API-ENDPOINTS------------------#
+
+@app.route('/api/all_products', methods=['GET'])
+def all_items():
+    products = Addproducts.query.all()
+    if products:
+        result = addProductsSchema.dump(products)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['GET'])
+def item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        result = addProductSchema.dump(product)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['DELETE'])
+@jwt_admin_required
+def delete_item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+        return jsonify(message='product has been deleted'), 200
+    else:
+        abort(404)
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
