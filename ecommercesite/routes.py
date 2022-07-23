@@ -126,7 +126,9 @@ def login():
 def logout():
     app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
-    return redirect(url_for('home'))
+    resp = make_response(redirect(url_for('home')))
+    resp.delete_cookie('access_token_cookie')
+    return resp
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
