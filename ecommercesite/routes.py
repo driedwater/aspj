@@ -3,6 +3,7 @@ from PIL import Image
 from click import password_option
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
 from ecommercesite import app, bcrypt, db, mail
+import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
 from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought
@@ -59,6 +60,11 @@ def unauthorized(e):
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
+
+@app.errorhandler(405)
+def unauthorized_access(e):
+    return render_template('error/405.html'), 405
+
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
@@ -226,14 +232,26 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
-@app.route('/account/delete', methods=['GET','POST'])
+@app.route('/account/delete', methods=['POST'])
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    db.session.delete(user)
-    db.session.commit()
+    response = requests.post("http://127.0.0.1:5000/account/delete")
+    if response.status_code == 405:
+        abort(405)
+    else:
+        db.session.delete(user)
+        db.session.commit()
     flash('Your account has been deleted.', 'success')
+    
     return redirect(url_for('home'))
+
+    
+        
+    # else:
+    #     return 405
+ 
+
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
 def product_details(id):
