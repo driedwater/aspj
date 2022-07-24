@@ -1,20 +1,26 @@
 import secrets, os
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort, session, current_app
+from click import password_option
+from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
 from ecommercesite import app, bcrypt, db, mail
+import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought
+from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from dateutil.relativedelta import *
 import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 from flask_mail import Message
+from cryptography.fernet import Fernet
+from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
+
+
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -28,6 +34,17 @@ def admin_required(f):
             abort(401)
     return wrap
 
+def jwt_admin_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        verify_jwt_in_request()
+        claims = get_jwt()
+        if claims['role'] == 'admin':
+            return f(*args, **kwargs)
+        else:
+            return jsonify(message='Unauthorized!'), 401
+    return wrap
+
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -39,6 +56,41 @@ def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
 
+@app.errorhandler(405)
+def unauthorized_access(e):
+    return render_template('error/405.html'), 405
+
+#---------------------API-ENDPOINTS------------------#
+
+@app.route('/api/all_products', methods=['GET'])
+def all_items():
+    products = Addproducts.query.all()
+    if products:
+        result = addProductsSchema.dump(products)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['GET'])
+def item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        result = addProductSchema.dump(product)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
+@app.route('/api/products/<int:id>', methods=['DELETE'])
+@jwt_admin_required
+def delete_item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+        return jsonify(message='product has been deleted'), 200
+    else:
+        abort(404)
+
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -49,13 +101,23 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+            session.permanent = True
             login_user(user)
-            next = request.args.get('next')
-            return redirect(next) if next else redirect(url_for('home'))
+            app.logger.info('%s logged in successfully', form.email.data)
+            if current_user.role == "admin":
+                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
+            else:
+                access_token = create_access_token(identity=form.email.data)
 
-        else:
-            flash(f'Login Unsuccessful. Please check email and password', 'danger')
+            if next:
+                nextResp = make_response(redirect(next))
+                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return nextResp
+            else:
+                homeResp = make_response(redirect(url_for('home')))
+                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
+                return homeResp
 
 
     return render_template('login.html', title='Login',form=form)
@@ -63,8 +125,11 @@ def login():
 
 @app.route('/logout')
 def logout():
+    app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
-    return redirect(url_for('home'))
+    resp = make_response(redirect(url_for('home')))
+    resp.delete_cookie('access_token_cookie')
+    return resp
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -72,11 +137,12 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
         flash(f'Account has been created, you can now login.', 'success')
+        app.logger.info('%s Successfully registered', form.email.data)
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -86,7 +152,7 @@ def send_reset_email(user):
                     sender='CraftyWoodDev@hotmail.com',
                     recipients=[user.email])
 
-    msg.body = f'''To reset your Crafty Wood account password, visit the following link: 
+    msg.body = f'''To reset your The Boutique account password, visit the following link: 
                 {url_for('reset_token', token=token, _external=True)}
                 If you did not make this request, please ignore this email'''
     mail.send(msg)
@@ -114,7 +180,7 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
 
         user.password = hash_pw
         db.session.commit()
@@ -197,7 +263,7 @@ def account():
         form.last_name.data = current_user.last_name
         form.username.data = current_user.username
         form.email.data = current_user.email
-
+        
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
@@ -205,10 +271,22 @@ def account():
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    db.session.delete(user)
-    db.session.commit()
+    response = requests.post("http://127.0.0.1:5000/account/delete")
+    if response.status_code == 405:
+        abort(405)
+    else:
+        db.session.delete(user)
+        db.session.commit()
     flash('Your account has been deleted.', 'success')
+    
     return redirect(url_for('home'))
+
+    
+        
+    # else:
+    #     return 405
+ 
+
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
 def product_details(id):
@@ -308,14 +386,46 @@ def checkout_details():
             flash('{{product.name}} only has {{product.stock}} left in stock', 'danger')
             return redirect(url_for('cart'))
         else:
-            subtotal += item.price
+            subtotal += item.price * item.quantity
     
     total = subtotal + 10
     if form.validate_on_submit():
         full_name = form.full_name.data
         address = form.address.data
         postal_code = form.postal_code.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code)
+        card_number = form.card_number.data
+        expiry = form.expiry.data
+        
+        #encrypting card_num
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        enc_card_num = (form.card_number.data).encode('utf-8')
+        token = f.encrypt(enc_card_num)
+        print("CT: ",token)
+        d= f.decrypt(token)
+        print("PT: ", d.decode())
+        print('\n')
+
+        #encryption postal code
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        enc_postal_code  = (form.postal_code.data).encode('utf-8')
+        token = f.encrypt(enc_postal_code)
+        print("CT: ",token)
+        d= f.decrypt(token)
+        print("PT: ",d.decode())
+        print('\n')
+
+        #encryption postal code
+        key = Fernet.generate_key()
+        h = Fernet(key)
+        enc_address= (form.address.data).encode('utf-8')
+        token = h.encrypt(enc_address)
+        print("CT:",token)
+        d= h.decrypt(token)
+        print("PT: ", d.decode())
+
+        checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
@@ -484,7 +594,7 @@ def delete_product(id):
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
