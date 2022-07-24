@@ -1,10 +1,9 @@
-from cmath import exp
-from distutils.archive_util import make_archive
-from email import message
 import secrets, os
 from PIL import Image
-from flask import make_response, render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify
+from click import password_option
+from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
 from ecommercesite import app, bcrypt, db, mail
+import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
 from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
@@ -18,10 +17,10 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 from flask_mail import Message
-from flask_jwt_extended import create_access_token, get_jwt_identity, verify_jwt_in_request, get_jwt
+from cryptography.fernet import Fernet
+from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
 
 
-#---------------WRAPPERS-AND-DATE-TIME-STUFF------------------#
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -45,6 +44,7 @@ def jwt_admin_required(f):
         else:
             return jsonify(message='Unauthorized!'), 401
     return wrap
+
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
 
 @app.errorhandler(401)
@@ -53,6 +53,7 @@ def unauthorized(e):
 
 @app.errorhandler(404)
 def page_not_found(e):
+    # note that we set the 404 status explicitly
     return render_template('error/404.html'), 404
 
 @app.errorhandler(405)
@@ -90,7 +91,6 @@ def delete_item(id):
     else:
         abort(404)
 
-
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -104,11 +104,12 @@ def login():
         if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
             session.permanent = True
             login_user(user)
+            app.logger.info('%s logged in successfully', form.email.data)
             if current_user.role == "admin":
                 access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
             else:
                 access_token = create_access_token(identity=form.email.data)
-            next = request.args.get('next')
+
             if next:
                 nextResp = make_response(redirect(next))
                 nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
@@ -117,9 +118,6 @@ def login():
                 homeResp = make_response(redirect(url_for('home')))
                 homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
                 return homeResp
-        else:
-            app.logger.info('%s failed to log in', form.email.data)
-            flash(f'Login Unsuccessful. Please check email and password', 'danger')
 
 
     return render_template('login.html', title='Login',form=form)
@@ -151,10 +149,10 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='5718ebb8bb03c2',
+                    sender='CraftyWoodDev@hotmail.com',
                     recipients=[user.email])
 
-    msg.body = f'''To reset your Crafty Wood account password, visit the following link: 
+    msg.body = f'''To reset your The Boutique account password, visit the following link: 
                 {url_for('reset_token', token=token, _external=True)}
                 If you did not make this request, please ignore this email'''
     mail.send(msg)
@@ -168,7 +166,7 @@ def reset_password():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        flash('A reset password email has been sent.', 'info')
+        flash('A reset password email has been sent.')
         return redirect(url_for('login'))
     return render_template('reset_request.html', title='Reset Password', form=form)
 
@@ -269,14 +267,25 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
-@app.route('/account/delete', methods=['GET','POST'])
+@app.route('/account/delete', methods=['POST'])
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    db.session.delete(user)
-    db.session.commit()
+    response = requests.post("http://127.0.0.1:5000/account/delete")
+    if response.status_code == 405:
+        abort(405)
+    else:
+        db.session.delete(user)
+        db.session.commit()
     flash('Your account has been deleted.', 'success')
+    
     return redirect(url_for('home'))
+
+    
+        
+    # else:
+    #     return 405
+ 
 
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
@@ -295,7 +304,6 @@ def product_details(id):
         flash('Your review has been added!', 'success')
         return redirect(url_for('shop'))
     return render_template('product_details.html', title="Product Details", products=products, product_reviews=product_reviews ,form=form, product_bought=product_bought)
-
 
 @app.route('/addcart/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -331,7 +339,6 @@ def cart():
     for item in cart_items:
         items += 1
     return render_template('cart.html', title='Shopping Cart', current_user=current_user, cart_items=cart_items, items=items)
-
 
 @app.route('/addquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -388,7 +395,37 @@ def checkout_details():
         postal_code = form.postal_code.data
         card_number = form.card_number.data
         expiry = form.expiry.data
-        checkout_details = Customer_Payments(full_name=full_name, address=address, postal_code=postal_code, card_number=card_number, expiry=expiry)
+        
+        #encrypting card_num
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        enc_card_num = (form.card_number.data).encode('utf-8')
+        token = f.encrypt(enc_card_num)
+        print("CT: ",token)
+        d= f.decrypt(token)
+        print("PT: ", d.decode())
+        print('\n')
+
+        #encryption postal code
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        enc_postal_code  = (form.postal_code.data).encode('utf-8')
+        token = f.encrypt(enc_postal_code)
+        print("CT: ",token)
+        d= f.decrypt(token)
+        print("PT: ",d.decode())
+        print('\n')
+
+        #encryption postal code
+        key = Fernet.generate_key()
+        h = Fernet(key)
+        enc_address= (form.address.data).encode('utf-8')
+        token = h.encrypt(enc_address)
+        print("CT:",token)
+        d= h.decrypt(token)
+        print("PT: ", d.decode())
+
+        checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
