@@ -398,7 +398,12 @@ def checkout_details():
         
         #encrypting card_num
         key = Fernet.generate_key()
+        key_file = open('FernetKeys.txt', 'a')
         f = Fernet(key)
+        key_file.write("Key = " + f)
+        key_file.close()
+        print(f)
+        
         enc_card_num = (form.card_number.data).encode('utf-8')
         token = f.encrypt(enc_card_num)
         print("CT: ",token)
