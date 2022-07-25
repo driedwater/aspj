@@ -400,9 +400,11 @@ def checkout_details():
         key = Fernet.generate_key()
         key_file = open('FernetKeys.txt', 'a')
         f = Fernet(key)
-        key_file.write("Key = " + f)
+        key_file.write("Key = " + str(key))
+        key_file.write('\t')
+        key_file.write('\n')
         key_file.close()
-        print(f)
+        print(key)
         
         enc_card_num = (form.card_number.data).encode('utf-8')
         token = f.encrypt(enc_card_num)
