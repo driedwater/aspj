@@ -1,4 +1,3 @@
-from email.policy import default
 from ecommercesite import db, login_manager, app, ma
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
@@ -20,6 +19,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     role = db.Column(db.String(10), nullable=False, default='user')
     image_file = db.Column(db.String(20), nullable=False, default='defaultpfp.jpg')
+    email_verification = db.Column(db.Boolean(), nullable=False, default=False)
 
     __mapper_args__ = {
         'polymorphic_on':type,

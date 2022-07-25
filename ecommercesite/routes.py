@@ -54,7 +54,7 @@ def jwt_admin_required(f):
         if claims['role'] == 'admin':
             return f(*args, **kwargs)
         else:
-            return jsonify(message='Unauthorized!'), 401
+            return jsonify(message='Unauthorized!'), 403
     return wrap
 
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
@@ -108,7 +108,7 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
-        abort(404)
+        return jsonify(message="products not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['GET'])
 def item(id):
@@ -117,7 +117,7 @@ def item(id):
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
-        abort(404)
+        return jsonify(message="product not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['DELETE'])
 @jwt_admin_required
@@ -128,7 +128,7 @@ def delete_item(id):
         db.session.commit()
         return jsonify(message='product has been deleted'), 200
     else:
-        abort(404)
+        return jsonify(message="product not found"), 404
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
