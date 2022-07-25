@@ -1,4 +1,5 @@
 import secrets, os
+from time import strptime
 from PIL import Image
 from click import password_option
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
@@ -118,6 +119,10 @@ def login():
                 homeResp = make_response(redirect(url_for('home')))
                 homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
                 return homeResp
+        else:
+            dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+            app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
+            flash('Login unsuccessful. Incorrect email or password.', 'danger')
 
 
     return render_template('login.html', title='Login',form=form)

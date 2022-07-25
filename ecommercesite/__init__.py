@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, request, has_request_context
+from flask.logging import default_handler
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -9,7 +10,9 @@ from flask_authorize import Authorize
 from flask_marshmallow import Marshmallow
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
+import logging
 import os
+
 
 app = Flask(__name__)
 jwt = JWTManager(app)
@@ -35,5 +38,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = '5718ebb8bb03c2'
 app.config['MAIL_PASSWORD'] = '8991fafdf77d0f'
 mail = Mail(app)
+
+logging.basicConfig(filename='app.log', level=logging.DEBUG, format='[%(asctime)s] %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 from ecommercesite import routes
