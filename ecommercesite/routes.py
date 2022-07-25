@@ -18,7 +18,7 @@ import numpy as np
 import re
 from flask_mail import Message
 from cryptography.fernet import Fernet
-from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
+from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
 
 #-------------WRAPPERS-AND-FUNCTIONS--------------#
 
@@ -41,6 +41,15 @@ def admin_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if current_user.role == "admin":
+            return f(*args, **kwargs)
+        else:
+            abort(401)
+    return wrap
+
+def user_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if current_user.role == "user":
             return f(*args, **kwargs)
         else:
             abort(401)
@@ -100,6 +109,17 @@ def api_login():
     else:
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
 
+@app.route('/api/account/delete/<int:id>', methods=['DELETE'])
+@jwt_required
+def api_delete_account(id):
+    user = User.query.filter_by(id=id).first()
+    claims = get_jwt()
+    if user.email != claims['email']:
+        return jsonify('Forbidden'), 403
+    else:
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify('user has been deleted.'), 200
 
 @app.route('/api/all_products', methods=['GET'])
 def all_items():
@@ -144,19 +164,9 @@ def login():
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
-            if current_user.role == "admin":
-                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
-            else:
-                access_token = create_access_token(identity=form.email.data)
+            next = request.args.get(next)
 
-            if next:
-                nextResp = make_response(redirect(next))
-                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
-                return nextResp
-            else:
-                homeResp = make_response(redirect(url_for('home')))
-                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
-                return homeResp
+            return redirect(next) if next else redirect(url_for('home'))
         else:
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
@@ -350,6 +360,7 @@ def product_details(id):
 
 @app.route('/addcart/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def add_to_cart(id):
     cart_item = Items_In_Cart.query.filter_by(product_id=id, user_id=current_user.id).first()
     products = Addproducts.query.filter_by(id=id).first()
@@ -366,6 +377,7 @@ def add_to_cart(id):
 
 @app.route('/deletecart/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def delete_cart(id):
     cart_item = Items_In_Cart.query.filter_by(id=id).first()
     db.session.delete(cart_item)
@@ -376,6 +388,7 @@ def delete_cart(id):
 
 @app.route('/cart', methods=['GET', 'POST'])
 @login_required
+@user_required
 def cart():
     cart_items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
     items = 0
@@ -385,6 +398,7 @@ def cart():
 
 @app.route('/addquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def add_quantity(id):
     cart_item = Items_In_Cart.query.filter_by(id=id, user_id=current_user.id).first()
     cart_item.quantity += 1
@@ -394,6 +408,7 @@ def add_quantity(id):
     
 @app.route('/minquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def min_quantity(id):
     cart_item = Items_In_Cart.query.filter_by(id=id, user_id=current_user.id).first()
     cart_item.quantity -= 1
@@ -409,6 +424,7 @@ def min_quantity(id):
 
 @app.route('/deletecartcheckout/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def delete_cart_item_checkout(id):
     cart_item = Items_In_Cart.query.filter_by(id=id).first()
     db.session.delete(cart_item)
@@ -418,6 +434,7 @@ def delete_cart_item_checkout(id):
 
 @app.route('/checkout', methods=['POST', 'GET'])
 @login_required
+@user_required
 def checkout_details():
     form = CheckOutForm()
     cart_items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
