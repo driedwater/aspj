@@ -1,7 +1,5 @@
 import secrets, os
-from time import strptime
 from PIL import Image
-from click import password_option
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
 from ecommercesite import app, bcrypt, db, mail
 import requests
@@ -17,14 +15,27 @@ import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
+import re
 from flask_mail import Message
 from cryptography.fernet import Fernet
 from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
 
-
+#-------------WRAPPERS-AND-FUNCTIONS--------------#
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+def regex_email(email):
+    if re.fullmatch(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email) and len(email) < 256:
+        return True
+    else:
+        return False
+
+def regex_password(password):
+    if re.fullmatch(r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$", password) and len(password) <=20:
+        return True
+    else:
+        return False
 
 def admin_required(f):
     @wraps(f)
@@ -62,6 +73,33 @@ def unauthorized_access(e):
     return render_template('error/405.html'), 405
 
 #---------------------API-ENDPOINTS------------------#
+
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    if request.is_json:
+        email = request.json['email']
+        if not regex_email(email):
+            return jsonify(message="Enter an email address"), 400
+        password = request.json['password']
+        if not regex_password(password):
+            return jsonify(message="Password may be more than 20 characters"), 400
+    else:
+        email = request.form['email']
+        if not regex_email(email):
+            return jsonify(message="Enter an email address"), 400
+        password = request.form['password']
+        if not regex_password(password):
+            return jsonify(message="Password may be more than 20 characters"), 400
+    user = User.query.filter_by(email=email).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        if user.role == 'admin':
+            access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
+        else:
+            access_token = create_access_token(identity=user.email)
+        return jsonify(message="Login success", access_token=access_token), 200
+    else:
+        return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
+
 
 @app.route('/api/all_products', methods=['GET'])
 def all_items():
@@ -102,7 +140,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
@@ -142,7 +180,7 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
@@ -185,7 +223,7 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data)).decode('utf-8')
 
         user.password = hash_pw
         db.session.commit()
@@ -211,7 +249,7 @@ def shop():
 
 @app.route('/search', methods=['GET'])
 def search():
-    keyword = request.args.get('query')
+    keyword = request.args.get('query') # mitigate injection
     products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
     return render_template("shop.html",title='Search ' + keyword, products=products)
 
@@ -599,7 +637,7 @@ def delete_product(id):
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data)).decode('utf-8')
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()

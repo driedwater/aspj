@@ -12,8 +12,8 @@ class RegistrationForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired(), Regexp('^[a-zA-Z]+$', message='Enter alphabets only')])
     username =  StringField('Username', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9_\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = StringField('Password', validators=[DataRequired(), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
-    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    password = StringField('Password', validators=[DataRequired(), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -28,7 +28,7 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
-    password = StringField('Password', validators=[DataRequired(), Regexp('^[a-zA-Z0-9!@#$&*]+$', message='Enter alphabets, numbers and special characters(!@#$&*) only')])
+    password = StringField('Password', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9!@#$&*]+$', message='Enter alphabets, numbers and special characters(!@#$&*) only')])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
@@ -61,8 +61,8 @@ class RequestResetForm(FlaskForm):
             raise ValidationError(f'There is no account named {email.data}.')
 
 class ResetPasswordForm(FlaskForm):
-    password = StringField('Password', validators=[DataRequired(), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
-    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    password = StringField('Password', validators=[DataRequired(),  Length(min=2, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     submit = SubmitField('Reset Password')
 
 class AddproductForm(FlaskForm):
@@ -100,10 +100,10 @@ class UpdateProductForm(FlaskForm):
 class AdminRegisterForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired(), Regexp('^[a-zA-Z]+$', message='Enter alphabets only')])
     last_name = StringField('Last Name', validators=[DataRequired(), Regexp('^[a-zA-Z]+$', message='Enter alphabets only')])
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9_\d-]*$', message='Only alphabets, numbers, dash and underscore allowed')])
+    username = StringField('Username', validators=[DataRequired(), Length(min=8, max=20), Regexp('^[a-zA-Z0-9_\d-]*$', message='Only alphabets, numbers, dash and underscore allowed')])
     email  = StringField('Email',validators=[DataRequired(), Email()])
-    password = PasswordField('Password',validators=[DataRequired(), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    password = PasswordField('Password',validators=[DataRequired(),  Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     submit = SubmitField('Sign Up')
 
     def validate_username(self, username):
