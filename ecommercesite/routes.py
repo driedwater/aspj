@@ -259,9 +259,14 @@ def shop():
 
 @app.route('/search', methods=['GET'])
 def search():
-    keyword = request.args.get('query') # mitigate injection
-    products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
-    return render_template("shop.html",title='Search ' + keyword, products=products)
+    keyword = request.args.get('query')
+    if re.fullmatch(r"^[a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
+        products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
+        return render_template("shop.html",title='Search ' + keyword, products=products)
+    else:
+        products = Addproducts.query.all()
+        flash('Only alphabets and numbers are allowed.', 'info')
+        return render_template("shop.html",title='Search ', products=products)
 
 @app.route('/about')
 def about():
