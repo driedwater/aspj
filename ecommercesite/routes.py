@@ -6,7 +6,7 @@ from ecommercesite import app, bcrypt, db, mail
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
+from ecommercesite.database import CustomerPaymentsSchema, Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
@@ -88,6 +88,16 @@ def delete_item(id):
         db.session.delete(product)
         db.session.commit()
         return jsonify(message='product has been deleted'), 200
+    else:
+        abort(404)
+
+
+@app.route('/api/customer_payments/<int:id>', methods=['GET'])
+def payment(id):
+    customerpayment = Customer_Payments.query.filter_by(id=id).first()
+    if customerpayment:
+        result = CustomerPaymentsSchema.dump(customerpayment)
+        return jsonify(result), 200
     else:
         abort(404)
 
@@ -432,7 +442,7 @@ def checkout_details():
         d= h.decrypt(token)
         print("PT: ", d.decode())
 
-        checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
+        checkout_details = Customer_Payments(id =id, full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
