@@ -164,7 +164,7 @@ def login():
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
-            next = request.args.get(next)
+            next = request.args.get('next')
 
             return redirect(next) if next else redirect(url_for('home'))
         else:
