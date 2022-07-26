@@ -145,8 +145,8 @@ class Customer_Payments(db.Model):
     card_number = db.Column(db.Integer, nullable = False)
     expiry = db.Column(db.Integer, nullable = False)
 
-    def __init__(self, id, full_name, card_number, expiry, postal_code, address):
-        self.id = id
+    def __init__(self, full_name, card_number, expiry, postal_code, address):
+        
         self.full_name = full_name
         self.card_number = card_number
         self.expiry = expiry
@@ -156,7 +156,7 @@ class Customer_Payments(db.Model):
 
 class CustomerPaymentsSchema(ma.SQLAlchemySchema):
     class Meta:
-        fields = ('id', 'full_name', 'card_number', 'expiry', 'postal_code', 'address')
+        fields = ('full_name', 'card_number', 'expiry', 'postal_code', 'address')
         # model = Customer_Payments
         # id = ma.auto_field()
         # full_name = ma.auto_field()

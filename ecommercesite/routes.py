@@ -408,9 +408,9 @@ def checkout_details():
         
         #encrypting card_num
         key = Fernet.generate_key()
-        key_file = open('FernetKeys.txt', 'a')
+        key_file = open('FernetKeys[Card_Num].txt', 'a')
         f = Fernet(key)
-        key_file.write("Key = " + str(key))
+        key_file.write(full_name + "'s " + "Key = " + str(key))
         key_file.write('\t')
         key_file.write('\n')
         key_file.close()
@@ -425,7 +425,14 @@ def checkout_details():
 
         #encryption postal code
         key = Fernet.generate_key()
+        key_file = open('FernetKeys[Postal_Code].txt', 'a')
         f = Fernet(key)
+        key_file.write(full_name + "'s " + "Key = " + str(key))
+        key_file.write('\t')
+        key_file.write('\n')
+        key_file.close()
+        print(key)
+
         enc_postal_code  = (form.postal_code.data).encode('utf-8')
         token = f.encrypt(enc_postal_code)
         print("CT: ",token)
@@ -433,16 +440,24 @@ def checkout_details():
         print("PT: ",d.decode())
         print('\n')
 
-        #encryption postal code
+        #encryption address
         key = Fernet.generate_key()
+        key_file = open('FernetKeys[Address].txt', 'a')
         h = Fernet(key)
+        key_file.write(full_name + "'s " + "Key = " + str(key))
+        key_file.write('\t')
+        key_file.write('\n')
+        key_file.close()
+        print(key)
+
         enc_address= (form.address.data).encode('utf-8')
         token = h.encrypt(enc_address)
         print("CT:",token)
         d= h.decrypt(token)
         print("PT: ", d.decode())
 
-        checkout_details = Customer_Payments(id =id, full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
+
+        checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
