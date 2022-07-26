@@ -81,9 +81,11 @@ class AddproductForm(FlaskForm):
     image_5 = FileField('Image 5', validators=[FileRequired(), FileAllowed(['jpg','png','gif','jpeg'])])
     submit = SubmitField("Add product")
 
+#
+#
 class UpdateProductForm(FlaskForm):
-    name = StringField('Product Name', validators=[DataRequired(), Regexp('^[a-zA-Z0-9_\d-]*$', message='Only alphabets, numbers, dash and underscore allowed')])
-    description = TextAreaField('Description', validators=[DataRequired(), Regexp('^[a-zA-Z0-9_!@#$&*\d-]*$', message='Only alphabets, numbers, special characters(-_!@#$&*) allowed')])
+    name = StringField('Product Name', validators=[DataRequired(), Regexp('^[a-zA-Z0-9_\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
+    description = TextAreaField('Description', validators=[DataRequired(), Regexp('^[a-zA-Z0-9_!@#$&*.,\d-]+$', message='Only alphabets, numbers, special characters(-_!@#$&*.,) allowed')])
     category = SelectField('Category', validators=[DataRequired()], choices=[(1, 'New Arrival'), (2, 'Most Popular'), (3, '	Limited Time'), (4, 'Chair'), (5, 'Table'), (6, 'Cabinet'), (7, 'Door'), (8, 'Bed'), (9, 'Decoration'), (10, 'Others')])
     price = FloatField('Price', validators=[DataRequired()])
     stock = IntegerField('Stock', validators=[DataRequired()])
