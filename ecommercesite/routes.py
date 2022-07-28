@@ -93,10 +93,17 @@ def delete_item(id):
 
 
 @app.route('/api/customer_payments/<int:id>', methods=['GET'])
+@jwt_admin_required
 def payment(id):
     customerpayment = Customer_Payments.query.filter_by(id=id).first()
     if customerpayment:
         result = CustomerPaymentsSchema.dump(customerpayment)
+        print(result)
+        # keyfile = open("FernetKeys[Card_Num].txt", "r")
+        # key = keyfile.read()
+        # keybytes = bytes(key, 'ascii')
+        # print("this is the key in bytes: ", keybytes)
+        # type(keybytes)
         return jsonify(result), 200
     else:
         abort(404)
@@ -222,7 +229,6 @@ def search():
 
 @app.route('/about')
 def about():
-    
     return render_template('about.html', title='About')
 
 @app.route('/services')
@@ -410,7 +416,7 @@ def checkout_details():
         key = Fernet.generate_key()
         key_file = open('FernetKeys[Card_Num].txt', 'a')
         f = Fernet(key)
-        key_file.write(full_name + "'s " + "Key = " + str(key))
+        key_file.write(str(key))
         key_file.write('\t')
         key_file.write('\n')
         key_file.close()
@@ -427,7 +433,7 @@ def checkout_details():
         key = Fernet.generate_key()
         key_file = open('FernetKeys[Postal_Code].txt', 'a')
         f = Fernet(key)
-        key_file.write(full_name + "'s " + "Key = " + str(key))
+        key_file.write(str(key))
         key_file.write('\t')
         key_file.write('\n')
         key_file.close()
@@ -444,7 +450,7 @@ def checkout_details():
         key = Fernet.generate_key()
         key_file = open('FernetKeys[Address].txt', 'a')
         h = Fernet(key)
-        key_file.write(full_name + "'s " + "Key = " + str(key))
+        key_file.write(str(key))
         key_file.write('\t')
         key_file.write('\n')
         key_file.close()
@@ -475,7 +481,7 @@ def checkout_details():
 def thanks():
     return render_template('thanks.html', title='Order Confirmed')
 
-
+#check if data is from authorised client
 
 #---------------------ADMIN-PAGE------------------------#
 
