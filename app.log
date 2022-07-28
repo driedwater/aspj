@@ -1294,3 +1294,954 @@
 [2022-07-26 18:45:25,515] WARNING werkzeug MainThread :  * Debugger is active!
 [2022-07-26 18:45:25,518] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
 [2022-07-26 18:45:25,599] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:31:05,550] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:31:07,216] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:31:07,220] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:31:07,302] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:31:22,376] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 01:31:22,590] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:31:24,295] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:31:24,297] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:31:24,365] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:32:08,229] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET / HTTP/1.1" 200 -
+[2022-07-29 01:32:08,391] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/owl.theme.default.min.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/owl.carousel.min.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,398] INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 01:32:08,413] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/modernizr-2.6.2.min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,413] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/jquery.easing.1.3.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/jquery.waypoints.min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/jquery.countTo.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/bootstrap.min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/owl.carousel.min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/images/review1.png HTTP/1.1" 200 -
+[2022-07-29 01:32:08,429] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/images/review2.png HTTP/1.1" 200 -
+[2022-07-29 01:32:08,445] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/images/review3.png HTTP/1.1" 200 -
+[2022-07-29 01:32:08,445] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/jquery.flexslider-min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,445] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/jquery.min.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,445] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/main.js HTTP/1.1" 200 -
+[2022-07-29 01:32:08,498] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 01:32:08,498] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 01:32:08,498] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/images/homebackground.jpg HTTP/1.1" 200 -
+[2022-07-29 01:32:08,498] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+[2022-07-29 01:32:08,629] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:32:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 01:35:50,237] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 01:35:50,496] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:35:52,145] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:35:52,145] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:35:52,229] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:41:24,916] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 01:41:25,117] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:41:26,659] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:41:26,661] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:41:26,739] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:41:41,860] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 01:41:42,075] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:41:43,906] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:41:43,909] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:41:43,993] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:41:52,416] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET / HTTP/1.1" 200 -
+[2022-07-29 01:41:52,579] INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,582] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,585] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/modernizr-2.6.2.min.js HTTP/1.1" 200 -
+[2022-07-29 01:41:52,589] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,590] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,592] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,596] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,597] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,601] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,602] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,603] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,607] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,609] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:52,610] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,611] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/owl.theme.default.min.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,611] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/owl.carousel.min.css HTTP/1.1" 200 -
+[2022-07-29 01:41:52,641] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/images/review1.png HTTP/1.1" 200 -
+[2022-07-29 01:41:52,642] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/images/review2.png HTTP/1.1" 200 -
+[2022-07-29 01:41:52,643] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/images/review3.png HTTP/1.1" 200 -
+[2022-07-29 01:41:52,658] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 01:41:52,659] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 01:41:52,661] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:52] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,172] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "GET /shop HTTP/1.1" 200 -
+[2022-07-29 01:41:54,231] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,233] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,234] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,235] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,238] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,240] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,242] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,244] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,245] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,247] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,248] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,251] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,252] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,254] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,256] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,257] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,364] INFO werkzeug Thread-43 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:54,366] INFO werkzeug Thread-44 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "GET /static/images/clothing-fashion-hero.jpg HTTP/1.1" 200 -
+[2022-07-29 01:41:54,366] INFO werkzeug Thread-45 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:54] "[36mGET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,600] INFO werkzeug Thread-46 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "GET /search?query=%21+%21 HTTP/1.1" 200 -
+[2022-07-29 01:41:57,659] INFO werkzeug Thread-47 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,660] INFO werkzeug Thread-48 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,661] INFO werkzeug Thread-49 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,665] INFO werkzeug Thread-50 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,665] INFO werkzeug Thread-51 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,669] INFO werkzeug Thread-52 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,671] INFO werkzeug Thread-53 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,673] INFO werkzeug Thread-54 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,675] INFO werkzeug Thread-55 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,678] INFO werkzeug Thread-56 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,679] INFO werkzeug Thread-57 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,681] INFO werkzeug Thread-58 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,684] INFO werkzeug Thread-59 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,686] INFO werkzeug Thread-60 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,687] INFO werkzeug Thread-61 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,688] INFO werkzeug Thread-62 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,732] INFO werkzeug Thread-63 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,734] INFO werkzeug Thread-64 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 01:41:57,735] INFO werkzeug Thread-65 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:41:57] "[36mGET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,622] INFO werkzeug Thread-66 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "GET /search?query=123 HTTP/1.1" 200 -
+[2022-07-29 01:42:06,679] INFO werkzeug Thread-67 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,681] INFO werkzeug Thread-68 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,683] INFO werkzeug Thread-69 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,686] INFO werkzeug Thread-70 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,688] INFO werkzeug Thread-71 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,690] INFO werkzeug Thread-72 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,692] INFO werkzeug Thread-73 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,695] INFO werkzeug Thread-74 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,697] INFO werkzeug Thread-75 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,699] INFO werkzeug Thread-76 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,701] INFO werkzeug Thread-77 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,703] INFO werkzeug Thread-78 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,705] INFO werkzeug Thread-79 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,707] INFO werkzeug Thread-80 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,708] INFO werkzeug Thread-81 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,711] INFO werkzeug Thread-82 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,756] INFO werkzeug Thread-83 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 01:42:06,756] INFO werkzeug Thread-84 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:42:06] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 01:43:20,503] INFO werkzeug Thread-85 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET / HTTP/1.1" 200 -
+[2022-07-29 01:43:20,534] INFO werkzeug Thread-86 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,540] INFO werkzeug Thread-88 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,540] INFO werkzeug Thread-87 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,543] INFO werkzeug Thread-89 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,543] INFO werkzeug Thread-90 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/owl.carousel.min.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,545] INFO werkzeug Thread-91 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/owl.theme.default.min.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,547] INFO werkzeug Thread-92 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 01:43:20,550] INFO werkzeug Thread-93 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/modernizr-2.6.2.min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,551] INFO werkzeug Thread-94 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/jquery.min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,554] INFO werkzeug Thread-95 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/jquery.easing.1.3.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,556] INFO werkzeug Thread-96 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/bootstrap.min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,557] INFO werkzeug Thread-97 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/jquery.waypoints.min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,559] INFO werkzeug Thread-98 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/owl.carousel.min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,562] INFO werkzeug Thread-99 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/jquery.countTo.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,564] INFO werkzeug Thread-100 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/jquery.flexslider-min.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,566] INFO werkzeug Thread-101 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/main.js HTTP/1.1" 200 -
+[2022-07-29 01:43:20,566] INFO werkzeug Thread-102 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/images/review1.png HTTP/1.1" 200 -
+[2022-07-29 01:43:20,569] INFO werkzeug Thread-103 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/images/review2.png HTTP/1.1" 200 -
+[2022-07-29 01:43:20,569] INFO werkzeug Thread-104 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/images/review3.png HTTP/1.1" 200 -
+[2022-07-29 01:43:20,595] INFO werkzeug Thread-105 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 01:43:20,598] INFO werkzeug Thread-106 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 01:43:20,599] INFO werkzeug Thread-107 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/images/homebackground.jpg HTTP/1.1" 200 -
+[2022-07-29 01:43:20,600] INFO werkzeug Thread-108 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:43:20] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+[2022-07-29 01:52:17,944] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:52:18,144] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:52:19,959] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:52:19,963] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:52:20,033] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:53:50,491] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:53:50,706] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:53:52,274] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:53:52,277] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:53:52,343] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:55:20,541] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\__init__.py', reloading
+[2022-07-29 01:55:20,729] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:55:22,464] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:55:22,468] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:55:22,562] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:55:52,647] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:55:52,858] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:55:54,533] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:55:54,533] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:55:54,609] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:56:17,293] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:56:17,492] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:56:19,097] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:56:19,097] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:56:19,166] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:56:27,804] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:56:28,017] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:56:29,688] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:56:29,688] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:56:29,774] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:56:33,024] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:56:33,214] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:56:34,748] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:56:34,748] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:56:34,839] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:56:39,207] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:56:39,412] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:56:41,082] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:56:41,088] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:56:41,167] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:57:15,587] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:57:15,790] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:57:17,308] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:57:17,308] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:57:17,393] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:57:28,224] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:57:28,426] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:57:30,070] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:57:30,070] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:57:30,162] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:57:54,934] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:57:55,149] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:57:56,740] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:57:56,740] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:57:56,823] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:57:59,033] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 01:57:59,230] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 01:58:00,886] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 01:58:00,886] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 01:58:00,978] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 01:58:10,532] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET / HTTP/1.1" 200 -
+[2022-07-29 01:58:10,687] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,690] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,693] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,695] INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 01:58:10,697] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,702] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,703] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,707] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,707] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,711] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,713] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,715] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,718] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,724] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,726] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,727] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:10,731] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/images/review2.png HTTP/1.1" 200 -
+[2022-07-29 01:58:10,732] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/images/review3.png HTTP/1.1" 200 -
+[2022-07-29 01:58:10,734] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/images/review1.png HTTP/1.1" 200 -
+[2022-07-29 01:58:10,783] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 01:58:10,784] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 01:58:10,786] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+[2022-07-29 01:58:10,788] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:10] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,006] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "GET /login HTTP/1.1" 200 -
+[2022-07-29 01:58:12,121] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,123] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,126] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,128] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,130] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,131] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,134] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,135] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,138] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,139] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 01:58:12,141] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 01:58:12,144] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 01:58:12,146] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,149] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,150] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,151] INFO werkzeug Thread-43 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:12,264] INFO werkzeug Thread-44 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 01:58:12,301] INFO werkzeug Thread-45 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 01:58:13,386] INFO werkzeug Thread-46 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 01:58:13,427] INFO werkzeug Thread-47 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,430] INFO werkzeug Thread-48 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,431] INFO werkzeug Thread-49 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,436] INFO werkzeug Thread-51 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,436] INFO werkzeug Thread-50 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,438] INFO werkzeug Thread-52 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,439] INFO werkzeug Thread-53 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,443] INFO werkzeug Thread-54 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,445] INFO werkzeug Thread-55 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,447] INFO werkzeug Thread-56 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,450] INFO werkzeug Thread-57 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,452] INFO werkzeug Thread-58 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,453] INFO werkzeug Thread-59 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,455] INFO werkzeug Thread-60 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,457] INFO werkzeug Thread-61 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,458] INFO werkzeug Thread-62 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:13,583] INFO werkzeug Thread-63 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:13] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,345] INFO werkzeug Thread-64 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "POST /reset_password HTTP/1.1" 200 -
+[2022-07-29 01:58:34,399] INFO werkzeug Thread-65 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,403] INFO werkzeug Thread-66 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,405] INFO werkzeug Thread-67 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,406] INFO werkzeug Thread-68 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,409] INFO werkzeug Thread-69 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,411] INFO werkzeug Thread-70 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,414] INFO werkzeug Thread-71 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,416] INFO werkzeug Thread-72 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,418] INFO werkzeug Thread-73 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,420] INFO werkzeug Thread-74 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,422] INFO werkzeug Thread-75 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,425] INFO werkzeug Thread-76 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,426] INFO werkzeug Thread-77 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,429] INFO werkzeug Thread-78 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,431] INFO werkzeug Thread-79 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,432] INFO werkzeug Thread-80 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 01:58:34,473] INFO werkzeug Thread-81 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 01:58:34] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,650] INFO werkzeug Thread-82 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:01:03,701] INFO werkzeug Thread-83 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,704] INFO werkzeug Thread-84 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,706] INFO werkzeug Thread-85 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,707] INFO werkzeug Thread-86 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,709] INFO werkzeug Thread-87 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,712] INFO werkzeug Thread-88 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,714] INFO werkzeug Thread-89 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,716] INFO werkzeug Thread-90 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,718] INFO werkzeug Thread-91 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:01:03,720] INFO werkzeug Thread-92 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,723] INFO werkzeug Thread-93 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:01:03,725] INFO werkzeug Thread-94 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 02:01:03,726] INFO werkzeug Thread-95 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 02:01:03,728] INFO werkzeug Thread-96 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,731] INFO werkzeug Thread-97 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,732] INFO werkzeug Thread-98 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:03,863] INFO werkzeug Thread-99 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:01:03,897] INFO werkzeug Thread-100 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 02:01:12,128] INFO ecommercesite Thread-101 (process_request_thread) : admin@email.com logged in successfully
+[2022-07-29 02:01:12,136] INFO werkzeug Thread-101 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+[2022-07-29 02:01:13,807] INFO werkzeug Thread-102 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "GET /home HTTP/1.1" 200 -
+[2022-07-29 02:01:13,950] INFO werkzeug Thread-103 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:01:13,952] INFO werkzeug Thread-104 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:01:13,956] INFO werkzeug Thread-105 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,958] INFO werkzeug Thread-106 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,962] INFO werkzeug Thread-107 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,963] INFO werkzeug Thread-108 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,969] INFO werkzeug Thread-109 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,971] INFO werkzeug Thread-110 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,973] INFO werkzeug Thread-111 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,976] INFO werkzeug Thread-112 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,979] INFO werkzeug Thread-113 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,982] INFO werkzeug Thread-114 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,984] INFO werkzeug Thread-115 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,987] INFO werkzeug Thread-116 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,989] INFO werkzeug Thread-117 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,991] INFO werkzeug Thread-118 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,994] INFO werkzeug Thread-119 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,996] INFO werkzeug Thread-120 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:13,998] INFO werkzeug Thread-121 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:13] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:14,078] INFO werkzeug Thread-122 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:14] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:01:14,081] INFO werkzeug Thread-123 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:14] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 02:01:14,082] INFO werkzeug Thread-124 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:14] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:14,124] INFO werkzeug Thread-125 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 02:01:16,132] INFO ecommercesite Thread-126 (process_request_thread) : admin@email.com Successfully logged out
+[2022-07-29 02:01:16,133] INFO werkzeug Thread-126 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+[2022-07-29 02:01:16,149] INFO werkzeug Thread-127 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "GET /home HTTP/1.1" 200 -
+[2022-07-29 02:01:16,200] INFO werkzeug Thread-128 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,202] INFO werkzeug Thread-129 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,207] INFO werkzeug Thread-130 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,207] INFO werkzeug Thread-131 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,210] INFO werkzeug Thread-132 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,211] INFO werkzeug Thread-133 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,216] INFO werkzeug Thread-134 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,218] INFO werkzeug Thread-135 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,221] INFO werkzeug Thread-136 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,223] INFO werkzeug Thread-137 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,225] INFO werkzeug Thread-138 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,228] INFO werkzeug Thread-139 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,231] INFO werkzeug Thread-140 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,233] INFO werkzeug Thread-141 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,235] INFO werkzeug Thread-142 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,237] INFO werkzeug Thread-143 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,263] INFO werkzeug Thread-144 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,263] INFO werkzeug Thread-145 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,268] INFO werkzeug Thread-146 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,271] INFO werkzeug Thread-148 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,272] INFO werkzeug Thread-147 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:16,273] INFO werkzeug Thread-149 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:16] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,676] INFO werkzeug Thread-150 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:01:17,725] INFO werkzeug Thread-151 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,729] INFO werkzeug Thread-152 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,732] INFO werkzeug Thread-153 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,733] INFO werkzeug Thread-154 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,736] INFO werkzeug Thread-155 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,739] INFO werkzeug Thread-156 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,740] INFO werkzeug Thread-157 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,742] INFO werkzeug Thread-158 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,745] INFO werkzeug Thread-159 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,748] INFO werkzeug Thread-160 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,751] INFO werkzeug Thread-161 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,753] INFO werkzeug Thread-162 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,756] INFO werkzeug Thread-163 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,758] INFO werkzeug Thread-164 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,760] INFO werkzeug Thread-165 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,761] INFO werkzeug Thread-166 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:17,875] INFO werkzeug Thread-167 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:17] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,045] INFO werkzeug Thread-168 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 02:01:19,094] INFO werkzeug Thread-169 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,095] INFO werkzeug Thread-170 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,099] INFO werkzeug Thread-171 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,100] INFO werkzeug Thread-172 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,105] INFO werkzeug Thread-173 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,108] INFO werkzeug Thread-174 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,109] INFO werkzeug Thread-175 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,112] INFO werkzeug Thread-176 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:01:19,114] INFO werkzeug Thread-177 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:01:19,119] INFO werkzeug Thread-178 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,120] INFO werkzeug Thread-179 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,123] INFO werkzeug Thread-180 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,127] INFO werkzeug Thread-181 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,129] INFO werkzeug Thread-182 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,132] INFO werkzeug Thread-183 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,133] INFO werkzeug Thread-184 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:19,172] INFO werkzeug Thread-185 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:19] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:01:24,648] INFO werkzeug Thread-187 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "POST /reset_password HTTP/1.1" 200 -
+[2022-07-29 02:01:24,691] INFO werkzeug Thread-188 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,692] INFO werkzeug Thread-189 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,698] INFO werkzeug Thread-191 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,699] INFO werkzeug Thread-190 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,702] INFO werkzeug Thread-192 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,705] INFO werkzeug Thread-193 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,708] INFO werkzeug Thread-194 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,710] INFO werkzeug Thread-195 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,713] INFO werkzeug Thread-196 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,716] INFO werkzeug Thread-197 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,719] INFO werkzeug Thread-198 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,721] INFO werkzeug Thread-199 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,724] INFO werkzeug Thread-200 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,726] INFO werkzeug Thread-201 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,728] INFO werkzeug Thread-202 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,730] INFO werkzeug Thread-203 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:24,754] INFO werkzeug Thread-204 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:24] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:42,678] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 02:01:42,883] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 02:01:44,544] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 02:01:44,544] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 02:01:44,625] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 02:01:55,570] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 02:01:55,730] INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,734] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,735] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,739] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,740] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,745] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:01:55,746] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:01:55,748] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,753] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,756] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,756] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,757] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,761] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,761] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,763] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,765] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:01:55,803] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:01:55] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:02:05,962] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:05] "[32mPOST /reset_password HTTP/1.1[0m" 302 -
+[2022-07-29 02:02:05,977] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:05] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:02:06,063] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:02:06,066] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:02:06,068] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 02:02:06,073] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,073] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 02:02:06,075] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,078] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,082] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,084] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,087] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,091] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,091] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,094] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,096] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,099] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,100] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:06,147] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:02:06,156] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 02:02:33,633] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "GET /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTY1OTAzMTMyMCwiZXhwIjoxNjU5MDMzMTIwfQ.eyJ1c2VyX2lkIjoxfQ.TxnSqNpMeoI_OfScc08jUU5L9JsBVQQkWG3C7x4MVTg0QsphmX7RXAc3l62CzzJrRBM50wr_LKn_ECFr-XoTQg HTTP/1.1" 200 -
+[2022-07-29 02:02:33,667] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,670] INFO werkzeug Thread-43 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,672] INFO werkzeug Thread-44 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,677] INFO werkzeug Thread-45 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,678] INFO werkzeug Thread-46 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,680] INFO werkzeug Thread-47 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,682] INFO werkzeug Thread-48 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,684] INFO werkzeug Thread-49 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,687] INFO werkzeug Thread-50 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,690] INFO werkzeug Thread-51 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,692] INFO werkzeug Thread-52 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,694] INFO werkzeug Thread-53 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,698] INFO werkzeug Thread-54 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,700] INFO werkzeug Thread-55 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,703] INFO werkzeug Thread-56 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:33,704] INFO werkzeug Thread-57 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:34,020] INFO werkzeug Thread-58 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 02:02:34,030] INFO werkzeug Thread-59 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:34] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:02:34,031] INFO werkzeug Thread-60 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:34] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+[2022-07-29 02:02:45,384] INFO werkzeug Thread-61 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "POST /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTY1OTAzMTMyMCwiZXhwIjoxNjU5MDMzMTIwfQ.eyJ1c2VyX2lkIjoxfQ.TxnSqNpMeoI_OfScc08jUU5L9JsBVQQkWG3C7x4MVTg0QsphmX7RXAc3l62CzzJrRBM50wr_LKn_ECFr-XoTQg HTTP/1.1" 200 -
+[2022-07-29 02:02:45,435] INFO werkzeug Thread-62 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,436] INFO werkzeug Thread-63 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,438] INFO werkzeug Thread-64 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,441] INFO werkzeug Thread-65 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,444] INFO werkzeug Thread-66 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,446] INFO werkzeug Thread-67 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,450] INFO werkzeug Thread-68 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,451] INFO werkzeug Thread-69 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:02:45,452] INFO werkzeug Thread-70 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,456] INFO werkzeug Thread-71 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:02:45,460] INFO werkzeug Thread-72 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 02:02:45,461] INFO werkzeug Thread-73 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,464] INFO werkzeug Thread-74 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 02:02:45,466] INFO werkzeug Thread-75 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,469] INFO werkzeug Thread-76 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,470] INFO werkzeug Thread-77 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:02:45,516] INFO werkzeug Thread-78 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:02:45,525] INFO werkzeug Thread-79 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 02:02:55,752] INFO werkzeug Thread-80 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:55] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 02:02:55,752] INFO werkzeug Thread-81 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:55] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 02:02:55,752] INFO werkzeug Thread-82 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:55] "GET /static/style.css HTTP/1.1" 200 -
+[2022-07-29 02:02:55,752] INFO werkzeug Thread-83 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:55] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 02:02:56,300] INFO werkzeug Thread-85 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:56] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:02:56,316] INFO werkzeug Thread-84 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:56] "GET /static/bootstrap.css.map HTTP/1.1" 200 -
+[2022-07-29 02:02:56,401] INFO werkzeug Thread-86 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:02:56] "GET /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTY1OTAzMTMyMCwiZXhwIjoxNjU5MDMzMTIwfQ.eyJ1c2VyX2lkIjoxfQ.TxnSqNpMeoI_OfScc08jUU5L9JsBVQQkWG3C7x4MVTg0QsphmX7RXAc3l62CzzJrRBM50wr_LKn_ECFr-XoTQg HTTP/1.1" 200 -
+[2022-07-29 02:03:23,374] INFO werkzeug Thread-87 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "POST /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTY1OTAzMTMyMCwiZXhwIjoxNjU5MDMzMTIwfQ.eyJ1c2VyX2lkIjoxfQ.TxnSqNpMeoI_OfScc08jUU5L9JsBVQQkWG3C7x4MVTg0QsphmX7RXAc3l62CzzJrRBM50wr_LKn_ECFr-XoTQg HTTP/1.1" 200 -
+[2022-07-29 02:03:23,453] INFO werkzeug Thread-88 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,458] INFO werkzeug Thread-89 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,461] INFO werkzeug Thread-90 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,463] INFO werkzeug Thread-91 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,466] INFO werkzeug Thread-92 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,469] INFO werkzeug Thread-93 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,471] INFO werkzeug Thread-94 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,474] INFO werkzeug Thread-95 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,476] INFO werkzeug Thread-96 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,478] INFO werkzeug Thread-97 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,482] INFO werkzeug Thread-98 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,484] INFO werkzeug Thread-99 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,487] INFO werkzeug Thread-100 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,489] INFO werkzeug Thread-101 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,491] INFO werkzeug Thread-102 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,492] INFO werkzeug Thread-103 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,599] INFO werkzeug Thread-104 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:03:23,925] INFO werkzeug Thread-106 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:03:23,925] INFO werkzeug Thread-105 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:03:23] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,504] INFO werkzeug Thread-107 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[32mPOST /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTY1OTAzMTMyMCwiZXhwIjoxNjU5MDMzMTIwfQ.eyJ1c2VyX2lkIjoxfQ.TxnSqNpMeoI_OfScc08jUU5L9JsBVQQkWG3C7x4MVTg0QsphmX7RXAc3l62CzzJrRBM50wr_LKn_ECFr-XoTQg HTTP/1.1[0m" 302 -
+[2022-07-29 02:04:00,504] INFO werkzeug Thread-108 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:04:00,582] INFO werkzeug Thread-109 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,586] INFO werkzeug Thread-110 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,589] INFO werkzeug Thread-111 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,591] INFO werkzeug Thread-112 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,593] INFO werkzeug Thread-113 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,596] INFO werkzeug Thread-114 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,599] INFO werkzeug Thread-115 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,600] INFO werkzeug Thread-116 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,603] INFO werkzeug Thread-117 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,605] INFO werkzeug Thread-118 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,609] INFO werkzeug Thread-119 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,611] INFO werkzeug Thread-120 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,614] INFO werkzeug Thread-121 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,617] INFO werkzeug Thread-122 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,618] INFO werkzeug Thread-123 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,619] INFO werkzeug Thread-124 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:00,733] INFO werkzeug Thread-125 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:00] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:01,036] INFO werkzeug Thread-127 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:01] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:04:01,036] INFO werkzeug Thread-126 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:01] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,557] INFO werkzeug Thread-128 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:04:05,702] INFO werkzeug Thread-129 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,705] INFO werkzeug Thread-130 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,705] INFO werkzeug Thread-131 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,711] INFO werkzeug Thread-132 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,713] INFO werkzeug Thread-133 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,716] INFO werkzeug Thread-134 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,719] INFO werkzeug Thread-135 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,721] INFO werkzeug Thread-136 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,723] INFO werkzeug Thread-137 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,726] INFO werkzeug Thread-138 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,730] INFO werkzeug Thread-139 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,732] INFO werkzeug Thread-140 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,735] INFO werkzeug Thread-141 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,737] INFO werkzeug Thread-142 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,739] INFO werkzeug Thread-143 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,740] INFO werkzeug Thread-144 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:05,918] INFO werkzeug Thread-145 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:05] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:06,361] INFO werkzeug Thread-147 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:06] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:04:06,361] INFO werkzeug Thread-146 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:04:06] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:04:27,381] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\forms.py', reloading
+[2022-07-29 02:04:27,603] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 02:04:29,160] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 02:04:29,160] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 02:04:29,238] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 02:07:30,910] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:30] "GET /register HTTP/1.1" 200 -
+[2022-07-29 02:07:31,191] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,195] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,198] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,202] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,205] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,207] INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,210] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,212] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,217] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,219] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,220] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,221] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,223] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,223] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,227] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,228] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,289] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,588] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:07:31,592] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:07:31] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:08:30,665] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "POST /register HTTP/1.1" 200 -
+[2022-07-29 02:08:30,768] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,772] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,774] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,776] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,779] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,781] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,784] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,786] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,789] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,791] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,794] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,796] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,799] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,802] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,805] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,806] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:30,927] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:30] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:31,191] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:31] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:31,193] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:31] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:08:40,632] INFO ecommercesite Thread-42 (process_request_thread) : 111@email.com Successfully registered
+[2022-07-29 02:08:40,632] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[32mPOST /register HTTP/1.1[0m" 302 -
+[2022-07-29 02:08:40,658] INFO werkzeug Thread-43 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:08:40,787] INFO werkzeug Thread-44 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,790] INFO werkzeug Thread-45 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,792] INFO werkzeug Thread-46 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,796] INFO werkzeug Thread-47 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,798] INFO werkzeug Thread-48 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,800] INFO werkzeug Thread-49 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,802] INFO werkzeug Thread-50 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,805] INFO werkzeug Thread-51 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,808] INFO werkzeug Thread-52 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,811] INFO werkzeug Thread-53 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,813] INFO werkzeug Thread-54 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,816] INFO werkzeug Thread-55 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,819] INFO werkzeug Thread-56 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,822] INFO werkzeug Thread-57 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,823] INFO werkzeug Thread-58 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,824] INFO werkzeug Thread-59 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:40,914] INFO werkzeug Thread-60 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:40] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:41,200] INFO werkzeug Thread-61 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:41] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:41,202] INFO werkzeug Thread-62 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:41] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:08:42,903] INFO werkzeug Thread-63 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:42] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:08:42,985] INFO werkzeug Thread-64 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:42] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:42,988] INFO werkzeug Thread-65 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:42] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:42,993] INFO werkzeug Thread-66 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:42] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,000] INFO werkzeug Thread-67 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,002] INFO werkzeug Thread-68 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,008] INFO werkzeug Thread-69 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,010] INFO werkzeug Thread-70 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,013] INFO werkzeug Thread-71 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,015] INFO werkzeug Thread-72 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,018] INFO werkzeug Thread-73 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,021] INFO werkzeug Thread-74 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,023] INFO werkzeug Thread-75 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,025] INFO werkzeug Thread-76 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 02:08:43,029] INFO werkzeug Thread-77 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 02:08:43,030] INFO werkzeug Thread-78 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 02:08:43,032] INFO werkzeug Thread-79 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 02:08:43,349] INFO werkzeug Thread-80 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 02:08:43,648] INFO werkzeug Thread-81 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[33mGET /static/style.css.map HTTP/1.1[0m" 404 -
+[2022-07-29 02:08:43,649] INFO werkzeug Thread-82 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:08:43] "[36mGET /static/bootstrap.css.map HTTP/1.1[0m" 304 -
+[2022-07-29 02:42:17,883] INFO werkzeug Thread-83 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:42:17] "POST /api/login HTTP/1.1" 200 -
+[2022-07-29 02:42:30,439] INFO werkzeug Thread-84 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:42:30] "[31m[1mPOST /api/login HTTP/1.1[0m" 400 -
+[2022-07-29 02:42:35,994] INFO werkzeug Thread-85 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:42:35] "[31m[1mPOST /api/login HTTP/1.1[0m" 400 -
+[2022-07-29 02:42:44,073] INFO werkzeug Thread-86 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:42:44] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+[2022-07-29 02:43:40,303] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 02:43:40,509] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 02:43:42,280] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 02:43:42,283] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 02:43:42,364] INFO werkzeug Thread-1 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 02:50:39,989] INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 02:50:39] "GET /login HTTP/1.1" 200 -
+[2022-07-29 02:59:58,666] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\__init__.py', reloading
+[2022-07-29 02:59:58,861] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:00:00,943] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:00:00,943] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:00:01,019] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:02:30,296] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:02:31,987] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:02:31,987] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:02:32,078] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:02:37,212] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:02:37] "POST /api/login HTTP/1.1" 200 -
+[2022-07-29 03:02:40,454] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:02:40] "POST /api/login HTTP/1.1" 200 -
+[2022-07-29 03:02:42,089] WARNING flask-limiter Thread-7 (process_request_thread) : ratelimit 2 per 1 day (127.0.0.1) exceeded at endpoint: api_login
+[2022-07-29 03:02:42,089] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:02:42] "[31m[1mPOST /api/login HTTP/1.1[0m" 429 -
+[2022-07-29 03:02:45,296] WARNING flask-limiter Thread-9 (process_request_thread) : ratelimit 2 per 1 day (127.0.0.1) exceeded at endpoint: api_login
+[2022-07-29 03:02:45,296] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:02:45] "[31m[1mPOST /api/login HTTP/1.1[0m" 429 -
+[2022-07-29 03:03:18,791] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:18] "GET / HTTP/1.1" 200 -
+[2022-07-29 03:03:19,012] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:03:19,015] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,017] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:03:19,021] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,022] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,025] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,027] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:03:19,028] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,030] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,032] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,033] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,035] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,038] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,038] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,040] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,042] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,047] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,049] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,050] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:19,091] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:03:19,092] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/product_pics/8802209f55264c4131d7.png HTTP/1.1" 200 -
+[2022-07-29 03:03:19,096] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+[2022-07-29 03:03:19,097] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:03:19] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+[2022-07-29 03:03:53,063] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\__init__.py', reloading
+[2022-07-29 03:03:53,270] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:03:55,197] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:03:55,200] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:03:55,282] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:05:19,868] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:19] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:05:20,089] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,091] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,094] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,097] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,101] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:05:20,102] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,106] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:05:20,107] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:05:20,111] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 03:05:20,113] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,113] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,117] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,117] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,119] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,120] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,121] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:20,177] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:20] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:05:21,817] INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 03:05:21,864] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,865] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,868] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,871] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,873] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,875] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,877] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,879] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,881] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,884] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,887] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:05:21,888] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,892] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /static/flexslider.css HTTP/1.1" 200 -
+[2022-07-29 03:05:21,893] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /static/owl.carousel.min.css HTTP/1.1" 200 -
+[2022-07-29 03:05:21,895] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /static/owl.theme.default.min.css HTTP/1.1" 200 -
+[2022-07-29 03:05:21,896] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:21,936] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:05:21,943] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-07-29 03:05:29,232] INFO werkzeug Thread-43 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[32mPOST /reset_password HTTP/1.1[0m" 302 -
+[2022-07-29 03:05:29,232] INFO werkzeug Thread-45 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:05:29,294] INFO werkzeug Thread-47 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,296] INFO werkzeug Thread-48 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,297] INFO werkzeug Thread-49 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,301] INFO werkzeug Thread-50 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,302] INFO werkzeug Thread-51 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:05:29,306] INFO werkzeug Thread-52 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,308] INFO werkzeug Thread-53 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:05:29,310] INFO werkzeug Thread-54 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:05:29,313] INFO werkzeug Thread-55 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,315] INFO werkzeug Thread-56 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,317] INFO werkzeug Thread-57 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,319] INFO werkzeug Thread-58 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,322] INFO werkzeug Thread-59 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,325] INFO werkzeug Thread-60 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,327] INFO werkzeug Thread-61 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,329] INFO werkzeug Thread-62 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:29,365] INFO werkzeug Thread-63 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:29] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:05:31,685] INFO werkzeug Thread-65 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 03:05:31,730] INFO werkzeug Thread-67 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,734] INFO werkzeug Thread-68 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,736] INFO werkzeug Thread-69 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,738] INFO werkzeug Thread-70 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,740] INFO werkzeug Thread-71 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,743] INFO werkzeug Thread-72 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,745] INFO werkzeug Thread-73 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,748] INFO werkzeug Thread-74 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,750] INFO werkzeug Thread-75 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,752] INFO werkzeug Thread-76 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,755] INFO werkzeug Thread-77 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,757] INFO werkzeug Thread-78 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,759] INFO werkzeug Thread-79 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,762] INFO werkzeug Thread-80 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,764] INFO werkzeug Thread-81 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,765] INFO werkzeug Thread-82 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:31,803] INFO werkzeug Thread-83 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:31] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,422] INFO werkzeug Thread-84 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "POST /reset_password HTTP/1.1" 200 -
+[2022-07-29 03:05:33,462] INFO werkzeug Thread-86 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:05:33,463] INFO werkzeug Thread-87 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:05:33,467] INFO werkzeug Thread-88 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,469] INFO werkzeug Thread-89 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,472] INFO werkzeug Thread-90 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,474] INFO werkzeug Thread-91 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,477] INFO werkzeug Thread-92 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,481] INFO werkzeug Thread-93 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,482] INFO werkzeug Thread-94 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,483] INFO werkzeug Thread-95 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,486] INFO werkzeug Thread-96 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,489] INFO werkzeug Thread-97 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,491] INFO werkzeug Thread-98 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,494] INFO werkzeug Thread-99 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,495] INFO werkzeug Thread-100 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,497] INFO werkzeug Thread-101 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:33,535] INFO werkzeug Thread-102 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:33] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:05:41,011] INFO werkzeug Thread-104 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[32mPOST /reset_password HTTP/1.1[0m" 302 -
+[2022-07-29 03:05:41,027] INFO werkzeug Thread-106 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:05:41,082] INFO werkzeug Thread-108 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,084] INFO werkzeug Thread-109 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,085] INFO werkzeug Thread-110 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,088] INFO werkzeug Thread-111 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,091] INFO werkzeug Thread-112 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,094] INFO werkzeug Thread-113 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,096] INFO werkzeug Thread-114 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,098] INFO werkzeug Thread-115 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,100] INFO werkzeug Thread-116 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,103] INFO werkzeug Thread-117 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,105] INFO werkzeug Thread-118 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,107] INFO werkzeug Thread-119 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,110] INFO werkzeug Thread-120 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,113] INFO werkzeug Thread-121 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,114] INFO werkzeug Thread-122 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,116] INFO werkzeug Thread-123 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:05:41,151] INFO werkzeug Thread-124 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:05:41] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 03:07:25,439] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:07:25,689] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:12:39,204] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:12:40,901] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:12:40,907] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:12:40,986] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:12:55,010] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:12:55,215] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:12:57,092] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:12:57,092] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:12:57,177] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:12:57,208] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:12:57,391] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,394] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,398] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,399] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,402] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:12:57,403] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:12:57,404] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,408] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:12:57,413] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,413] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,413] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,414] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,416] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,419] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,420] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,452] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:12:57,487] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:12:57] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:13:49,101] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:13:49,309] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:13:51,002] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:13:51,005] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:13:51,089] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:13:54,390] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:13:54,582] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:13:56,510] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:13:56,526] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:13:56,610] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:13:56,711] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:13:56,881] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,885] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,888] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,891] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,894] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,897] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,898] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,902] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,903] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,907] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,908] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,909] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,914] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,915] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,916] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,949] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:56,986] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:56] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,081] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 03:13:58,136] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,138] INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,140] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,142] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,145] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,148] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,150] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,152] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,154] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,156] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:13:58,158] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:13:58,159] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:13:58,163] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,166] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,167] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,170] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:13:58,204] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:13:58] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:14:00,233] WARNING flask-limiter Thread-42 (process_request_thread) : ratelimit 1 per 1 day (127.0.0.1) exceeded at endpoint: reset_password
+[2022-07-29 03:14:00,234] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:00] "[31m[1mPOST /reset_password HTTP/1.1[0m" 429 -
+[2022-07-29 03:14:05,341] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:14:05,560] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:14:07,267] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:14:07,267] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:14:07,346] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:14:09,134] INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "GET /reset_password HTTP/1.1" 200 -
+[2022-07-29 03:14:09,266] INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,269] INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,272] INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,275] INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,278] INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,280] INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,284] INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,284] INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,289] INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,290] INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,292] INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,294] INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,296] INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,299] INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,304] INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,304] INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:09,342] INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:09] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,384] INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[32mPOST /reset_password HTTP/1.1[0m" 302 -
+[2022-07-29 03:14:17,406] INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "GET /login HTTP/1.1" 200 -
+[2022-07-29 03:14:17,450] INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,452] INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,454] INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "GET /static/animate.css HTTP/1.1" 200 -
+[2022-07-29 03:14:17,457] INFO werkzeug Thread-29 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "GET /static/icomoon.css HTTP/1.1" 200 -
+[2022-07-29 03:14:17,459] INFO werkzeug Thread-30 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,462] INFO werkzeug Thread-31 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "GET /static/bootstrap.css HTTP/1.1" 200 -
+[2022-07-29 03:14:17,463] INFO werkzeug Thread-32 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,465] INFO werkzeug Thread-33 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,469] INFO werkzeug Thread-34 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,472] INFO werkzeug Thread-35 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,474] INFO werkzeug Thread-36 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,475] INFO werkzeug Thread-37 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,477] INFO werkzeug Thread-38 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,480] INFO werkzeug Thread-39 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,483] INFO werkzeug Thread-40 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,483] INFO werkzeug Thread-41 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2022-07-29 03:14:17,521] INFO werkzeug Thread-42 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:17] "GET /static/images/loader.gif HTTP/1.1" 200 -
+[2022-07-29 03:14:20,369] WARNING flask-limiter Thread-44 (process_request_thread) : ratelimit 2 per 1 day (127.0.0.1) exceeded at endpoint: reset_password
+[2022-07-29 03:14:20,369] INFO werkzeug Thread-44 (process_request_thread) : 127.0.0.1 - - [29/Jul/2022 03:14:20] "[31m[1mGET /reset_password HTTP/1.1[0m" 429 -
+[2022-07-29 03:14:30,075] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:14:30,272] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:14:32,088] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:14:32,091] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:14:32,178] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2022-07-29 03:14:33,313] INFO werkzeug MainThread :  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+[2022-07-29 03:14:33,512] INFO werkzeug MainThread :  * Restarting with stat
+[2022-07-29 03:14:35,144] WARNING werkzeug MainThread :  * Debugger is active!
+[2022-07-29 03:14:35,160] INFO werkzeug MainThread :  * Debugger PIN: 644-334-072
+[2022-07-29 03:14:35,229] INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

@@ -9,6 +9,8 @@ from flask_authorize import Authorize
 from flask_marshmallow import Marshmallow
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import logging
 
 
@@ -20,11 +22,13 @@ app.config['SECRET_KEY'] = '53e4ea4f348001e62295b81953988e9cbd25a49ced46adc6f374
 app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.jinja_env.autoescape = True
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["200 per day", "50 per hour"])
 search = Search()
 search.init_app(app)
 login_manager.login_view = 'login'

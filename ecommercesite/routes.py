@@ -1,7 +1,7 @@
 import secrets, os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
-from ecommercesite import app, bcrypt, db, mail
+from ecommercesite import app, bcrypt, db, mail, limiter
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
@@ -32,7 +32,7 @@ def regex_email(email):
         return False
 
 def regex_password(password):
-    if re.fullmatch(r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,30}$", password) and len(password) <=20:
+    if re.fullmatch(r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$", password) and len(password) <=20:
         return True
     else:
         return False
@@ -104,7 +104,7 @@ def api_login():
         if user.role == 'admin':
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
         else:
-            access_token = create_access_token(identity=user.email)
+            access_token = create_access_token(identity=user.email, additional_claims={'role': 'user'})
         return jsonify(message="Login success", access_token=access_token), 200
     else:
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
@@ -202,7 +202,7 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='CraftyWoodDev@hotmail.com',
+                    sender='5718ebb8bb03c2',
                     recipients=[user.email])
 
     msg.body = f'''To reset your The Boutique account password, visit the following link: 
@@ -211,6 +211,7 @@ def send_reset_email(user):
     mail.send(msg)
 
 @app.route('/reset_password', methods=['GET', 'POST'])
+@limiter.limit("50/day;5/hour")
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -224,6 +225,7 @@ def reset_password():
     return render_template('reset_request.html', title='Reset Password', form=form)
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
+@limiter.limit("10/day;1/hour")
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -260,13 +262,13 @@ def shop():
 @app.route('/search', methods=['GET'])
 def search():
     keyword = request.args.get('query')
-    if re.fullmatch(r"^[a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
+    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
         products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
         return render_template("shop.html",title='Search ' + keyword, products=products)
     else:
         products = Addproducts.query.all()
         flash('Only alphabets and numbers are allowed.', 'info')
-        return render_template("shop.html",title='Search ', products=products)
+        return render_template("shop.html",title='Search', products=products)
 
 @app.route('/about')
 def about():
