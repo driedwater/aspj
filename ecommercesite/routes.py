@@ -109,7 +109,7 @@ def login():
                 access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
             else:
                 access_token = create_access_token(identity=form.email.data)
-
+            next = request.args.get('next')
             if next:
                 nextResp = make_response(redirect(next))
                 nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
