@@ -1,8 +1,7 @@
 import secrets, os
 from PIL import Image
-from click import password_option
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
-from ecommercesite import app, bcrypt, db, mail
+from ecommercesite import app, bcrypt, db, mail, limiter
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
@@ -16,19 +15,41 @@ import plotly, json
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
+import re
 from flask_mail import Message
 from cryptography.fernet import Fernet
-from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
+from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
 
-
+#-------------WRAPPERS-AND-FUNCTIONS--------------#
 
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+def regex_email(email):
+    if re.fullmatch(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email) and len(email) < 256:
+        return True
+    else:
+        return False
+
+def regex_password(password):
+    if re.fullmatch(r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$", password) and len(password) <=20:
+        return True
+    else:
+        return False
 
 def admin_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if current_user.role == "admin":
+            return f(*args, **kwargs)
+        else:
+            abort(401)
+    return wrap
+
+def user_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if current_user.role == "user":
             return f(*args, **kwargs)
         else:
             abort(401)
@@ -42,7 +63,7 @@ def jwt_admin_required(f):
         if claims['role'] == 'admin':
             return f(*args, **kwargs)
         else:
-            return jsonify(message='Unauthorized!'), 401
+            return jsonify(message='Unauthorized!'), 403
     return wrap
 
 #--------------------CUSTOM-ERROR-PAGE-------------------------#
@@ -62,6 +83,44 @@ def unauthorized_access(e):
 
 #---------------------API-ENDPOINTS------------------#
 
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    if request.is_json:
+        email = request.json['email']
+        if not regex_email(email):
+            return jsonify(message="Enter an email address"), 400
+        password = request.json['password']
+        if not regex_password(password):
+            return jsonify(message="Password may be more than 20 characters"), 400
+    else:
+        email = request.form['email']
+        if not regex_email(email):
+            return jsonify(message="Enter an email address"), 400
+        password = request.form['password']
+        if not regex_password(password):
+            return jsonify(message="Password may be more than 20 characters"), 400
+    user = User.query.filter_by(email=email).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        if user.role == 'admin':
+            access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
+        else:
+            access_token = create_access_token(identity=user.email, additional_claims={'role': 'user'})
+        return jsonify(message="Login success", access_token=access_token), 200
+    else:
+        return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
+
+@app.route('/api/account/delete/<int:id>', methods=['DELETE'])
+@jwt_required
+def api_delete_account(id):
+    user = User.query.filter_by(id=id).first()
+    claims = get_jwt()
+    if user.email != claims['email']:
+        return jsonify('Forbidden'), 403
+    else:
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify('user has been deleted.'), 200
+
 @app.route('/api/all_products', methods=['GET'])
 def all_items():
     products = Addproducts.query.all()
@@ -69,7 +128,7 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
-        abort(404)
+        return jsonify(message="products not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['GET'])
 def item(id):
@@ -78,7 +137,7 @@ def item(id):
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
-        abort(404)
+        return jsonify(message="product not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['DELETE'])
 @jwt_admin_required
@@ -89,7 +148,7 @@ def delete_item(id):
         db.session.commit()
         return jsonify(message='product has been deleted'), 200
     else:
-        abort(404)
+        return jsonify(message="product not found"), 404
 
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
@@ -101,23 +160,17 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, (form.password.data+"verysaltysalt")):
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
-            if current_user.role == "admin":
-                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
-            else:
-                access_token = create_access_token(identity=form.email.data)
+            next = request.args.get('next')
 
-            if next:
-                nextResp = make_response(redirect(next))
-                nextResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
-                return nextResp
-            else:
-                homeResp = make_response(redirect(url_for('home')))
-                homeResp.set_cookie('access_token_cookie', access_token, max_age=timedelta(minutes=30), httponly=True)
-                return homeResp
+            return redirect(next) if next else redirect(url_for('home'))
+        else:
+            dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+            app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
+            flash('Login unsuccessful. Incorrect email or password.', 'danger')
 
 
     return render_template('login.html', title='Login',form=form)
@@ -137,7 +190,7 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
@@ -149,7 +202,7 @@ def register():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='CraftyWoodDev@hotmail.com',
+                    sender='5718ebb8bb03c2',
                     recipients=[user.email])
 
     msg.body = f'''To reset your The Boutique account password, visit the following link: 
@@ -158,6 +211,7 @@ def send_reset_email(user):
     mail.send(msg)
 
 @app.route('/reset_password', methods=['GET', 'POST'])
+@limiter.limit("50/day;5/hour")
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -171,6 +225,7 @@ def reset_password():
     return render_template('reset_request.html', title='Reset Password', form=form)
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
+@limiter.limit("10/day;1/hour")
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -180,7 +235,7 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash((form.password.data)).decode('utf-8')
 
         user.password = hash_pw
         db.session.commit()
@@ -207,8 +262,13 @@ def shop():
 @app.route('/search', methods=['GET'])
 def search():
     keyword = request.args.get('query')
-    products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
-    return render_template("shop.html",title='Search ' + keyword, products=products)
+    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
+        products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
+        return render_template("shop.html",title='Search ' + keyword, products=products)
+    else:
+        products = Addproducts.query.all()
+        flash('Only alphabets and numbers are allowed.', 'info')
+        return render_template("shop.html",title='Search', products=products)
 
 @app.route('/about')
 def about():
@@ -307,6 +367,7 @@ def product_details(id):
 
 @app.route('/addcart/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def add_to_cart(id):
     cart_item = Items_In_Cart.query.filter_by(product_id=id, user_id=current_user.id).first()
     products = Addproducts.query.filter_by(id=id).first()
@@ -323,6 +384,7 @@ def add_to_cart(id):
 
 @app.route('/deletecart/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def delete_cart(id):
     cart_item = Items_In_Cart.query.filter_by(id=id).first()
     db.session.delete(cart_item)
@@ -333,6 +395,7 @@ def delete_cart(id):
 
 @app.route('/cart', methods=['GET', 'POST'])
 @login_required
+@user_required
 def cart():
     cart_items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
     items = 0
@@ -342,6 +405,7 @@ def cart():
 
 @app.route('/addquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def add_quantity(id):
     cart_item = Items_In_Cart.query.filter_by(id=id, user_id=current_user.id).first()
     cart_item.quantity += 1
@@ -351,6 +415,7 @@ def add_quantity(id):
     
 @app.route('/minquantity/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def min_quantity(id):
     cart_item = Items_In_Cart.query.filter_by(id=id, user_id=current_user.id).first()
     cart_item.quantity -= 1
@@ -366,6 +431,7 @@ def min_quantity(id):
 
 @app.route('/deletecartcheckout/<int:id>', methods=['GET', 'POST'])
 @login_required
+@user_required
 def delete_cart_item_checkout(id):
     cart_item = Items_In_Cart.query.filter_by(id=id).first()
     db.session.delete(cart_item)
@@ -375,6 +441,7 @@ def delete_cart_item_checkout(id):
 
 @app.route('/checkout', methods=['POST', 'GET'])
 @login_required
+@user_required
 def checkout_details():
     form = CheckOutForm()
     cart_items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
@@ -589,12 +656,12 @@ def delete_product(id):
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-#@login_required
-#@admin_required
+@login_required
+@admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data+"verysaltysalt")).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
