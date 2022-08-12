@@ -656,12 +656,12 @@ def delete_product(id):
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-#@login_required
-#@admin_required
+@login_required
+@admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
-        hash_pw = bcrypt.generate_password_hash((form.password.data)).decode('utf-8')
+        hash_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
