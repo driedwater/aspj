@@ -110,16 +110,16 @@ def api_login():
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
 
 @app.route('/api/account/delete/<int:id>', methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def api_delete_account(id):
     user = User.query.filter_by(id=id).first()
     claims = get_jwt()
-    if user.email != claims['email']:
+    if user.email != claims['sub']:
         return jsonify('Forbidden'), 403
     else:
         db.session.delete(user)
         db.session.commit()
-        return jsonify('user has been deleted.'), 200
+        return jsonify('user has been deleted.')
 
 @app.route('/api/all_products', methods=['GET'])
 def all_items():
