@@ -2,6 +2,9 @@ from ecommercesite import db, login_manager, app, ma
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
 from datetime import datetime, date
+import pyotp
+import os
+import base64
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -20,11 +23,24 @@ class User(db.Model, UserMixin):
     role = db.Column(db.String(10), nullable=False, default='user')
     image_file = db.Column(db.String(20), nullable=False, default='defaultpfp.jpg')
     email_verification = db.Column(db.Boolean(), nullable=False, default=False)
+    otp_secret = db.Column(db.String(16))
 
     __mapper_args__ = {
         'polymorphic_on':type,
         'polymorphic_identity':'user'
     }
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+        if self.otp_secret is None:
+            # generate a random secret
+            self.otp_secret = base64.b32encode(os.urandom(10)).decode('utf-8')
+
+    def get_totp_uri(self):
+        return f'otpauth://totp/The-Boutique:{self.email}?secret={self.otp_secret}&issuer=The-Boutique'
+
+    def verify_totp(self, token):
+        return pyotp.TOTP(self.otp_secret).verify(token)
+        
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)

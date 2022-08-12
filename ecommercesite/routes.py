@@ -16,6 +16,8 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import re
+import pyqrcode
+from io import BytesIO
 from flask_mail import Message
 from cryptography.fernet import Fernet
 from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
@@ -109,6 +111,7 @@ def api_login():
     else:
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
 
+#gonna delete this later cause if someone deletes their account, we have to revoke their token. and i dont want more work.
 @app.route('/api/account/delete/<int:id>', methods=['DELETE'])
 @jwt_required()
 def api_delete_account(id):
@@ -160,7 +163,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data):
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
@@ -175,7 +178,6 @@ def login():
 
     return render_template('login.html', title='Login',form=form)
 
-
 @app.route('/logout')
 def logout():
     app.logger.info('%s Successfully logged out', current_user.email)
@@ -183,6 +185,35 @@ def logout():
     resp = make_response(redirect(url_for('home')))
     resp.delete_cookie('access_token_cookie')
     return resp
+
+@app.route('/2fa-setup')
+def two_factor_setup():
+    if 'email' not in session:
+        return redirect(url_for('home'))
+    user = User.query.filter_by(email=session['email']).first()
+    if user is None:
+        return redirect(url_for('home'))
+    return render_template('two-factor-setup.html'), {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'}
+
+@app.route('/qrcode')
+def qrcode():
+    if 'email' not in session:
+        abort(404)
+    user = User.query.filter_by(email=session['email']).first()
+    if user is None:
+        abort(404)
+    del session['email']
+    url = pyqrcode.create(user.get_totp_uri())
+    stream = BytesIO()
+    url.svg(stream, scale=5)
+    return stream.getvalue(), {
+        'Content-Type': 'image/svg+xml',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'}
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -194,9 +225,9 @@ def register():
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
-        flash(f'Account has been created, you can now login.', 'success')
         app.logger.info('%s Successfully registered', form.email.data)
-        return redirect(url_for('login'))
+        session['email'] = user.email
+        return redirect(url_for('two_factor_setup'))
     return render_template('register.html', title='Register', form=form)
 
 def send_reset_email(user):

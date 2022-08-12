@@ -14,7 +14,12 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = StringField('Password', validators=[DataRequired(), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    pot = StringField('random pot')
     submit = SubmitField('Register')
+
+    def validate_pot(self, pot):
+        if pot.data:
+            raise ValidationError('If you are a human and see this invisible field, do not fill in this blank.')
 
     def validate_username(self, username):
         user = Users.query.filter_by(username=username.data).first()
@@ -29,6 +34,7 @@ class RegistrationForm(FlaskForm):
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = StringField('Password', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9!@#$&*]+$', message='Enter alphabets, numbers and special characters(!@#$&*) only')])
+    token = StringField('Token', validators=[DataRequired(), Length(min=6, max=6), Regexp('^[0-9]+$')])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
