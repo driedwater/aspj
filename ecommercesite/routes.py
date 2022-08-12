@@ -39,6 +39,12 @@ def regex_password(password):
     else:
         return False
 
+def regex_token(token):
+    if re.fullmatch(r"^([0-9]).{6,6}$", token):
+        return True
+    else:
+        return False
+
 def admin_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -94,6 +100,9 @@ def api_login():
         password = request.json['password']
         if not regex_password(password):
             return jsonify(message="Password may be more than 20 characters"), 400
+        token = request.json['token']
+        if not regex_token(token):
+            return jsonify(message="Numbers only")
     else:
         email = request.form['email']
         if not regex_email(email):
@@ -101,8 +110,11 @@ def api_login():
         password = request.form['password']
         if not regex_password(password):
             return jsonify(message="Password may be more than 20 characters"), 400
+        token = request.form['token']
+        if not regex_token(token):
+            return jsonify(message="Numbers only")
     user = User.query.filter_by(email=email).first()
-    if user and bcrypt.check_password_hash(user.password, password):
+    if user and bcrypt.check_password_hash(user.password, password) and user.verify_otp(token):
         if user.role == 'admin':
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
         else:
