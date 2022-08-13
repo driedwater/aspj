@@ -18,7 +18,7 @@ import pandas as pd
 import numpy as np
 from flask_mail import Message
 from cryptography.fernet import Fernet
-from flask_jwt_extended import verify_jwt_in_request, create_access_token, get_jwt
+from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
 
 
 
@@ -93,17 +93,12 @@ def delete_item(id):
 
 
 @app.route('/api/customer_payments/<int:id>', methods=['GET'])
-@jwt_admin_required
+@jwt_required
 def payment(id):
     customerpayment = Customer_Payments.query.filter_by(id=id).first()
     if customerpayment:
         result = CustomerPaymentsSchema.dump(customerpayment)
         print(result)
-        # keyfile = open("FernetKeys[Card_Num].txt", "r")
-        # key = keyfile.read()
-        # keybytes = bytes(key, 'ascii')
-        # print("this is the key in bytes: ", keybytes)
-        # type(keybytes)
         return jsonify(result), 200
     else:
         abort(404)
@@ -123,9 +118,11 @@ def login():
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
             if current_user.role == "admin":
-                access_token = create_access_token(identity=form.email.data, additional_claims={'role': 'admin'})
+                access_token = create_access_token(identity=form.email.data, additional_claims= {'role': 'admin'})
             else:
-                access_token = create_access_token(identity=form.email.data)
+                access_token = create_access_token(identity=form.email.data, additional_claims= {'role': 'user'})
+                
+                
             next = request.args.get('next')
             if next:
                 nextResp = make_response(redirect(next))
