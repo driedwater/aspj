@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-<p class='alert alert-danger text-center'>Unauthorized access!</p>
+<p class='alert alert-danger text-center'>Unauthorized access!
+    Click <a href="{{ url_for('home') }}">here</a> to return to home page.</p>
 {% endblock content %}

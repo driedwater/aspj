@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-<p class='alert alert-info text-center'>Sorry! This page does not exist.</p>
+<p class='alert alert-info text-center'>Sorry! This page does not exist. <br>
+     Click <a href="{{ url_for('home') }}">here</a> to return to home page.</p>
 {% endblock content %}
