@@ -1,3 +1,9 @@
+from ctypes import addressof
+from email.policy import default
+from pyexpat import model
+from turtle import title
+from cryptography.fernet import Fernet
+from pandas import describe_option
 from ecommercesite import db, login_manager, app, ma
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
@@ -154,7 +160,30 @@ class Customer_Payments(db.Model):
     address = db.Column(db.Text, nullable = False)
     postal_code = db.Column(db.Integer, nullable = False)
     card_number = db.Column(db.Integer, nullable = False)
-    expiry= db.Column(db.Integer, nullable = False)
+    expiry = db.Column(db.Integer, nullable = False)
+
+    def __init__(self, full_name, card_number, expiry, postal_code, address):
+        
+        self.full_name = full_name
+        self.card_number = card_number
+        self.expiry = expiry
+        self.postal_code = postal_code
+        self.address = address
+        
+
+class CustomerPaymentsSchema(ma.SQLAlchemySchema):
+    class Meta:
+        fields = ('full_name', 'card_number', 'expiry', 'postal_code', 'address')
+        # model = Customer_Payments
+        # id = ma.auto_field()
+        # full_name = ma.auto_field()
+        # card_number = ma.auto_field()
+        
+
+db.create_all()
+CustomerPaymentsSchema = CustomerPaymentsSchema()
+
+
 
 class AddProductsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:

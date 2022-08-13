@@ -5,7 +5,7 @@ from ecommercesite import app, bcrypt, db, mail, limiter
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
+from ecommercesite.database import CustomerPaymentsSchema, Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
@@ -165,6 +165,18 @@ def delete_item(id):
     else:
         return jsonify(message="product not found"), 404
 
+
+@app.route('/api/customer_payments/<int:id>', methods=['GET'])
+@jwt_required
+def payment(id):
+    customerpayment = Customer_Payments.query.filter_by(id=id).first()
+    if customerpayment:
+        result = CustomerPaymentsSchema.dump(customerpayment)
+        print(result)
+        return jsonify(result), 200
+    else:
+        abort(404)
+
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -315,7 +327,6 @@ def search():
 
 @app.route('/about')
 def about():
-    
     return render_template('about.html', title='About')
 
 @app.route('/services')
@@ -508,7 +519,14 @@ def checkout_details():
         
         #encrypting card_num
         key = Fernet.generate_key()
+        key_file = open('FernetKeys[Card_Num].txt', 'a')
         f = Fernet(key)
+        key_file.write(str(key))
+        key_file.write('\t')
+        key_file.write('\n')
+        key_file.close()
+        print(key)
+        
         enc_card_num = (form.card_number.data).encode('utf-8')
         token = f.encrypt(enc_card_num)
         print("CT: ",token)
@@ -518,7 +536,14 @@ def checkout_details():
 
         #encryption postal code
         key = Fernet.generate_key()
+        key_file = open('FernetKeys[Postal_Code].txt', 'a')
         f = Fernet(key)
+        key_file.write(str(key))
+        key_file.write('\t')
+        key_file.write('\n')
+        key_file.close()
+        print(key)
+
         enc_postal_code  = (form.postal_code.data).encode('utf-8')
         token = f.encrypt(enc_postal_code)
         print("CT: ",token)
@@ -526,14 +551,22 @@ def checkout_details():
         print("PT: ",d.decode())
         print('\n')
 
-        #encryption postal code
+        #encryption address
         key = Fernet.generate_key()
+        key_file = open('FernetKeys[Address].txt', 'a')
         h = Fernet(key)
+        key_file.write(str(key))
+        key_file.write('\t')
+        key_file.write('\n')
+        key_file.close()
+        print(key)
+
         enc_address= (form.address.data).encode('utf-8')
         token = h.encrypt(enc_address)
         print("CT:",token)
         d= h.decrypt(token)
         print("PT: ", d.decode())
+
 
         checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
         db.session.add(checkout_details)
@@ -553,7 +586,7 @@ def checkout_details():
 def thanks():
     return render_template('thanks.html', title='Order Confirmed')
 
-
+#check if data is from authorised client
 
 #---------------------ADMIN-PAGE------------------------#
 
