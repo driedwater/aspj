@@ -167,7 +167,7 @@ def delete_item(id):
 
 
 @app.route('/api/customer_payments/<int:id>', methods=['GET'])
-@jwt_required
+@jwt_required()
 def payment(id):
     customerpayment = Customer_Payments.query.filter_by(id=id).first()
     if customerpayment:
@@ -732,8 +732,8 @@ def delete_product(id):
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-@login_required
-@admin_required
+# @login_required
+# @admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
@@ -741,8 +741,11 @@ def admin_register():
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
+        app.logger.info('%s Successfully registered', form.email.data)
+        session['email'] = user.email
         flash(f'Account has been created, you can now login.', 'success')
-        return redirect(url_for('home'))
+        # return redirect(url_for('home'))
+        return redirect(url_for('two_factor_setup'))
     return render_template('admin/admin_register.html', form=form, title='Admin Registration')
 
 @app.route('/admin/customer_database')
