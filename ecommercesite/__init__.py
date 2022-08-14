@@ -32,6 +32,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.jinja_env.autoescape = True
 
+
 root_logger = setup_logger('', 'logs/root.log')
 users_logger = setup_logger('users', 'logs/users.log')
 admin_logger = setup_logger('admin', 'logs/admin.log')

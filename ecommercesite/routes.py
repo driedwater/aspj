@@ -184,7 +184,8 @@ def delete_item(id):
         db.session.commit()
         from ecommercesite import api_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        api_logger.info('%s - - [%s] REQUEST[%s] %s product has been deleted.', request.remote_addr, dt, request.method)
+        claims = get_jwt()
+        api_logger.info('%s - - [%s] REQUEST[%s] %s product has been deleted.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message='product has been deleted'), 200
     else:
         return jsonify(message="product not found"), 404
@@ -217,13 +218,16 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data):
             session.permanent = True
             login_user(user)
-            app.logger.info('%s logged in successfully', form.email.data)
+            from ecommercesite import users_logger
+            dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+            users_logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method, form.email.data)
             next = request.args.get('next')
 
             return redirect(next) if next else redirect(url_for('home'))
         else:
+            from ecommercesite import users_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-            app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
+            users_logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
             flash('Login unsuccessful. Incorrect email or password.', 'danger')
 
     return render_template('login.html', title='Login',form=form)
@@ -277,7 +281,9 @@ def register():
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
-        app.logger.info('%s Successfully registered', form.email.data)
+        from ecommercesite import users_logger
+        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+        users_logger.info('%s Successfully registered', form.email.data)
         session['email'] = user.email
         return redirect(url_for('two_factor_setup'))
 
@@ -304,7 +310,6 @@ def reset_password():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        
         from ecommercesite import users_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         users_logger.info('%s - - [%s] REQUEST[%s] %s reset password email has been sent.', request.remote_addr, dt, request.method, form.email.data)
@@ -319,7 +324,8 @@ def reset_token(token):
         return redirect(url_for('home'))
     user = User.verify_reset_token(token)
     if user is None:
-        app.logger.info('Invalid or expired token.', 'warning')
+        from ecommercesite import users_logger
+        users_logger.info('Invalid or expired token.', 'warning')
         flash('Invalid or expired token.', 'warning')
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
@@ -328,9 +334,10 @@ def reset_token(token):
 
         user.password = hash_pw
         db.session.commit()
+        from ecommercesite import users_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        app.logger.info('%s - - [%s] REQUEST[%s] %s Account has been created, you can now login.', request.remote_addr, dt, request.method, form.email.data)
-        app.logger.info(f'')
+        users_logger.info('%s - - [%s] REQUEST[%s] %s Account has been created, you can now login.', request.remote_addr, dt, request.method, form.email.data)
+        users_logger.info(f'')
         flash(f'Account has been created, you can now login.', 'success')
         return redirect(url_for('login'))
     return render_template('reset_token.html',title='Reset Password' ,form=form)
@@ -453,7 +460,7 @@ def product_details(id):
         db.session.commit()
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s Your review has been added!', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s Your review has been added!', request.remote_addr, dt, request.method, current_user.email)
         flash('Your review has been added!', 'success')
         return redirect(url_for('shop'))
     return render_template('product_details.html', title="Product Details", products=products, product_reviews=product_reviews ,form=form, product_bought=product_bought)
@@ -468,7 +475,7 @@ def add_to_cart(id):
     if cart_item:
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s This item is already in your cart!', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s This item is already in your cart!', request.remote_addr, dt, request.method, current_user.email)
         flash('This item is already in your cart!', 'danger')
         return redirect(url_for('shop'))
     else:
@@ -477,7 +484,7 @@ def add_to_cart(id):
         db.session.commit()
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s Item has been added to cart!', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been added to cart!', request.remote_addr, dt, request.method, current_user.email)
         flash('Item has been added to cart!', 'success')
         return redirect(url_for('shop'))
 
@@ -490,7 +497,7 @@ def delete_cart(id):
     db.session.commit()
     from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    product.logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
+    product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
     flash('Item has been deleted.', 'success')
     return redirect(url_for('cart'))
 
@@ -514,7 +521,7 @@ def add_quantity(id):
     db.session.commit()
     from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    product.logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has increased.', request.remote_addr, dt, request.method, current_user.email)
+    product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has increased.', request.remote_addr, dt, request.method, current_user.email)
     flash('Item quantity has increased.', 'success')
     return redirect(url_for('cart'))
     
@@ -529,14 +536,14 @@ def min_quantity(id):
         db.session.commit()
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has removed.', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has removed.', request.remote_addr, dt, request.method, current_user.email)
         flash('Item quantity has removed.', 'success')
         return redirect(url_for('cart'))
     else:
         db.session.commit()
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has decreased.', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has decreased.', request.remote_addr, dt, request.method, current_user.email)
         flash('Item quantity has decreased.', 'success')
         return redirect(url_for('cart'))
 
@@ -549,7 +556,7 @@ def delete_cart_item_checkout(id):
     db.session.commit()
     from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    product.logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
+    product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
     flash('Item has been deleted.', 'success')
     return redirect(url_for('checkout_details'))
 
@@ -566,7 +573,7 @@ def checkout_details():
         if product.stock < item.quantity:
             from ecommercesite import product_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-            product.logger.info('%s - - [%s] REQUEST[%s] %s {{product.name}} only has {{product.stock}} left in stock.', request.remote_addr, dt, request.method, current_user.email)
+            product_logger.info('%s - - [%s] REQUEST[%s] %s {{product.name}} only has {{product.stock}} left in stock.', request.remote_addr, dt, request.method, current_user.email)
             flash('{{product.name}} only has {{product.stock}} left in stock', 'danger')
             return redirect(url_for('cart'))
         else:
@@ -642,7 +649,7 @@ def checkout_details():
             db.session.commit()
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        product.logger.info('%s - - [%s] REQUEST[%s] %s Your order has been submitted!', request.remote_addr, dt, request.method, current_user.email)
+        product_logger.info('%s - - [%s] REQUEST[%s] %s Your order has been submitted!', request.remote_addr, dt, request.method, current_user.email)
         flash(f'Your order has been submitted!','success')
         return redirect(url_for('thanks'))
     return render_template('checkout.html', title='Checkout',form=form, cart_items=cart_items, subtotal=subtotal, total=total)
@@ -662,7 +669,7 @@ def thanks():
 def dashboard():
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin.logger.info('%s - - [%s] REQUEST[%s] %s Access admin dashboard ', request.remote_addr, dt, request.method, current_user.email)
+    admin_logger.info('%s - - [%s] REQUEST[%s] %s Access admin dashboard ', request.remote_addr, dt, request.method, current_user.email)
     return render_template('/admin/dashboard.html', title='Dashboard')
 
 def save_product_picture(form_pic):
@@ -706,7 +713,7 @@ def add_product():
         
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        admin.logger.info('%s - - [%s] REQUEST[%s] %s added %s to the database!', request.remote_addr, dt, request.method, current_user.email, name)
+        admin_logger.info('%s - - [%s] REQUEST[%s] %s added %s to the database!', request.remote_addr, dt, request.method, current_user.email, name)
         flash(f'The product {name} has been added to database!','success')
         return redirect(url_for('add_product'))
     return render_template('admin/add_product.html', form=form, title='Add a Product', categories=categories)
@@ -718,7 +725,7 @@ def display_product():
     products = Addproducts.query.all()
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin.logger.info('%s - - [%s] REQUEST[%s] %s Access to product list ', request.remote_addr, dt, request.method, current_user.email)
+    admin_logger.info('%s - - [%s] REQUEST[%s] %s Access to product list ', request.remote_addr, dt, request.method, current_user.email)
     return render_template('admin/display_product.html', title='Product List', products=products)
 
 
@@ -774,7 +781,7 @@ def update_product(id):
         db.session.commit()
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        admin.logger.info('%s - - [%s] REQUEST[%s] %s The product has been updated!', request.remote_addr, dt, request.method, current_user.email, product.name)
+        admin_logger.info('%s - - [%s] REQUEST[%s] %s The product has been updated!', request.remote_addr, dt, request.method, current_user.email, product.name)
         flash('The product has been updated!','success')
         return redirect(url_for('display_product'))
     form.name.data = product.name
@@ -804,21 +811,21 @@ def delete_product(id):
             print(e)
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        admin.logger.info('%s - - [%s] REQUEST[%s] %s deleted %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
+        admin_logger.info('%s - - [%s] REQUEST[%s] %s deleted %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
         db.session.delete(product)
         db.session.commit()
         flash(f'The product {product.name} has been deleted from the product list.','success')
         return redirect(url_for('display_product'))
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin.logger.info('%s - - [%s] REQUEST[%s] %s tried deleting %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
+    admin_logger.info('%s - - [%s] REQUEST[%s] %s tried deleting %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
     flash(f'Cannot delete the product.','success')
     return redirect(url_for('display_product'))
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-@login_required
-@admin_required
+#@login_required
+#@admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
@@ -828,9 +835,10 @@ def admin_register():
         db.session.commit()
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        admin.logger.info('%s - - [%s] REQUEST[%s] %s Account has been created, you can now login. ', request.remote_addr, dt, request.method, current_user.email)
-        flash(f'Account has been created, you can now login.', 'success')
-        return redirect(url_for('home'))
+        admin_logger.info('%s - - [%s] REQUEST[%s] %s Account has been created, you can now login. ', request.remote_addr, dt, request.method, form.email.data)
+        session['email'] = form.email.data
+        return redirect(url_for('two_factor_setup'))
+
     return render_template('admin/admin_register.html', form=form, title='Admin Registration')
 
 @app.route('/admin/customer_database')
@@ -840,7 +848,7 @@ def customer_database():
     users = Users.query.all()
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin.logger.info('%s - - [%s] REQUEST[%s] %s Access customer database ', request.remote_addr, dt, request.method, current_user.email)
+    admin_logger.info('%s - - [%s] REQUEST[%s] %s Access customer database ', request.remote_addr, dt, request.method, current_user.email)
     return render_template('admin/customer_database.html', users=users, title='Customer Database')
 
 def create_graph():
@@ -879,7 +887,7 @@ def create_graph():
 def sales():
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin.logger.info('%s - - [%s] REQUEST[%s] %s Access admin sales data. ', request.remote_addr, dt, request.method, current_user.email)
+    admin_logger.info('%s - - [%s] REQUEST[%s] %s Access admin sales data. ', request.remote_addr, dt, request.method, current_user.email)
     line_graph = create_graph()
     current_year = datetime.utcnow().year
     current_month = datetime.utcnow().month
