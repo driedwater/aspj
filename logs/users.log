@@ -1,0 +1,3 @@
+2022-08-14 20:44:32,898 INFO users Thread-48 (process_request_thread) : 127.0.0.1 - - [14/Aug/2022 20:44:32] REQUEST[POST] adminaa@email.com logged in successfully.
+2022-08-14 21:26:44,391 INFO users Thread-49 (process_request_thread) : 127.0.0.1 - - [14/Aug/2022 21:26:44] REQUEST[POST] adminaa@email.com logged in successfully.
+2022-08-14 21:26:48,176 INFO users Thread-78 (process_request_thread) : 127.0.0.1 - - [14/Aug/2022 21:26:48] REQUEST[GET] adminaa@email.com Successfully logged out.

@@ -12,6 +12,8 @@ import pyotp
 import os
 import base64
 
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -189,6 +191,27 @@ class AddProductsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Addproducts
         include_fk = True
+
+
+class log(db.Model):
+    __tablename__ = 'logs'
+    id = db.Column(db.Integer, primary_key=True)
+    logger = db.Column(db.String(100), nullable=True)
+    trace = db.Column(db.String(4096))
+    level = db.Column(db.String(100))
+    msg = db.Column(db.String(4096))
+    created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
+
+    def __init__(self, logger=None, level=None, trace=None, msg=None):
+        self.logger = logger
+        self.level = level
+        self.trace = trace
+        self.msg = msg 
+    def __unicode__(self):
+        return self.__repr__()
+    def __repr__(self):
+        return "<Log: %s - %s>" % (self.created_at.strftime('%m/%d/%Y-%H:%M:%S'), self.msg[:50])
+
 
 db.create_all()
 addProductSchema = AddProductsSchema()
