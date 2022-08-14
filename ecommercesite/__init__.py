@@ -1,4 +1,5 @@
 from flask import Flask
+import logging
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -12,9 +13,15 @@ from datetime import timedelta
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import logging
+import flask_monitoringdashboard as dashboard
+import os
+from ecommercesite.logger import setup_logger
 
 
 app = Flask(__name__)
+dashboard.bind(app)
+
+
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "a0e9be06ce393344214c51be5c753fa58aef93b7c318e9375a0438a54fa1eab4"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
@@ -24,6 +31,13 @@ app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.jinja_env.autoescape = True
+
+root_logger = setup_logger('', 'logs/root.log')
+users_logger = setup_logger('users', 'logs/users.log')
+admin_logger = setup_logger('admin', 'logs/admin.log')
+api_logger = setup_logger('api', 'logs/api.log')
+product_logger = setup_logger('product', 'logs/product.log')
+
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 migrate = Migrate(app, db)
