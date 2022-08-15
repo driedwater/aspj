@@ -11,9 +11,13 @@ if defined _OLD_CODEPAGE (
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 set VIRTUAL_ENV=C:\Users\sabih\Documents\GitHub\aspj\.venv
 
+=======
+set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
+>>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
 =======
 set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
 >>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
