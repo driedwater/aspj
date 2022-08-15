@@ -1,3 +1,4 @@
+from distutils.command import check
 import secrets, os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
@@ -19,10 +20,12 @@ import re
 import os
 import pyqrcode
 from io import BytesIO
-from ecommercesite import users_logger
 from flask_mail import Message
 from cryptography.fernet import Fernet
 from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
+import gladiator as gl
+
+
 
 #-------------WRAPPERS-AND-FUNCTIONS--------------#
 
@@ -213,7 +216,7 @@ def delete_item(id):
 
 
 @app.route('/api/customer_payments/<int:id>', methods=['GET'])
-@jwt_required
+@jwt_required()
 def payment(id):
     customerpayment = Customer_Payments.query.filter_by(id=id).first()
     if customerpayment:
@@ -230,13 +233,10 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = LoginForm()
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data):
+        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
             session.permanent = True
             login_user(user)
             from ecommercesite import users_logger
@@ -250,14 +250,14 @@ def login():
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             users_logger.warning('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
             flash('Login unsuccessful. Incorrect email or password.', 'danger')
+            app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
+            flash('Login unsuccessful. Incorrect email or password or unverified email.', 'danger')
 
     return render_template('login.html', title='Login',form=form)
 
 @app.route('/logout')
 def logout():
-    from ecommercesite import users_logger
-    dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    users_logger.info('%s - - [%s] REQUEST[%s] %s Successfully logged out.', request.remote_addr, dt, request.method, current_user.email)
+    app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
     resp = make_response(redirect(url_for('home')))
     resp.delete_cookie('access_token_cookie')
@@ -292,6 +292,30 @@ def qrcode():
         'Pragma': 'no-cache',
         'Expires': '0'}
 
+def send_verification_email(user):
+    token = user.get_verification_token()
+    msg = Message('Email Verification', 
+                    sender='5718ebb8bb03c2',
+                    recipients=[user.email])
+    msg.body = f'''To verify The Boutique account email, visit the following link: 
+                {url_for('confirm_email', token=token, _external=True)}
+                If you did not make this request, please ignore this email'''
+    mail.send(msg)
+
+@app.route('/confirm_email/<token>', methods=['GET', 'POST'])
+def confirm_email(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.verify_verification_token(token)
+    if user is None:
+        flash('Invalid or expired token.', 'warning')
+        return redirect(url_for('home'))
+    
+    user.email_verification = True
+    db.session.commit()
+    flash(f'Account has been verified, you can now login.', 'success')
+    return redirect(url_for('login'))
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -306,8 +330,10 @@ def register():
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         users_logger.info('%s Successfully registered', form.email.data)
         session['email'] = user.email
-        return redirect(url_for('two_factor_setup'))
 
+        user = Users.query.filter_by(email=form.email.data).first()
+        send_verification_email(user)
+        return redirect(url_for('two_factor_setup'))
     return render_template('register.html', title='Register', form=form)
 
 def send_reset_email(user):
@@ -382,7 +408,7 @@ def shop():
 @app.route('/search', methods=['GET'])
 def search():
     keyword = request.args.get('query')
-    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
+    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 100:
         products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
         return render_template("shop.html",title='Search ' + keyword, products=products)
     else:
@@ -434,9 +460,6 @@ def account():
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
-        from ecommercesite import users_logger
-        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        users_logger.info('%s - - [%s] REQUEST[%s] %s Your account has been updated.', request.remote_addr, dt, request.method, form.email.data)
         flash('Your account has been updated.', 'success')
         return redirect(url_for('account'))
 
@@ -453,17 +476,17 @@ def account():
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    from ecommercesite import users_logger
-    dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    users_logger.info('%s - - [%s] REQUEST[%s] %s Your account has been deleted.', request.remote_addr, dt, request.method, current_user.email)
+    items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
+    reviews = Review.query.filter_by(user_id=current_user.id).all()
+    for item in items:
+        db.session.delete(item)
+    for review in reviews:
+        db.session.delete(review)
     db.session.delete(user)
     db.session.commit()
-        
     flash('Your account has been deleted.', 'success')
     
     return redirect(url_for('home'))
-
-    
 
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
@@ -659,8 +682,25 @@ def checkout_details():
         print("PT: ", d.decode())
 
 
+        
         checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
+
+
         db.session.add(checkout_details)
+
+        field_validations = (
+        ('full_name', gl.required, gl.type_(str), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('address', gl.required, gl.type_(str), gl.regex_('[a-zA-Z][a-zA-Z ]+[0-9]')),
+        ('postal_code', gl.required, gl.type_(int), gl.gt(6), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('card_number', gl.required, gl.type_(int), gl.gt(16), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('expiry', gl.required, gl.type_(int), gl.gt(4), gl.regex_('[a-zA-Z][a-zA-Z ]+'))
+        )
+
+        # checking data using validate()
+        print("Validating data : ")
+        result = gl.validate(field_validations, checkout_details)
+        print("Is data valid ? : " + str(bool(result)))
+            
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
             product.stock = product.stock - cart_item.quantity
@@ -671,6 +711,8 @@ def checkout_details():
         from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Your order has been submitted!', request.remote_addr, dt, request.method, current_user.email)
+        
+    
         flash(f'Your order has been submitted!','success')
         return redirect(url_for('thanks'))
     return render_template('checkout.html', title='Checkout',form=form, cart_items=cart_items, subtotal=subtotal, total=total)
@@ -735,6 +777,7 @@ def add_product():
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s added %s to the database!', request.remote_addr, dt, request.method, current_user.email, name)
+
         flash(f'The product {name} has been added to database!','success')
         return redirect(url_for('add_product'))
     return render_template('admin/add_product.html', form=form, title='Add a Product', categories=categories)
@@ -747,6 +790,7 @@ def display_product():
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access to product list ', request.remote_addr, dt, request.method, current_user.email)
+
     return render_template('admin/display_product.html', title='Product List', products=products)
 
 
@@ -800,9 +844,11 @@ def update_product(id):
                 product.image_5 = save_product_picture(request.files.get('image_5'))
 
         db.session.commit()
+
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s The product has been updated!', request.remote_addr, dt, request.method, current_user.email, product.name)
+
         flash('The product has been updated!','success')
         return redirect(url_for('display_product'))
     form.name.data = product.name
@@ -830,23 +876,20 @@ def delete_product(id):
             os.unlink(os.path.join(current_app.root_path, "static/images/" + product.image_5))
         except Exception as e:
             print(e)
+
         from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s deleted %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
+
         db.session.delete(product)
         db.session.commit()
         flash(f'The product {product.name} has been deleted from the product list.','success')
         return redirect(url_for('display_product'))
-    from ecommercesite import admin_logger
-    dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-    admin_logger.info('%s - - [%s] REQUEST[%s] %s tried deleting %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
-    flash(f'Cannot delete the product.','success')
-    return redirect(url_for('display_product'))
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-#@login_required
-#@admin_required
+# @login_required
+# @admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():
@@ -854,12 +897,13 @@ def admin_register():
         user = Staff(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw, role='admin')
         db.session.add(user)
         db.session.commit()
-        from ecommercesite import admin_logger
-        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-        admin_logger.info('%s - - [%s] REQUEST[%s] %s Account has been created, you can now login. ', request.remote_addr, dt, request.method, form.email.data)
-        session['email'] = form.email.data
-        return redirect(url_for('two_factor_setup'))
 
+
+        app.logger.info('%s Successfully registered', form.email.data)
+        session['email'] = user.email
+        flash(f'Account has been created, you can now login.', 'success')
+        # return redirect(url_for('home'))
+        return redirect(url_for('two_factor_setup'))
     return render_template('admin/admin_register.html', form=form, title='Admin Registration')
 
 @app.route('/admin/customer_database')
@@ -867,9 +911,11 @@ def admin_register():
 @admin_required
 def customer_database():
     users = Users.query.all()
+
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access customer database ', request.remote_addr, dt, request.method, current_user.email)
+
     return render_template('admin/customer_database.html', users=users, title='Customer Database')
 
 def create_graph():
@@ -906,9 +952,11 @@ def create_graph():
 @login_required
 @admin_required
 def sales():
+
     from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access admin sales data. ', request.remote_addr, dt, request.method, current_user.email)
+
     line_graph = create_graph()
     current_year = datetime.utcnow().year
     current_month = datetime.utcnow().month

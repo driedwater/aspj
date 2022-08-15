@@ -48,7 +48,10 @@ class User(db.Model, UserMixin):
 
     def verify_totp(self, token):
         return pyotp.TOTP(self.otp_secret).verify(token)
-        
+    
+    def get_email_verification_token(self, expires_sec=1800):
+        t = Serializer(app.config['SECRET_KEY'], expires_sec)
+        return t.dumps({'user_id':self.id}.decode('utf-8'))
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
@@ -101,7 +104,7 @@ class Product_Bought(db.Model):
     date_bought = db.Column(db.Date, nullable=False, default=date.today)
     datetime_bought = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     product_id = db.Column(db.Integer, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
 
 
 class Items_In_Cart(db.Model):

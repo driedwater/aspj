@@ -25,7 +25,7 @@ dashboard.bind(app)
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "a0e9be06ce393344214c51be5c753fa58aef93b7c318e9375a0438a54fa1eab4"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
-app.config["JWT_TOKEN_LOCATION"] = ['cookies']
+app.config["JWT_TOKEN_LOCATION"] = ['header']
 app.config['SECRET_KEY'] = '53e4ea4f348001e62295b81953988e9cbd25a49ced46adc6f3742c83284835a1'
 app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'

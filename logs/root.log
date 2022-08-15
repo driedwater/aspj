@@ -6381,3 +6381,8 @@
  INFO werkzeug: 127.0.0.1 - - [15/Aug/2022 18:02:43] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
  INFO api: 127.0.0.1 - - [15/Aug/2022 18:02:45] REQUEST[POST] test1@email.com account successfully created.
  INFO werkzeug: 127.0.0.1 - - [15/Aug/2022 18:02:45] "POST /api/register HTTP/1.1" 200 -
+ INFO werkzeug:  * Detected change in 'c:\\Users\\beeleng\\Desktop\\aspj\\ecommercesite\\database.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO apscheduler.scheduler: Scheduler has been shut down
