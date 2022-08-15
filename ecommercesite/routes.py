@@ -6,7 +6,7 @@ from ecommercesite import app, bcrypt, db, mail, limiter, users_logger, api_logg
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
-from ecommercesite.database import CustomerPaymentsSchema, Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema
+from ecommercesite.database import CustomerPaymentsSchema, Staff, Users, User, Addproducts, Category, Items_In_Cart, Review, Customer_Payments, Product_Bought, addProductSchema, addProductsSchema, reviewschema, reviewsschema, adminProductSchema, adminProductsSchema, cartSchema, cartsSchema
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import extract
 from functools import wraps
@@ -221,7 +221,10 @@ def all_items():
     products = Addproducts.query.all()
     if products:
         result = addProductsSchema.dump(products)
-        return jsonify(result), 200
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="products not found"), 404
     else:
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         claims = get_jwt()
@@ -233,13 +236,42 @@ def item(id):
     product = Addproducts.query.filter_by(id=id).first()
     if product:
         result = addProductSchema.dump(product)
-        return jsonify(result), 200
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="products not found"), 404
     else:
 
         claims = get_jwt()
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         api_logger.info('%s - - [%s] REQUEST[%s] %s product not found.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="product not found"), 404
+
+@app.route('/api/admin/all_products', methods=['GET'])
+@jwt_admin_required
+def admin_allitems():
+    products = Addproducts.query.all()
+    if products:
+        result = adminProductsSchema.dump(products)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="products not found"), 404 
+    else:
+        return jsonify(error="products not found"), 404
+
+@app.route('/api/admin/products/<int:id>', methods=['GET'])
+@jwt_admin_required
+def admin_item(id):
+    product = Addproducts.query.filter_by(id=id).first()
+    if product:
+        result = adminProductSchema.dump(product)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="products not found"), 404 
+    else:
+        return jsonify(error="product not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['DELETE'])
 @jwt_admin_required
@@ -255,6 +287,78 @@ def delete_item(id):
         return jsonify(message='product has been deleted'), 200
     else:
         return jsonify(message="product not found"), 404
+
+@app.route('/api/reviews', methods=['GET'])
+def all_reviews():
+    review = Review.query.all()
+    if review:
+        result = reviewsschema.dump(review)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="review not found"), 404
+    else:
+        return jsonify(error="review not found"), 404
+
+@app.route('/api/review/<int:id>', methods=['GET'])
+def review(id):
+    reviews = Review.query.filter_by(id=id).first()
+    if reviews:
+        result = reviewschema.dump(reviews)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="review not found"), 404
+    else:
+        return jsonify(error="review not found"), 404
+
+@app.route('/api/review/<int:id>', methods=['DELETE'])
+@login_required
+def deletereview(id):
+    reviews = Addproducts.query.filter_by(id=id).first()
+    if reviews:
+        db.session.delete(reviews)
+        db.session.commit()
+        return jsonify(message='review has been deleted'), 200
+    else:
+        return jsonify(error="review not found"), 404
+
+@app.route('/api/items', methods=['GET'])
+@login_required
+def allitems():
+    items = Items_In_Cart.query.filter_by(user_id=current_user.id)
+    if items:
+        result = cartsSchema.dump(items)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="item not found"),400
+    else:
+        return jsonify(error="item not found"), 404
+
+@app.route('/api/items/<int:id>', methods=['GET'])
+@login_required
+def cartitem(id):
+    items = Items_In_Cart.query.filter_by(user_id=current_user.id, id=id).first()
+    if items:
+        result = cartSchema.dump(items)
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify(error="item not found"),400
+    else:
+        return jsonify(error="item not found"), 404
+
+@app.route('/api/items/<int:id>', methods=['DELETE'])
+@login_required
+def delete_cartitem(id):
+    items = Items_In_Cart.query.filter_by(user_id=current_user.id, id=id).first()
+    if items:
+        db.session.delete(items)
+        db.session.commit()
+        return jsonify(message='item has been deleted'), 200
+    else:
+        return jsonify(error="item not found"), 404
 
 
 @app.route('/api/customer_payments/<int:id>', methods=['GET'])
@@ -284,7 +388,6 @@ def login():
                 send_reset_email(user)
                 return render_template('login.html', title='Login',form=form)
             if bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
-                session.permanent = True
                 login_user(user)
                 user.attempts = 0
                 db.session.commit()
@@ -434,7 +537,7 @@ def reset_token(token):
 def home():
     products = Addproducts.query.filter_by(category_id=2).all()
     new_arrival_products = Addproducts.query.filter_by(category_id=1).all()
-    print(session.keys())
+
     return render_template('home.html', title='Home', products=products, new_arrival_products=new_arrival_products)
 
 @app.route('/shop')
@@ -526,6 +629,19 @@ def delete_account():
     
     return redirect(url_for('home'))
 
+@app.route('/review/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_review(id):
+    review = Review.query.filter_by(product_id=id, author=current_user).first()
+    response = requests.post("http://127.0.0.1:5000/review/delete")
+    if response.status_code == 405:
+        abort(405)
+    else:
+        db.session.delete(review)
+        db.session.commit()
+    flash('Your review has been deleted.', 'success')
+    
+    return redirect(url_for('shop'))
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
 def product_details(id):
@@ -1017,11 +1133,48 @@ def sales():
     return render_template('admin/sales.html',title='Sales Report' ,plot=line_graph, total_count=total_count, total_profit=total_profit, current_day_products=current_day_products)
 
 
-@app.route("/show-logs")
+@app.route('/show-logs')
 @login_required
 @admin_required
 def show_logs():
-    with open('logs/users.log') as f:
+    return render_template('admin/showlogs.html')
+
+@app.route('/show-logs/admin-logs')
+@login_required
+@admin_required
+def admin_logs():
+    with open('logs/admin.log') as f:
         output = f.readlines()
         return "<br><br>".join(output)
 
+@app.route('/show-logs/api-logs')
+@login_required
+@admin_required
+def api_logs():
+    with open('logs/api.log') as f:
+        output = f.readlines()
+        return "<br><br>".join(output)
+
+@app.route('/show-logs/product-logs')
+@login_required
+@admin_required
+def product_logs():
+    with open('logs/product.log') as f:
+        output = f.readlines()
+        return "<br><br>".join(output)
+
+@app.route('/show-logs/root-logs')
+@login_required
+@admin_required
+def root_logs():
+    with open('logs/root.log') as f:
+        output = f.readlines()
+        return "<br><br>".join(output)
+
+@app.route('/show-logs/users-logs')
+@login_required
+@admin_required
+def users_logs():
+    with open('logs/users.log') as f:
+        output = f.readlines()
+        return "<br><br>".join(output)

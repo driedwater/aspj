@@ -13,3 +13,27 @@
  INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:44] REQUEST[GET] adminuser@email.com Access to product list 
  INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:46] REQUEST[GET] adminuser@email.com Access admin dashboard 
  INFO admin: 127.0.0.1 - - [15/Aug/2022 23:12:21] REQUEST[GET] testadmin123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:15:17] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:16:35] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:16:46] REQUEST[GET] firstest123@gmail.com Access to product list 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:16:59] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:20:48] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:22:34] REQUEST[GET] firstest123@gmail.com Access to product list 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:22:47] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:28:27] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:28:39] REQUEST[GET] firstest123@gmail.com Access customer database 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:29:03] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:30:02] REQUEST[GET] firstest123@gmail.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:44:08] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:50:46] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:53:12] REQUEST[POST] adminuser@email.com added Akayla Broderie Reversible Crop Top  to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:55:06] REQUEST[POST] adminuser@email.com added Kavena Textured Pleat Front Dress to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:56:21] REQUEST[POST] adminuser@email.com added Morlie Classic Crew Neck Tee to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:57:34] REQUEST[POST] adminuser@email.com added Ashari Drop Shoulder Tee to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 00:59:20] REQUEST[POST] adminuser@email.com added Markita Tailored Culottes  to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:00:34] REQUEST[POST] adminuser@email.com added Mayra Bustier Midi Dress to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:02:02] REQUEST[POST] adminuser@email.com added Zaila A-line Panel Dress to the database!
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:05:22] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:07:34] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:17:14] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 01:18:21] REQUEST[GET] adminuser@email.com Access admin dashboard 

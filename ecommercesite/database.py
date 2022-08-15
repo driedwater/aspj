@@ -1,7 +1,3 @@
-from ctypes import addressof
-from email.policy import default
-from pyexpat import model
-from turtle import title
 from cryptography.fernet import Fernet
 from pandas import describe_option
 from ecommercesite import db, login_manager, app, ma
@@ -11,8 +7,7 @@ from datetime import datetime, date
 import pyotp
 import os
 import base64
-
-
+from marshmallow_sqlalchemy import auto_field
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -193,39 +188,70 @@ class CustomerPaymentsSchema(ma.SQLAlchemySchema):
         # id = ma.auto_field()
         # full_name = ma.auto_field()
         # card_number = ma.auto_field()
-        
 
-db.create_all()
-CustomerPaymentsSchema = CustomerPaymentsSchema()
+class ReviewSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Review
+        include_fk = True
+    id = auto_field()
+    user_review = auto_field()
+    product_id = auto_field()
+    # user_id = auto_field()
+    rating = auto_field()
 
+class AddProductsSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Addproducts
+        include_fk = True
+    id = auto_field()
+    name = auto_field()
+    description = auto_field()
+    length = auto_field()
+    width = auto_field()
+    depth = auto_field()
+    category_id = auto_field()
+    category = auto_field()
+    price = auto_field()
+    image_1 = auto_field()
+    image_2 = auto_field()
+    image_3 = auto_field()
+    image_4 = auto_field()
+    image_5 = auto_field()
 
-
-class AddProductsSchema(ma.SQLAlchemyAutoSchema):
+class AdminAddProductsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Addproducts
         include_fk = True
 
+class CartSchema(ma.SQLAlchemySchema):
+    class Meta:
+        model = Items_In_Cart
+        include_fk = True
+    
+    id = auto_field()
+    image_1 = auto_field()
+    name = auto_field()
+    price = auto_field()
+    quantity = auto_field()
+    product_id = auto_field()
+    user_id = auto_field()
 
-class log(db.Model):
-    __tablename__ = 'logs'
-    id = db.Column(db.Integer, primary_key=True)
-    logger = db.Column(db.String(100), nullable=True)
-    trace = db.Column(db.String(4096))
-    level = db.Column(db.String(100))
-    msg = db.Column(db.String(4096))
-    created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
 
-    def __init__(self, logger=None, level=None, trace=None, msg=None):
-        self.logger = logger
-        self.level = level
-        self.trace = trace
-        self.msg = msg 
-    def __unicode__(self):
-        return self.__repr__()
-    def __repr__(self):
-        return "<Log: %s - %s>" % (self.created_at.strftime('%m/%d/%Y-%H:%M:%S'), self.msg[:50])
+
+# class AddProductsSchema(ma.SQLAlchemyAutoSchema):
+#     class Meta:
+#         model = Addproducts
+#         include_fk = True
+
 
 
 db.create_all()
+CustomerPaymentsSchema = CustomerPaymentsSchema()
+reviewschema = ReviewSchema()
+reviewsschema = ReviewSchema(many=True)
 addProductSchema = AddProductsSchema()
 addProductsSchema = AddProductsSchema(many=True)
+adminProductSchema = AdminAddProductsSchema()
+adminProductsSchema = AdminAddProductsSchema(many=True)
+cartSchema = CartSchema()
+cartsSchema = CartSchema(many=True)

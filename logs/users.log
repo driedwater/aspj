@@ -37,3 +37,10 @@
  WARNING users: 127.0.0.1 - - [15/Aug/2022 23:13:24] REQUEST[POST] test2@email.com Login unsuccessful. Incorrect email or password.
  WARNING users: 127.0.0.1 - - [15/Aug/2022 23:32:18] REQUEST[POST] test2@email.com Login unsuccessful. Incorrect email or password.
  INFO users: 127.0.0.1 - - [15/Aug/2022 23:34:40] REQUEST[POST] test2@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 23:41:37] REQUEST[POST] username@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 23:43:26] REQUEST[POST] test2@email.com successful login.
+ INFO users: 127.0.0.1 - - [16/Aug/2022 00:14:59] REQUEST[POST] firstest123@gmail.com successful login.
+ INFO users: 127.0.0.1 - - [16/Aug/2022 00:44:06] REQUEST[POST] adminuser@email.com successful login.
+ INFO users: 127.0.0.1 - - [16/Aug/2022 01:05:17] REQUEST[POST] adminuser@email.com successful login.
+ INFO users: 127.0.0.1 - - [16/Aug/2022 01:18:20] REQUEST[POST] adminuser@email.com successful login.
+ INFO users: aaa@mail.com Successfully registered
