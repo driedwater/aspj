@@ -7,3 +7,9 @@
  INFO admin: 127.0.0.1 - - [15/Aug/2022 15:27:25] REQUEST[GET] 1234@email.com Access customer database 
  INFO admin: 127.0.0.1 - - [15/Aug/2022 15:29:53] REQUEST[GET] 1234@email.com Access admin dashboard 
  INFO admin: 127.0.0.1 - - [15/Aug/2022 15:30:14] REQUEST[GET] 1234@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 22:15:54] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:00] REQUEST[GET] adminuser@email.com Access admin sales data. 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:19] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:44] REQUEST[GET] adminuser@email.com Access to product list 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 22:16:46] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 23:12:21] REQUEST[GET] testadmin123@gmail.com Access admin dashboard 

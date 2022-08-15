@@ -1,3 +1,4 @@
+from email import message
 import secrets, os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
@@ -31,8 +32,20 @@ import gladiator as gl
 def trunc_datetime(someDate):
     return someDate.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
+def regex_name(name):
+    if re.fullmatch(r"^[ a-zA-Z]+$", name) and len(name) < 256:
+        return True
+    else:
+        return False
+
+def regex_username(username):
+    if re.fullmatch(r"^[a-zA-Z0-9_\d-]+$", username) and len(username) < 256:
+        return True
+    else:
+        return False
+
 def regex_email(email):
-    if re.fullmatch(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email) and len(email) < 256:
+    if re.fullmatch(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email) and len(email) < 100:
         return True
     else:
         return False
@@ -44,15 +57,18 @@ def regex_password(password):
         return False
 
 def regex_token(token):
-    if re.fullmatch(r"^([0-9]).{6,6}$", token):
-        return True
-    else:
+    try:
+        if re.fullmatch(r"^[0-9]+$", token):
+            return True
+        else:
+            return False
+    except:
         return False
 
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request', 
-                    sender='5718ebb8bb03c2',
+                    sender='8cea723599be2d',
                     recipients=[user.email])
 
     msg.body = f'''To reset your The Boutique account password, visit the following link: 
@@ -61,9 +77,9 @@ def send_reset_email(user):
     mail.send(msg)
 
 def send_verification_email(user):
-    token = user.get_verification_token()
+    token = user.get_email_verification_token()
     msg = Message('Email Verification', 
-                    sender='5718ebb8bb03c2',
+                    sender='8cea723599be2d',
                     recipients=[user.email])
     msg.body = f'''To verify The Boutique account email, visit the following link: 
                 {url_for('confirm_email', token=token, _external=True)}
@@ -124,16 +140,37 @@ def api_register():
         email = request.json['email']
         password = request.json['password']
         confirm_password = request.json['confirm_password']
+        if not (regex_name(first_name) and regex_name(last_name)):
+            return jsonify(message="first name/last name should contain alphabets only.")
+
+        if not regex_username(username):
+            return jsonify(message="username should contain alphabets, underscore or dash only.")
+        
+        if not regex_email(email):
+            return jsonify(message="format of email is wrong.")
+
+        if not (regex_password(password) and regex_password(confirm_password)):
+            return jsonify(message="password/confirm password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.")
+        
         if password == confirm_password:
-            hash_pw = bcrypt.generate_password_hash((password+"verysaltysalt")).decode('utf-8')
-            # user = Users(first_name=first_name, last_name=last_name, username=username, email=email, password=hash_pw)
-            # db.session.add(user)
-            # db.session.commit()
+            username_check = User.query.filter_by(username=username).first()
+            if username_check:
+                return jsonify(message="Username exist. Use another username.")
+
+            email_check = User.query.filter_by(email=email).first()
+            if email_check:
+                return jsonify(message="Email exist. Use another email.")
+
+            hash_pw = bcrypt.generate_password_hash((password)).decode('utf-8')
+            user = Users(first_name=first_name, last_name=last_name, username=username, email=email, password=hash_pw)
+            db.session.add(user)
+            db.session.commit()
+            user = User.query.filter_by(email=email).first()
+            send_verification_email(user)
             
-            from ecommercesite import api_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             api_logger.info('%s - - [%s] REQUEST[%s] %s account successfully created.', request.remote_addr, dt, request.method, email)
-            return jsonify(message="account successfully created"), 200
+            return jsonify(message="account successfully created. A verification email has been sent.", two_factor=user.get_totp_uri), 200
         else:
 
             return jsonify(message="Confirm password and password does not match"), 400
@@ -151,31 +188,32 @@ def api_login():
             return jsonify(message="Password may be more than 20 characters"), 400
         token = request.json['token']
         if not regex_token(token):
-            return jsonify(message="Numbers only")
-    else:
-        email = request.form['email']
-        if not regex_email(email):
-            return jsonify(message="Enter an email address"), 400
-        password = request.form['password']
-        if not regex_password(password):
-            return jsonify(message="Password may be more than 20 characters"), 400
-        token = request.form['token']
-        if not regex_token(token):
-            return jsonify(message="Numbers only")
+            return jsonify(message="Token should contain numbers only")
+
     user = User.query.filter_by(email=email).first()
-    if user and bcrypt.check_password_hash(user.password, password) and user.verify_otp(token):
+    if user and bcrypt.check_password_hash(user.password, password) and user.verify_totp(token) and user.email_verification:
         if user.role == 'admin':
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
         else:
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'user'})
+        
+        user.attempts = 0
+        db.session.commit()
 
-        claims = get_jwt()
-        api_logger.info('%s - - [%s] REQUEST[%s] %s Login success.', request.remote_addr, dt, request.method, claims['sub'])
+        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+        api_logger.info('%s - - [%s] REQUEST[%s] %s Login success.', request.remote_addr, dt, request.method, email)
         return jsonify(message="Login success", access_token=access_token), 200
     else:
-        claims = get_jwt()
-        users_logger.warning('%s - - [%s] REQUEST[%s] %s Login unsuccessful. Incorrect email or password.',request.remote_addr, dt, request.method, request.form['email'])
-        return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
+        if not user.email_verification:
+            user.attempts += 1
+            db.session.commit()
+            return jsonify(message="Email is not verified.")
+        if user:
+            user.attempts += 1
+            db.session.commit()
+        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+        users_logger.warning('%s - - [%s] REQUEST[%s] %s Login unsuccessful. Incorrect email or password.',request.remote_addr, dt, request.method, email)
+        return jsonify(message="Login unsuccessful. Incorrect email or password or token."), 401
 
 
 @app.route('/api/all_products', methods=['GET'])
@@ -185,7 +223,7 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
-        from ecommercesite import users_logger
+        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         claims = get_jwt()
         api_logger.error('%s - - [%s] REQUEST[%s] %s product not found.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="products not found"), 404
@@ -197,8 +235,9 @@ def item(id):
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
-        from ecommercesite import users_logger
+
         claims = get_jwt()
+        dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         api_logger.info('%s - - [%s] REQUEST[%s] %s product not found.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="product not found"), 404
 
@@ -210,7 +249,6 @@ def delete_item(id):
         db.session.delete(product)
         db.session.commit()
 
-        from ecommercesite import api_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         claims = get_jwt()
         api_logger.info('%s - - [%s] REQUEST[%s] %s product has been deleted.', request.remote_addr, dt, request.method, claims['sub'])
@@ -223,7 +261,8 @@ def delete_item(id):
 @jwt_required()
 def payment(id):
     customerpayment = Customer_Payments.query.filter_by(id=id).first()
-    if customerpayment:
+    claims = get_jwt()
+    if customerpayment == claims['sub']:
         result = CustomerPaymentsSchema.dump(customerpayment)
         print(result)
         return jsonify(result), 200
@@ -247,7 +286,9 @@ def login():
             if bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
                 session.permanent = True
                 login_user(user)
-                from ecommercesite import users_logger
+                user.attempts = 0
+                db.session.commit()
+
                 dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
                 users_logger.info('%s - - [%s] REQUEST[%s] %s successful login.', request.remote_addr, dt, request.method, form.email.data)
                 next = request.args.get('next')
@@ -255,20 +296,20 @@ def login():
                 return redirect(next) if next else redirect(url_for('home'))
             else:
                 if not user.email_verification:
-                    flash('Unverified email. An verification email has been sent.', 'info')
-                    user.send_verification_email()
+                    flash('Unverified email. Please check your email for verification email.', 'info')
                     user.attempts += 1
+                    db.session.commit()
                     return render_template('login.html', title='Login',form=form)
 
                 user.attempts += 1
+                db.session.commit()
                 flash('Login unsuccessful. Incorrect email or password.', 'danger')
                 return render_template('login.html', title='Login',form=form)
         else:
-
-            from ecommercesite import users_logger
+            flash('Login unsuccessful. Incorrect email or password.', 'danger')
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
-            flash('Login unsuccessful. Incorrect email or password.', 'danger')
+            flash('Login unsuccessful. Incorrect email or password or token.', 'danger')
 
     return render_template('login.html', title='Login',form=form)
 
@@ -276,9 +317,7 @@ def login():
 def logout():
     app.logger.info('%s Successfully logged out', current_user.email)
     logout_user()
-    resp = make_response(redirect(url_for('home')))
-    resp.delete_cookie('access_token_cookie')
-    return resp
+    return redirect(url_for('home'))
 
 @app.route('/2fa-setup')
 def two_factor_setup():
@@ -333,19 +372,19 @@ def register():
         user = Users(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hash_pw)
         db.session.add(user)
         db.session.commit()
-        from ecommercesite import users_logger
+
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         users_logger.info('%s Successfully registered', form.email.data)
         session['email'] = user.email
 
-        user = Users.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(email=form.email.data).first()
         send_verification_email(user)
         return redirect(url_for('two_factor_setup'))
     return render_template('register.html', title='Register', form=form)
 
 
 @app.route('/reset_password', methods=['GET', 'POST'])
-@limiter.limit("50/day;5/hour")
+@limiter.limit("10/minute")
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -363,7 +402,7 @@ def reset_password():
     return render_template('reset_request.html', title='Reset Password', form=form)
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
-@limiter.limit("10/day;1/hour")
+@limiter.limit("10/minute")
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -395,7 +434,7 @@ def reset_token(token):
 def home():
     products = Addproducts.query.filter_by(category_id=2).all()
     new_arrival_products = Addproducts.query.filter_by(category_id=1).all()
-    
+    print(session.keys())
     return render_template('home.html', title='Home', products=products, new_arrival_products=new_arrival_products)
 
 @app.route('/shop')
@@ -502,7 +541,6 @@ def product_details(id):
         db.session.add(review)
         db.session.commit()
 
-        from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Your review has been added!', request.remote_addr, dt, request.method, current_user.email)
 
@@ -518,7 +556,7 @@ def add_to_cart(id):
     products = Addproducts.query.filter_by(id=id).first()
     
     if cart_item:
-        from ecommercesite import product_logger
+
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s This item is already in your cart!', request.remote_addr, dt, request.method, current_user.email)
 
@@ -529,7 +567,7 @@ def add_to_cart(id):
         db.session.add(cart)
         db.session.commit()
 
-        from ecommercesite import product_logger
+
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been added to cart!', request.remote_addr, dt, request.method, current_user.email)
 
@@ -544,7 +582,6 @@ def delete_cart(id):
     db.session.delete(cart_item)
     db.session.commit()
 
-    from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -570,7 +607,6 @@ def add_quantity(id):
     cart_item.quantity += 1
     db.session.commit()
 
-    from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has increased.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -587,7 +623,6 @@ def min_quantity(id):
         db.session.delete(cart_item)
         db.session.commit()
 
-        from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has removed.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -596,7 +631,6 @@ def min_quantity(id):
     else:
         db.session.commit()
 
-        from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Item quantity has decreased.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -611,7 +645,6 @@ def delete_cart_item_checkout(id):
     db.session.delete(cart_item)
     db.session.commit()
 
-    from ecommercesite import product_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     product_logger.info('%s - - [%s] REQUEST[%s] %s Item has been deleted.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -630,7 +663,6 @@ def checkout_details():
         product = Addproducts.query.filter_by(id=item.product_id).first()
         if product.stock < item.quantity:
 
-            from ecommercesite import product_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             product_logger.info('%s - - [%s] REQUEST[%s] %s {{product.name}} only has {{product.stock}} left in stock.', request.remote_addr, dt, request.method, current_user.email)
 
@@ -725,7 +757,6 @@ def checkout_details():
             db.session.delete(cart_item)
             db.session.commit()
 
-        from ecommercesite import product_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         product_logger.info('%s - - [%s] REQUEST[%s] %s Your order has been submitted!', request.remote_addr, dt, request.method, current_user.email)
         
@@ -748,7 +779,6 @@ def thanks():
 @admin_required
 def dashboard():
 
-    from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access admin dashboard ', request.remote_addr, dt, request.method, current_user.email)
 
@@ -793,7 +823,6 @@ def add_product():
         db.session.add(add_product)
         db.session.commit()
         
-        from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s added %s to the database!', request.remote_addr, dt, request.method, current_user.email, name)
 
@@ -807,7 +836,6 @@ def add_product():
 def display_product():
     products = Addproducts.query.all()
 
-    from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access to product list ', request.remote_addr, dt, request.method, current_user.email)
 
@@ -865,7 +893,6 @@ def update_product(id):
 
         db.session.commit()
 
-        from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s The product has been updated!', request.remote_addr, dt, request.method, current_user.email, product.name)
 
@@ -897,7 +924,6 @@ def delete_product(id):
         except Exception as e:
             print(e)
 
-        from ecommercesite import admin_logger
         dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
         admin_logger.info('%s - - [%s] REQUEST[%s] %s deleted %s from the product list. ', request.remote_addr, dt, request.method, current_user.email, product.name)
 
@@ -923,8 +949,8 @@ def admin_register():
 
         app.logger.info('%s Successfully registered', form.email.data)
         session['email'] = user.email
-        flash(f'Account has been created, you can now login.', 'success')
-        # return redirect(url_for('home'))
+        user = User.query.filter_by(email=form.email.data).first()
+        send_verification_email(user)
         return redirect(url_for('two_factor_setup'))
     return render_template('admin/admin_register.html', form=form, title='Admin Registration')
 
@@ -934,7 +960,6 @@ def admin_register():
 def customer_database():
     users = Users.query.all()
 
-    from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access customer database ', request.remote_addr, dt, request.method, current_user.email)
 
@@ -975,7 +1000,6 @@ def create_graph():
 @admin_required
 def sales():
 
-    from ecommercesite import admin_logger
     dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
     admin_logger.info('%s - - [%s] REQUEST[%s] %s Access admin sales data. ', request.remote_addr, dt, request.method, current_user.email)
 
@@ -984,7 +1008,7 @@ def sales():
     current_month = datetime.utcnow().month
     current_date = date.today()
     current_day_products = Product_Bought.query.filter_by(date_bought=current_date).all()
-    current_monsth_total = Product_Bought.query.filter(extract('year', Product_Bought.date_bought) == current_year, extract('month', Product_Bought.date_bought) == current_month).all()
+    current_month_total = Product_Bought.query.filter(extract('year', Product_Bought.date_bought) == current_year, extract('month', Product_Bought.date_bought) == current_month).all()
     total_count = 0
     total_profit = 0
     for product in current_month_total:
@@ -998,7 +1022,6 @@ def sales():
 @admin_required
 def show_logs():
     with open('logs/users.log') as f:
-        # for line in f:
         output = f.readlines()
         return "<br><br>".join(output)
 

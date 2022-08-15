@@ -9,3 +9,31 @@
  INFO users: 127.0.0.1 - - [15/Aug/2022 15:58:57] REQUEST[POST] adminaaaaa@email.com successful login.
  INFO users: 127.0.0.1 - - [15/Aug/2022 16:00:19] REQUEST[GET] adminaaaaa@email.com Successfully logged out.
  INFO users: test1@email.com Successfully registered
+ INFO users: email@email.com Successfully registered
+ INFO users: test1@email.com Successfully registered
+ INFO users: email123@email.com Successfully registered
+ INFO users: test2@email.com Successfully registered
+ INFO users: email234@email.com Successfully registered
+ INFO users: 127.0.0.1 - - [15/Aug/2022 20:58:10] REQUEST[POST] email234@email.com successful login.
+ INFO users: username@email.com Successfully registered
+ INFO users: 127.0.0.1 - - [15/Aug/2022 21:11:42] REQUEST[POST] test2@email.com successful login.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 21:39:35] REQUEST[POST] username@email.com Login unsuccessful. Incorrect email or password.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 21:41:45] REQUEST[POST] username@email.com Login unsuccessful. Incorrect email or password.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 22:10:50] REQUEST[POST] username@email.com Login unsuccessful. Incorrect email or password.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 22:15:52] REQUEST[POST] adminuser@email.com successful login.
+ INFO users: customer@gmail.com Successfully registered
+ INFO users: customerone@gmail.com Successfully registered
+ INFO users: Hello12Bye34@gmail.com Successfully registered
+ INFO users: emailtest@email.com Successfully registered
+ INFO users: 127.0.0.1 - - [15/Aug/2022 22:49:11] REQUEST[POST] adminuser@email.com successful login.
+ INFO users: testingtesting123@gmail.com Successfully registered
+ INFO users: testemail@email.com Successfully registered
+ INFO users: usertest@gmail.com Successfully registered
+ INFO users: usertest123@gmail.com Successfully registered
+ INFO users: anothertest@email.com Successfully registered
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 22:57:27] REQUEST[POST] username@email.com Login unsuccessful. Incorrect email or password.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 22:59:10] REQUEST[POST] usertest123@gmail.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 23:12:08] REQUEST[POST] testadmin123@gmail.com successful login.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 23:13:24] REQUEST[POST] test2@email.com Login unsuccessful. Incorrect email or password.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 23:32:18] REQUEST[POST] test2@email.com Login unsuccessful. Incorrect email or password.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 23:34:40] REQUEST[POST] test2@email.com successful login.

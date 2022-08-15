@@ -14,7 +14,6 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import logging
 import flask_monitoringdashboard as dashboard
-import os
 from ecommercesite.logger import setup_logger
 
 
@@ -25,7 +24,7 @@ dashboard.bind(app)
 jwt = JWTManager(app)
 app.config["JWT_SECRET_KEY"] = "a0e9be06ce393344214c51be5c753fa58aef93b7c318e9375a0438a54fa1eab4"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
-app.config["JWT_TOKEN_LOCATION"] = ['header']
+app.config["JWT_TOKEN_LOCATION"] = ['headers']
 app.config['SECRET_KEY'] = '53e4ea4f348001e62295b81953988e9cbd25a49ced46adc6f3742c83284835a1'
 app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -44,7 +43,7 @@ ma = Marshmallow(app)
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-limiter = Limiter(app, key_func=get_remote_address, default_limits=["200 per day", "50 per hour"])
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["20 per minute"])
 search = Search()
 search.init_app(app)
 login_manager.login_view = 'login'
@@ -53,8 +52,8 @@ authorize=Authorize(app)
 app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
 app.config['MAIL_PORT'] = 2525
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = '5718ebb8bb03c2'
-app.config['MAIL_PASSWORD'] = '8991fafdf77d0f'
+app.config['MAIL_USERNAME'] = '8cea723599be2d'
+app.config['MAIL_PASSWORD'] = 'fd968ddf02a284'
 mail = Mail(app)
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='[%(asctime)s] %(levelname)s %(name)s %(threadName)s : %(message)s')

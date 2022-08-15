@@ -87,8 +87,7 @@ class AddproductForm(FlaskForm):
     image_5 = FileField('Image 5', validators=[FileRequired(), FileAllowed(['jpg','png','gif','jpeg'])])
     submit = SubmitField("Add product")
 
-#
-#
+
 class UpdateProductForm(FlaskForm):
     name = StringField('Product Name', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9_.,\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
     description = TextAreaField('Description', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9_!@#$&*.,\d-]+$', message='Only alphabets, numbers, special characters(-_!@#$&*.,) allowed')])
