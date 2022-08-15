@@ -8,25 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 set VIRTUAL_ENV=C:\Users\sabih\Documents\GitHub\aspj\.venv
-
-=======
-set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
->>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
-=======
-set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
->>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
-=======
-set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
->>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
-=======
-set VIRTUAL_ENV=C:\School_homework\Application_Security_Project\Assignment_new\.venv
->>>>>>> be0b852a5a461b792bb12cef011e9406c8c5cf7a
 
 if not defined PROMPT set PROMPT=$P$G
 
