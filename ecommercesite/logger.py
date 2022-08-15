@@ -7,7 +7,7 @@ logs_dir = os.path.join(parent_dir, 'logs')
 if not os.path.exists(logs_dir): os.mkdir(logs_dir)
 
 def setup_logger(name, log_file, level=logging.INFO):
-    formatter = logging.Formatter('%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+    formatter = logging.Formatter(' %(levelname)s %(name)s: %(message)s')
     file_handler = logging.FileHandler(log_file)        
     file_handler.setFormatter(formatter)
     stream_handler = logging.StreamHandler()

@@ -16,6 +16,7 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import re
+import os
 import pyqrcode
 from io import BytesIO
 from ecommercesite import users_logger
@@ -140,9 +141,15 @@ def api_login():
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'admin'})
         else:
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'user'})
+
+        from ecommercesite import users_logger
+        users_logger.info('%s - - [%s] REQUEST[%s] %s Login success.',request.remote_addr, dt, request.method, request.form['email'] )
         return jsonify(message="Login success", access_token=access_token), 200
     else:
+        from ecommercesite import users_logger
+        users_logger.warning('%s - - [%s] REQUEST[%s] %s Login unsuccessful. Incorrect email or password.',request.remote_addr, dt, request.method, request.form['email'])
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
+ 
 
 #gonna delete this later cause if someone deletes their account, we have to revoke their token. and i dont want more work.
 @app.route('/api/account/delete/<int:id>', methods=['DELETE'])
@@ -155,6 +162,9 @@ def api_delete_account(id):
     else:
         db.session.delete(user)
         db.session.commit()
+        from ecommercesite import users_logger
+        claims = get_jwt()
+        api_logger.info('%s - - [%s] REQUEST[%s] %s user has been deleted.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify('user has been deleted.')
 
 @app.route('/api/all_products', methods=['GET'])
@@ -164,6 +174,9 @@ def all_items():
         result = addProductsSchema.dump(products)
         return jsonify(result), 200
     else:
+        from ecommercesite import users_logger
+        claims = get_jwt()
+        api_logger.error('%s - - [%s] REQUEST[%s] %s product not found.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="products not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['GET'])
@@ -173,6 +186,9 @@ def item(id):
         result = addProductSchema.dump(product)
         return jsonify(result), 200
     else:
+        from ecommercesite import users_logger
+        claims = get_jwt()
+        api_logger.info('%s - - [%s] REQUEST[%s] %s product not found.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="product not found"), 404
 
 @app.route('/api/products/<int:id>', methods=['DELETE'])
@@ -220,14 +236,14 @@ def login():
             login_user(user)
             from ecommercesite import users_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-            users_logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method, form.email.data)
+            users_logger.info('%s - - [%s] REQUEST[%s] %s successful login.', request.remote_addr, dt, request.method, form.email.data)
             next = request.args.get('next')
 
             return redirect(next) if next else redirect(url_for('home'))
         else:
             from ecommercesite import users_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-            users_logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
+            users_logger.warning('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
             flash('Login unsuccessful. Incorrect email or password.', 'danger')
 
     return render_template('login.html', title='Login',form=form)
@@ -325,7 +341,7 @@ def reset_token(token):
     user = User.verify_reset_token(token)
     if user is None:
         from ecommercesite import users_logger
-        users_logger.info('Invalid or expired token.', 'warning')
+        users_logger.warning('Invalid or expired token.', 'warning')
         flash('Invalid or expired token.', 'warning')
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
@@ -893,10 +909,21 @@ def sales():
     current_month = datetime.utcnow().month
     current_date = date.today()
     current_day_products = Product_Bought.query.filter_by(date_bought=current_date).all()
-    current_month_total = Product_Bought.query.filter(extract('year', Product_Bought.date_bought) == current_year, extract('month', Product_Bought.date_bought) == current_month).all()
+    current_monsth_total = Product_Bought.query.filter(extract('year', Product_Bought.date_bought) == current_year, extract('month', Product_Bought.date_bought) == current_month).all()
     total_count = 0
     total_profit = 0
     for product in current_month_total:
         total_count += product.quantity
         total_profit += product.price
     return render_template('admin/sales.html',title='Sales Report' ,plot=line_graph, total_count=total_count, total_profit=total_profit, current_day_products=current_day_products)
+
+
+@app.route("/show-logs")
+@login_required
+@admin_required
+def show_logs():
+    with open('logs/users.log') as f:
+        # for line in f:
+        output = f.readlines()
+        return "<br><br>".join(output)
+

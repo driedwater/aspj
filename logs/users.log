@@ -1,13 +1,6 @@
-2022-08-15 00:55:11,887 INFO users Thread-51 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 00:55:11] REQUEST[POST] adminaaa@email.com unsuccessful login.
-2022-08-15 00:57:50,931 INFO users Thread-73 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 00:57:50] REQUEST[POST] adminaaa@email.com unsuccessful login.
-2022-08-15 00:58:38,619 INFO users Thread-116 (process_request_thread) : adminaaaaa@email.com Successfully registered
-2022-08-15 00:59:37,505 INFO users Thread-165 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 00:59:37] REQUEST[POST] adminaa@email.com unsuccessful login.
-2022-08-15 01:02:28,660 INFO users Thread-217 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:02:28] REQUEST[POST] adminaa@email.com Your account has been deleted.
-2022-08-15 01:03:06,739 INFO users Thread-268 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:03:06] REQUEST[POST] adminaaaaa@email.com unsuccessful login.
-2022-08-15 01:04:00,683 INFO users Thread-299 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:04:00] REQUEST[GET] adminaaaaa@email.com Successfully logged out.
-2022-08-15 01:31:51,827 INFO users Thread-73 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:31:51] REQUEST[POST] admin123@email.com unsuccessful login.
-2022-08-15 01:32:08,051 INFO users Thread-95 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:08] REQUEST[POST] admin123@email.com unsuccessful login.
-2022-08-15 01:32:08,165 INFO users Thread-96 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:08] REQUEST[POST] admin123@email.com unsuccessful login.
-2022-08-15 01:32:20,956 INFO users Thread-121 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:20] REQUEST[POST] admin123@email.com unsuccessful login.
-2022-08-15 01:32:34,786 INFO users Thread-143 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:34] REQUEST[POST] adminuser123@email.com unsuccessful login.
-2022-08-15 01:32:43,188 INFO users Thread-165 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:43] REQUEST[POST] 1234@email.com unsuccessful login.
+2022-08-15 15:18:44,513 INFO users: 127.0.0.1 - - [15/Aug/2022 15:18:44] REQUEST[GET] 1234@email.com Successfully logged out.
+2022-08-15 15:19:25,049 INFO users: 127.0.0.1 - - [15/Aug/2022 15:19:25] REQUEST[POST] 1234@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:21:34] REQUEST[GET] 1234@email.com Successfully logged out.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:25:59] REQUEST[POST] adminaaaaa@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:26:14] REQUEST[GET] adminaaaaa@email.com Successfully logged out.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:26:48] REQUEST[POST] 1234@email.com successful login.
