@@ -106,8 +106,13 @@ def api_register():
             # user = Users(first_name=first_name, last_name=last_name, username=username, email=email, password=hash_pw)
             # db.session.add(user)
             # db.session.commit()
+            
+            from ecommercesite import api_logger
+            dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+            api_logger.info('%s - - [%s] REQUEST[%s] %s account successfully created.', request.remote_addr, dt, request.method, email)
             return jsonify(message="account successfully created"), 200
         else:
+
             return jsonify(message="Confirm password and password does not match"), 400
     else:
         return jsonify(message="Please enter json data"), 400
@@ -142,11 +147,11 @@ def api_login():
         else:
             access_token = create_access_token(identity=user.email, additional_claims={'role': 'user'})
 
-        from ecommercesite import users_logger
-        users_logger.info('%s - - [%s] REQUEST[%s] %s Login success.',request.remote_addr, dt, request.method, request.form['email'] )
+        claims = get_jwt()
+        api_logger.info('%s - - [%s] REQUEST[%s] %s Login success.', request.remote_addr, dt, request.method, claims['sub'])
         return jsonify(message="Login success", access_token=access_token), 200
     else:
-        from ecommercesite import users_logger
+        claims = get_jwt()
         users_logger.warning('%s - - [%s] REQUEST[%s] %s Login unsuccessful. Incorrect email or password.',request.remote_addr, dt, request.method, request.form['email'])
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
  

@@ -4,3 +4,8 @@
  INFO users: 127.0.0.1 - - [15/Aug/2022 15:25:59] REQUEST[POST] adminaaaaa@email.com successful login.
  INFO users: 127.0.0.1 - - [15/Aug/2022 15:26:14] REQUEST[GET] adminaaaaa@email.com Successfully logged out.
  INFO users: 127.0.0.1 - - [15/Aug/2022 15:26:48] REQUEST[POST] 1234@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:57:40] REQUEST[GET] 1234@email.com Successfully logged out.
+ WARNING users: 127.0.0.1 - - [15/Aug/2022 15:57:53] REQUEST[POST] adminaaaaa@email.com unsuccessful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 15:58:57] REQUEST[POST] adminaaaaa@email.com successful login.
+ INFO users: 127.0.0.1 - - [15/Aug/2022 16:00:19] REQUEST[GET] adminaaaaa@email.com Successfully logged out.
+ INFO users: test1@email.com Successfully registered
