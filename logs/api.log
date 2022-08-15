@@ -1,0 +1,4 @@
+ INFO api: %s - - [%s] REQUEST[%s] %s account successfully created.
+ INFO api: %s - - [%s] REQUEST[%s] %s account successfully created.
+ INFO api: %s - - [%s] REQUEST[%s] %s account successfully created.
+ INFO api: 127.0.0.1 - - [15/Aug/2022 18:02:45] REQUEST[POST] test1@email.com account successfully created.

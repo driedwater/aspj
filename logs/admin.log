@@ -1,0 +1,9 @@
+2022-08-15 01:30:55,964 INFO admin Thread-24 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:30:55] REQUEST[POST] 1234@email.com Account has been created, you can now login. 
+2022-08-15 01:32:44,534 INFO admin Thread-195 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:32:44] REQUEST[GET] 1234@email.com Access admin dashboard 
+2022-08-15 01:33:31,572 INFO admin Thread-230 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:33:31] REQUEST[GET] 1234@email.com Access admin dashboard 
+2022-08-15 01:34:34,076 INFO admin Thread-270 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:34:34] REQUEST[GET] 1234@email.com Access admin dashboard 
+2022-08-15 01:57:43,188 INFO admin Thread-291 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 01:57:43] REQUEST[GET] 1234@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 15:26:56] REQUEST[GET] 1234@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 15:27:25] REQUEST[GET] 1234@email.com Access customer database 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 15:29:53] REQUEST[GET] 1234@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [15/Aug/2022 15:30:14] REQUEST[GET] 1234@email.com Access admin dashboard 
