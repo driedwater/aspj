@@ -2576,3 +2576,9 @@
 2022-08-15 17:12:42,564 INFO werkzeug Thread-280 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 17:12:42] "[31m[1mGET /api/customer_payments/2 HTTP/1.1[0m" 401 -
 2022-08-15 17:12:42,974 INFO werkzeug Thread-283 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 17:12:42] "[31m[1mGET /api/customer_payments/2 HTTP/1.1[0m" 401 -
 2022-08-15 17:12:44,656 INFO werkzeug Thread-284 (process_request_thread) : 127.0.0.1 - - [15/Aug/2022 17:12:44] "[31m[1mGET /api/customer_payments/1 HTTP/1.1[0m" 401 -
+2022-08-15 17:13:33,457 INFO werkzeug MainThread :  * Detected change in 'c:\\Users\\sabih\\Documents\\GitHub\\aspj\\ecommercesite\\routes.py', reloading
+2022-08-15 17:13:33,526 INFO apscheduler.scheduler MainThread : Scheduler has been shut down
+2022-08-15 17:13:34,800 INFO werkzeug MainThread :  * Restarting with stat
+2022-08-15 17:13:45,838 WARNING werkzeug MainThread :  * Debugger is active!
+2022-08-15 17:13:45,846 INFO werkzeug MainThread :  * Debugger PIN: 392-374-595
+2022-08-15 17:13:46,060 INFO werkzeug Thread-2 (inner) :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
