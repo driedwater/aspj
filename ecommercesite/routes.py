@@ -1,3 +1,4 @@
+from distutils.command import check
 import secrets, os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
@@ -21,6 +22,9 @@ from io import BytesIO
 from flask_mail import Message
 from cryptography.fernet import Fernet
 from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
+import gladiator as gl
+
+
 
 #-------------WRAPPERS-AND-FUNCTIONS--------------#
 
@@ -568,8 +572,25 @@ def checkout_details():
         print("PT: ", d.decode())
 
 
+        
         checkout_details = Customer_Payments(full_name=full_name, address=token, postal_code=token, card_number=token, expiry=expiry)
+
+
         db.session.add(checkout_details)
+
+        field_validations = (
+        ('full_name', gl.required, gl.type_(str), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('address', gl.required, gl.type_(str), gl.regex_('[a-zA-Z][a-zA-Z ]+[0-9]')),
+        ('postal_code', gl.required, gl.type_(int), gl.gt(6), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('card_number', gl.required, gl.type_(int), gl.gt(16), gl.regex_('[a-zA-Z][a-zA-Z ]+')),
+        ('expiry', gl.required, gl.type_(int), gl.gt(4), gl.regex_('[a-zA-Z][a-zA-Z ]+'))
+        )
+
+        # checking data using validate()
+        print("Validating data : ")
+        result = gl.validate(field_validations, checkout_details)
+        print("Is data valid ? : " + str(bool(result)))
+            
         for cart_item in cart_items:
             product = Addproducts.query.filter_by(id=cart_item.product_id).first()
             product.stock = product.stock - cart_item.quantity
@@ -577,6 +598,10 @@ def checkout_details():
             db.session.add(product_bought)
             db.session.delete(cart_item)
             db.session.commit()
+
+        
+        
+    
         flash(f'Your order has been submitted!','success')
         return redirect(url_for('thanks'))
     return render_template('checkout.html', title='Checkout',form=form, cart_items=cart_items, subtotal=subtotal, total=total)
