@@ -317,7 +317,7 @@ def shop():
 @app.route('/search', methods=['GET'])
 def search():
     keyword = request.args.get('query')
-    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 20:
+    if re.fullmatch(r"^[ a-zA-Z0-9]+$", keyword) and len(keyword) < 100:
         products = Addproducts.query.msearch(keyword,fields=['name', 'description'])
         return render_template("shop.html",title='Search ' + keyword, products=products)
     else:
@@ -385,21 +385,17 @@ def account():
 @login_required
 def delete_account():
     user = User.query.filter_by(username=current_user.username).first()
-    response = requests.post("http://127.0.0.1:5000/account/delete")
-    if response.status_code == 405:
-        abort(405)
-    else:
-        db.session.delete(user)
-        db.session.commit()
+    items = Items_In_Cart.query.filter_by(user_id=current_user.id).all()
+    reviews = Review.query.filter_by(user_id=current_user.id).all()
+    for item in items:
+        db.session.delete(item)
+    for review in reviews:
+        db.session.delete(review)
+    db.session.delete(user)
+    db.session.commit()
     flash('Your account has been deleted.', 'success')
     
     return redirect(url_for('home'))
-
-    
-        
-    # else:
-    #     return 405
- 
 
 
 @app.route('/product_details/<int:id>', methods=['GET', 'POST'])
