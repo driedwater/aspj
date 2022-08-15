@@ -187,7 +187,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data):
+        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
             session.permanent = True
             login_user(user)
             app.logger.info('%s logged in successfully', form.email.data)
@@ -197,7 +197,7 @@ def login():
         else:
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
-            flash('Login unsuccessful. Incorrect email or password.', 'danger')
+            flash('Login unsuccessful. Incorrect email or password or unverified email.', 'danger')
 
 
     return render_template('login.html', title='Login',form=form)
@@ -239,6 +239,30 @@ def qrcode():
         'Pragma': 'no-cache',
         'Expires': '0'}
 
+def send_verification_email(user):
+    token = user.get_verification_token()
+    msg = Message('Email Verification', 
+                    sender='5718ebb8bb03c2',
+                    recipients=[user.email])
+    msg.body = f'''To verify The Boutique account email, visit the following link: 
+                {url_for('confirm_email', token=token, _external=True)}
+                If you did not make this request, please ignore this email'''
+    mail.send(msg)
+
+@app.route('/confirm_email/<token>', methods=['GET', 'POST'])
+def confirm_email(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.verify_verification_token(token)
+    if user is None:
+        flash('Invalid or expired token.', 'warning')
+        return redirect(url_for('home'))
+    
+    user.email_verification = True
+    db.session.commit()
+    flash(f'Account has been verified, you can now login.', 'success')
+    return redirect(url_for('login'))
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -251,6 +275,9 @@ def register():
         db.session.commit()
         app.logger.info('%s Successfully registered', form.email.data)
         session['email'] = user.email
+
+        user = Users.query.filter_by(email=form.email.data).first()
+        send_verification_email(user)
         return redirect(url_for('two_factor_setup'))
     return render_template('register.html', title='Register', form=form)
 

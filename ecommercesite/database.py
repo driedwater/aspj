@@ -49,9 +49,17 @@ class User(db.Model, UserMixin):
     def verify_totp(self, token):
         return pyotp.TOTP(self.otp_secret).verify(token)
     
-    def get_email_verification_token(self, expires_sec=1800):
+    def get_verification_token(self, expires_sec=1800):
         t = Serializer(app.config['SECRET_KEY'], expires_sec)
-        return t.dumps({'user_id':self.id}.decode('utf-8'))
+        return t.dumps({'user_id':self.id}).decode('utf-8')
+    
+    def verify_verification_token(token):
+        t = Serializer(app.config['SECRET_KEY'])
+        try:
+            id = t.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(id)
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
