@@ -32,6 +32,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='defaultpfp.jpg')
     email_verification = db.Column(db.Boolean(), nullable=False, default=False)
     otp_secret = db.Column(db.String(16))
+    attempts = db.Column(db.Integer, nullable=False, default=0)
 
     __mapper_args__ = {
         'polymorphic_on':type,
@@ -51,7 +52,16 @@ class User(db.Model, UserMixin):
     
     def get_email_verification_token(self, expires_sec=1800):
         t = Serializer(app.config['SECRET_KEY'], expires_sec)
-        return t.dumps({'user_id':self.id}.decode('utf-8'))
+        return t.dumps({'user_id':self.id}).decode('utf-8')
+
+    def verify_verification_token(token):
+        t = Serializer(app.config['SECRET_KEY'])
+        try:
+            user_id = t.loads(token)['user_id']
+        except:
+            return None
+
+        return User.query.get(user_id)
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)

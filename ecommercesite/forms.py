@@ -12,8 +12,8 @@ class RegistrationForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired(), Regexp('^[ a-zA-Z]+$', message='Enter alphabets only')])
     username =  StringField('Username', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9_\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = StringField('Password', validators=[DataRequired(), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
-    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=20), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password'), Regexp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z]).{8,20}$', message='Password must contain 1 uppercase and lowercase letter, 1 special character [!@#$&*], at least 2 numerical and at least 8 characters.')])
     pot = StringField('random pot')
     submit = SubmitField('Register')
 
@@ -33,8 +33,8 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = StringField('Password', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9!@#$&*]+$', message='Enter alphabets, numbers and special characters(!@#$&*) only')])
-    token = StringField('Token', validators=[DataRequired(), Length(min=6, max=6), Regexp('^[0-9]+$')])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=2, max=20), Regexp('^[a-zA-Z0-9!@#$&*]+$', message='Enter alphabets, numbers and special characters(!@#$&*) only')])
+    token = PasswordField('Token', validators=[DataRequired(), Length(min=6, max=6), Regexp('^[0-9]+$')])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
@@ -90,7 +90,7 @@ class AddproductForm(FlaskForm):
 #
 #
 class UpdateProductForm(FlaskForm):
-    name = StringField('Product Name', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9_\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
+    name = StringField('Product Name', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9_.,\d-]+$', message='Only alphabets, numbers, dash and underscore allowed')])
     description = TextAreaField('Description', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9_!@#$&*.,\d-]+$', message='Only alphabets, numbers, special characters(-_!@#$&*.,) allowed')])
     category = SelectField('Category', validators=[DataRequired()], choices=[(1, 'New Arrival'), (2, 'Most Popular'), (3, '	Limited Time'), (4, 'Chair'), (5, 'Table'), (6, 'Cabinet'), (7, 'Door'), (8, 'Bed'), (9, 'Decoration'), (10, 'Others')])
     price = FloatField('Price', validators=[DataRequired()])
@@ -129,13 +129,13 @@ class AddToCartForm(FlaskForm):
     submit = SubmitField("Add To Cart")
 
 class AddReviewForm(FlaskForm):
-    review = TextAreaField('Review', validators=[DataRequired(), Length(min=10, max=1000), Regexp('^[ a-zA-Z0-9_!@#$&*\d-]*$', message='Only alphabets, numbers, special characters(-_!@#$&*) allowed')])
+    review = TextAreaField('Review', validators=[DataRequired(), Length(min=10, max=1000), Regexp('^[ a-zA-Z0-9_!@#$&*.,\d-]*$', message='Only alphabets, numbers, special characters(-_!@#$&*) allowed')])
     rating = SelectField('Product Rating', choices=[(1, '1 Star'), (2, '2 Star'), (3, '3 Star'), (4, '4 Star'), (5, '5 Star')], default= 'choose an option' )
     submit = SubmitField('Submit')
 
 class CheckOutForm(FlaskForm):
     full_name =  StringField('Full Name', validators=[DataRequired(), Regexp('^[ a-zA-Z]+$', message='Enter alphabets only')])
-    address = TextAreaField('Address', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9@#_\d-]+$', message='Only alphabets, numbers, special characters(@#-_) is allowed.')])
+    address = TextAreaField('Address', validators=[DataRequired(), Regexp('^[ a-zA-Z0-9@#_.,\d-]+$', message='Only alphabets, numbers, special characters(@#-_) is allowed.')])
     postal_code = StringField('Postal Code', validators=[DataRequired(), validators.Length(min=6, max=6, message='PLease enter a valid input'), Regexp('^[a-zA-Z0-9]+$', message='Enter alphabets and numbers only')])
     card_number = StringField('Card Number', validators=[DataRequired(), validators.Length(min=16, max=16,  message='PLease enter a valid input'), Regexp('^[0-9]*$', message='Only numbers allowed')], render_kw={"PlaceHolder": "•••• •••• •••• ••••"})
     expiry = StringField('Year of Expiry', validators=[DataRequired(),validators.Length(min=4, max=4, message='Please enter a valid input'), Regexp('^[0-9/]*$', message='Only numbers and slash(/) allowed')], render_kw={"PlaceHolder": "YYYY"})

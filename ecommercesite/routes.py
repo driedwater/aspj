@@ -1,8 +1,7 @@
-from distutils.command import check
 import secrets, os
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort, session, current_app, jsonify, make_response
-from ecommercesite import app, bcrypt, db, mail, limiter
+from ecommercesite import app, bcrypt, db, mail, limiter, users_logger, api_logger, admin_logger, product_logger, root_logger
 import requests
 from ecommercesite.forms import (LoginForm, RegistrationForm, UpdateUserAccountForm, AddproductForm, AdminRegisterForm, 
                                 AddReviewForm, CheckOutForm, UpdateProductForm, RequestResetForm, ResetPasswordForm)
@@ -49,6 +48,27 @@ def regex_token(token):
         return True
     else:
         return False
+
+def send_reset_email(user):
+    token = user.get_reset_token()
+    msg = Message('Password Reset Request', 
+                    sender='5718ebb8bb03c2',
+                    recipients=[user.email])
+
+    msg.body = f'''To reset your The Boutique account password, visit the following link: 
+                {url_for('confirm_email', token=token, _external=True)}
+                If you did not make this request, please ignore this email'''
+    mail.send(msg)
+
+def send_verification_email(user):
+    token = user.get_verification_token()
+    msg = Message('Email Verification', 
+                    sender='5718ebb8bb03c2',
+                    recipients=[user.email])
+    msg.body = f'''To verify The Boutique account email, visit the following link: 
+                {url_for('confirm_email', token=token, _external=True)}
+                If you did not make this request, please ignore this email'''
+    mail.send(msg)
 
 def admin_required(f):
     @wraps(f)
@@ -156,23 +176,7 @@ def api_login():
         claims = get_jwt()
         users_logger.warning('%s - - [%s] REQUEST[%s] %s Login unsuccessful. Incorrect email or password.',request.remote_addr, dt, request.method, request.form['email'])
         return jsonify(message="Login unsuccessful. Incorrect email or password."), 401
- 
 
-#gonna delete this later cause if someone deletes their account, we have to revoke their token. and i dont want more work.
-@app.route('/api/account/delete/<int:id>', methods=['DELETE'])
-@jwt_required()
-def api_delete_account(id):
-    user = User.query.filter_by(id=id).first()
-    claims = get_jwt()
-    if user.email != claims['sub']:
-        return jsonify('Forbidden'), 403
-    else:
-        db.session.delete(user)
-        db.session.commit()
-        from ecommercesite import users_logger
-        claims = get_jwt()
-        api_logger.info('%s - - [%s] REQUEST[%s] %s user has been deleted.', request.remote_addr, dt, request.method, claims['sub'])
-        return jsonify('user has been deleted.')
 
 @app.route('/api/all_products', methods=['GET'])
 def all_items():
@@ -235,21 +239,36 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            if user.attempts > 10:
+                flash('Account is locked out. An email has been sent to reset your password.', 'warning')
+                send_reset_email(user)
+                return render_template('login.html', title='Login',form=form)
+            if bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
+                session.permanent = True
+                login_user(user)
+                from ecommercesite import users_logger
+                dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
+                users_logger.info('%s - - [%s] REQUEST[%s] %s successful login.', request.remote_addr, dt, request.method, form.email.data)
+                next = request.args.get('next')
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data) and user.verify_totp(form.token.data) and user.email_verification:
-            session.permanent = True
-            login_user(user)
-            from ecommercesite import users_logger
-            dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
-            users_logger.info('%s - - [%s] REQUEST[%s] %s successful login.', request.remote_addr, dt, request.method, form.email.data)
-            next = request.args.get('next')
+                return redirect(next) if next else redirect(url_for('home'))
+            else:
+                if not user.email_verification:
+                    flash('Unverified email. An verification email has been sent.', 'info')
+                    user.send_verification_email()
+                    user.attempts += 1
+                    return render_template('login.html', title='Login',form=form)
 
-            return redirect(next) if next else redirect(url_for('home'))
+                user.attempts += 1
+                flash('Login unsuccessful. Incorrect email or password.', 'danger')
+                return render_template('login.html', title='Login',form=form)
         else:
+
             from ecommercesite import users_logger
             dt = datetime.now().strftime('%d/%b/%Y %H:%M:%S')
             app.logger.info('%s - - [%s] REQUEST[%s] %s unsuccessful login.', request.remote_addr, dt, request.method,form.email.data)
-            flash('Login unsuccessful. Incorrect email or password or unverified email.', 'danger')
+            flash('Login unsuccessful. Incorrect email or password.', 'danger')
 
     return render_template('login.html', title='Login',form=form)
 
@@ -290,16 +309,6 @@ def qrcode():
         'Pragma': 'no-cache',
         'Expires': '0'}
 
-def send_verification_email(user):
-    token = user.get_verification_token()
-    msg = Message('Email Verification', 
-                    sender='5718ebb8bb03c2',
-                    recipients=[user.email])
-    msg.body = f'''To verify The Boutique account email, visit the following link: 
-                {url_for('confirm_email', token=token, _external=True)}
-                If you did not make this request, please ignore this email'''
-    mail.send(msg)
-
 @app.route('/confirm_email/<token>', methods=['GET', 'POST'])
 def confirm_email(token):
     if current_user.is_authenticated:
@@ -334,16 +343,6 @@ def register():
         return redirect(url_for('two_factor_setup'))
     return render_template('register.html', title='Register', form=form)
 
-def send_reset_email(user):
-    token = user.get_reset_token()
-    msg = Message('Password Reset Request', 
-                    sender='5718ebb8bb03c2',
-                    recipients=[user.email])
-
-    msg.body = f'''To reset your The Boutique account password, visit the following link: 
-                {url_for('reset_token', token=token, _external=True)}
-                If you did not make this request, please ignore this email'''
-    mail.send(msg)
 
 @app.route('/reset_password', methods=['GET', 'POST'])
 @limiter.limit("50/day;5/hour")
@@ -376,6 +375,8 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
+        if user.attempts > 10:
+            user.attempts = 0
         hash_pw = bcrypt.generate_password_hash((form.password.data)).decode('utf-8')
 
         user.password = hash_pw
