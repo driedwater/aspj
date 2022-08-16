@@ -45,3 +45,4 @@
  INFO users: 127.0.0.1 - - [16/Aug/2022 01:18:20] REQUEST[POST] adminuser@email.com successful login.
  INFO users: aaa@mail.com Successfully registered
  INFO users: 127.0.0.1 - - [16/Aug/2022 02:15:07] REQUEST[POST] aaa@mail.com successful login.
+ INFO users: 127.0.0.1 - - [16/Aug/2022 09:10:53] REQUEST[POST] test2@email.com successful login.

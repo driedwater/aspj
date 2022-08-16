@@ -1,0 +1,3 @@
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:11:00] REQUEST[GET] test2@email.com Item has been added to cart!
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:11:42] REQUEST[POST] test2@email.com Your order has been submitted!
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:12:09] REQUEST[POST] test2@email.com Your review has been added!

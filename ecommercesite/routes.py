@@ -25,7 +25,7 @@ from cryptography.fernet import Fernet
 from flask_jwt_extended import jwt_required, verify_jwt_in_request, create_access_token, get_jwt
 import gladiator as gl
 
-
+login_limit = limiter.shared_limit("10/minute", scope="login_register")
 
 #-------------WRAPPERS-AND-FUNCTIONS--------------#
 
@@ -248,7 +248,8 @@ def item(id):
         return jsonify(message="product not found"), 404
 
 @app.route('/api/admin/all_products', methods=['GET'])
-@jwt_admin_required
+@login_required
+@admin_required
 def admin_allitems():
     products = Addproducts.query.all()
     if products:
@@ -261,7 +262,8 @@ def admin_allitems():
         return jsonify(error="products not found"), 404
 
 @app.route('/api/admin/products/<int:id>', methods=['GET'])
-@jwt_admin_required
+@login_required
+@admin_required
 def admin_item(id):
     product = Addproducts.query.filter_by(id=id).first()
     if product:
@@ -376,6 +378,7 @@ def payment(id):
 #--------------------LOGIN-LOGOUT-REGISTER-PAGE--------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
+@login_limit
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -423,6 +426,7 @@ def logout():
     return redirect(url_for('home'))
 
 @app.route('/2fa-setup')
+@login_limit
 def two_factor_setup():
     if 'email' not in session:
         return redirect(url_for('home'))
@@ -435,6 +439,7 @@ def two_factor_setup():
         'Expires': '0'}
 
 @app.route('/qrcode')
+@login_limit
 def qrcode():
     if 'email' not in session:
         abort(404)
@@ -452,6 +457,7 @@ def qrcode():
         'Expires': '0'}
 
 @app.route('/confirm_email/<token>', methods=['GET', 'POST'])
+@login_limit
 def confirm_email(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -466,6 +472,7 @@ def confirm_email(token):
     return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
+@login_limit
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -487,7 +494,7 @@ def register():
 
 
 @app.route('/reset_password', methods=['GET', 'POST'])
-@limiter.limit("10/minute")
+@login_limit
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -505,7 +512,7 @@ def reset_password():
     return render_template('reset_request.html', title='Reset Password', form=form)
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
-@limiter.limit("10/minute")
+@login_limit
 def reset_token(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -1053,8 +1060,8 @@ def delete_product(id):
  
 
 @app.route('/admin/admin_register', methods=['GET','POST'])
-# @login_required
-# @admin_required
+@login_required
+@admin_required
 def admin_register():
     form = AdminRegisterForm()
     if form.validate_on_submit():

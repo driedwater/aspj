@@ -10766,3 +10766,801 @@
  INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 02:16:26] "GET /shop HTTP/1.1" 200 -
  INFO apscheduler.scheduler: Scheduler has been shut down
  INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET / HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/flexslider.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/style.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/modernizr-2.6.2.min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/jquery.min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/animate.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/jquery.easing.1.3.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/bootstrap.min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/jquery.waypoints.min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/icomoon.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/bootstrap.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/owl.carousel.min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/owl.carousel.min.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/owl.theme.default.min.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/jquery.countTo.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/jquery.flexslider-min.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/main.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/images/review3.png HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/images/review1.png HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/images/review2.png HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/images/loader.gif HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/images/homebackground.jpg HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/fonts/icomoon/icomoon.ttf?srf3rx HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:06] "GET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:03:11] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "GET /login HTTP/1.1" 200 -
+ WARNING flask-limiter: ratelimit 20 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:26] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:04:51] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:07] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "GET /register HTTP/1.1" 200 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:05:43] "[31m[1mGET /register HTTP/1.1[0m" 429 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:11] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:12] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:14] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:15] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:26] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "GET /login HTTP/1.1" 200 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:27] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\website_spammer.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "GET /register HTTP/1.1" 200 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:47] "[31m[1mGET /register HTTP/1.1[0m" 429 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:52] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:06:58] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+ WARNING flask-limiter: ratelimit 10 per 1 minute (127.0.0.1) exceeded at endpoint: login_register
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:00] "[31m[1mGET /register HTTP/1.1[0m" 429 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[33mGET /reset_password/ HTTP/1.1[0m" 404 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:06] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "GET /home HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:07:20] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:08] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "GET /static/images/clothing-fashion-hero.jpg HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:09] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "GET /login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:18] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO users: 127.0.0.1 - - [16/Aug/2022 09:10:53] REQUEST[POST] test2@email.com successful login.
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[32mPOST /login HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "GET /home HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:53] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:10:56] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:11:00] REQUEST[GET] test2@email.com Item has been added to cart!
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[32mGET /addcart/1 HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:00] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:06] "GET /cart HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:06] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:06] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:07] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "GET /checkout HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "GET /static/images/verified.png HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:08] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "POST /checkout HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/images/verified.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:32] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:11:42] REQUEST[POST] test2@email.com Your order has been submitted!
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[32mPOST /checkout HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "GET /thanks HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:42] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:46] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "GET /product_details/1 HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "GET /static/product_pics/599b22e5543fad8e837c.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "GET /static/product_pics/050e28a402c65848b0fe.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "GET /static/product_pics/afdc372449980ae6657e.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "GET /static/product_pics/b0028b9c1d14d9d07aae.PNG HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:11:52] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO product: 127.0.0.1 - - [16/Aug/2022 09:12:09] REQUEST[POST] test2@email.com Your review has been added!
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[32mPOST /product_details/1 HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:09] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "GET /product_details/1 HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "GET /static/profile_pics/defaultpfp.jpg HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/product_pics/599b22e5543fad8e837c.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/product_pics/050e28a402c65848b0fe.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/product_pics/afdc372449980ae6657e.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/product_pics/b0028b9c1d14d9d07aae.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:13] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[33mPOST /review/delete HTTP/1.1[0m" 404 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[32mPOST /review/delete/1 HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "GET /shop HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/images/clothing-fashion-hero.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:22] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:26] "GET /product_details/1 HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/product_pics/599b22e5543fad8e837c.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/product_pics/050e28a402c65848b0fe.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/product_pics/afdc372449980ae6657e.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/product_pics/b0028b9c1d14d9d07aae.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:12:27] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO api: 127.0.0.1 - - [16/Aug/2022 09:13:10] REQUEST[POST] username@email.com Login success.
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:13:10] "POST /api/login HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:15:52] "[33mGET /api/customer_payment/1 HTTP/1.1[0m" 404 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:16:59] "[31m[1mGET /api/items HTTP/1.1[0m" 400 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:15] "GET /api/all_products HTTP/1.1" 200 -
+ INFO ecommercesite: test2@email.com Successfully logged out
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:31] "[32mGET /logout HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:31] "GET /home HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:32] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:55] "[35m[1mGET /api/admin/all_products HTTP/1.1[0m" 500 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:55] "GET /api/admin/all_products?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:55] "GET /api/admin/all_products?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:55] "GET /api/admin/all_products?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:17:55] "GET /api/admin/all_products?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+ INFO werkzeug:  * Detected change in 'c:\\School_homework\\Application_Security_Project\\Assignment_new\\ecommercesite\\routes.py', reloading
+ INFO apscheduler.scheduler: Scheduler has been shut down
+ INFO werkzeug:  * Restarting with stat
+ WARNING werkzeug:  * Debugger is active!
+ INFO werkzeug:  * Debugger PIN: 585-365-033
+ INFO werkzeug:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "GET / HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:17] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:26] "[32mGET /admin/display_product HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:26] "GET /login?next=%2Fadmin%2Fdisplay_product HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:19:27] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[32mGET /api/admin/products/1 HTTP/1.1[0m" 302 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "GET /login?next=%2Fapi%2Fadmin%2Fproducts%2F1 HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:17] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "GET /home HTTP/1.1" 200 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/animate.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/icomoon.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/flexslider.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/owl.carousel.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/bootstrap.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/owl.theme.default.min.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/modernizr-2.6.2.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/jquery.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/bootstrap.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/jquery.easing.1.3.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/jquery.waypoints.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/owl.carousel.min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/jquery.countTo.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/jquery.flexslider-min.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/main.js HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/images/review1.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/images/review2.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/images/review3.png HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/images/loader.gif HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/45fc06e6c49d01ed36f2.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/6f3c488d8f4c4034c516.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/f445bbb22e19d4727a39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/7642552a4519834353a4.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/images/homebackground.jpg HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/ad7efa3669438c7fcb7f.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/931744f07678b9511c39.PNG HTTP/1.1[0m" 304 -
+ INFO werkzeug: 127.0.0.1 - - [16/Aug/2022 09:20:24] "[36mGET /static/product_pics/268fe7bf926c93c86beb.PNG HTTP/1.1[0m" 304 -
