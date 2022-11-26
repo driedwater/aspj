@@ -37,3 +37,5 @@
  INFO admin: 127.0.0.1 - - [16/Aug/2022 01:07:34] REQUEST[GET] adminuser@email.com Access admin dashboard 
  INFO admin: 127.0.0.1 - - [16/Aug/2022 01:17:14] REQUEST[GET] adminuser@email.com Access admin dashboard 
  INFO admin: 127.0.0.1 - - [16/Aug/2022 01:18:21] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 09:57:00] REQUEST[GET] adminuser@email.com Access admin dashboard 
+ INFO admin: 127.0.0.1 - - [16/Aug/2022 09:58:02] REQUEST[GET] adminuser@email.com Access admin dashboard 

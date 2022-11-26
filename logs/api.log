@@ -7,3 +7,4 @@
  INFO api: 127.0.0.1 - - [15/Aug/2022 23:31:57] REQUEST[POST] test2@email.com Login success.
  INFO api: 127.0.0.1 - - [16/Aug/2022 00:38:18] REQUEST[POST] username@email.com Login success.
  INFO api: 127.0.0.1 - - [16/Aug/2022 09:13:10] REQUEST[POST] username@email.com Login success.
+ INFO api: 127.0.0.1 - - [16/Aug/2022 09:50:49] REQUEST[POST] test123456@email.com Login success.
