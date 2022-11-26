@@ -58,7 +58,6 @@ pyparsing==3.0.9
 PyQRCode==1.2.1
 PySocks==1.7.1
 python-dateutil==2.8.2
-2022.9.24
 cffi==1.15.1
 charset-normalizer==2.1.1
 click==8.0.3
